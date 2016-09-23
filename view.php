@@ -9,29 +9,50 @@
 
 <body>
 <?php
+$url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
 // define variables and set to empty values
-$NameError = $EmailError = $HireError = "";
-$Name = $Email = $Hire = "";
+$Name = $Email = $HireB = $HireA = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  echo "<style>#addform {display: block;}</style>";
-  if (empty($_POST["Ename"])) {
-    $NameError = "Name is required";
-  } else {
-    $Name = validate($_POST["Ename"]);
+  if (!empty($_POST["EnameS"])) {
+    $Name = "and Name like %'".$_POST["EnameS"]."%'";
   }
   
-  if (empty($_POST["Eemail"])) {
-    $EmailError = "Email is required";
-  } else {
-    $Email = validate($_POST["Eemail"]);
+  if (!empty($_POST["EemailS"])) {
+    $Email = "and Email like %'".$_POST["EemailS"]."%'";
   }
     
-  if (empty($_POST["Ehire"])) {
-    $HireError = "Hire Date is required";
-  } else {
-    $Hire = validate($_POST["Ehire"]);
+  if (!empty($_POST["EhireBS"])) {
+    $HireB = "and HireDate <= '".$_POST["EhireBS"]."'";
   }
+  
+  if (!empty($_POST["EhireAS"])) {
+    $HireB = "and HireDate >= '".$_POST["EhireAS"]."'";
+  }  
+  $link = new mysqli($server,$username,$password,$db); 
+  if ($link->connect_error) {
+    die("Connection failed: " . $link->connect_error);
+  } 
+  
+ $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA;  
+ 
+ $result = $link->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th><th>Name</th><th>Email</th><th>Hire Date</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "<h2>0 results</h2>";
+}
+$link->close();
 }
 
 function validate($data) {
