@@ -76,7 +76,7 @@
 		die("Connection failed: " . $link->connect_error);
 	  } 
 
-	if (($_SERVER["REQUEST_METHOD"] == "POST") or ($_SERVER["REQUEST_METHOD"] == "GET")) {	  
+	if (($_SERVER["REQUEST_METHOD"] == "POST") or (!empty($_GET["direction"]) and !empty($_GET["col"])) {	  
 	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA . $Sort; 
 	 $result = $link->query($sql);
 	
