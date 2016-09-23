@@ -48,12 +48,31 @@
 	  
 	  if (!empty($_POST["EhireAS"])) {
 		$HireA = " and HireDate >= '". validate($_POST["EhireAS"]) ."'";
-	  }  
+	  }
+	  } elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
+	  if (!empty($_GET["EnameS"])) {
+		$Name = " and Name like '%". validate($_GET["EnameS"]). "%'";
+	  }
+	  
+	  if (!empty($_GET["EemailS"])) {
+		$Email = " and Email like '%". validate($_GET["EemailS"]). "%'";
+	  }
+		
+	  if (!empty($_GET["EhireBS"])) {
+		$HireB = " and HireDate <= '". validate($_GET["EhireBS"]) ."'";
+	  }
+	  
+	  if (!empty($_GET["EhireAS"])) {
+		$HireA = " and HireDate >= '". validate($_GET["EhireAS"]) ."'";
+	  }
+	  }
+	   
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
 		die("Connection failed: " . $link->connect_error);
 	  } 
-	  
+
+	if (($_SERVER["REQUEST_METHOD"] == "POST") or ($_SERVER["REQUEST_METHOD"] == "GET")) {	  
 	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA; 	 
 	 $result = $link->query($sql);
 	
