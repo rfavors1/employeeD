@@ -67,7 +67,7 @@
 	  }
 	  
 	  if (!empty($_GET["direction"]) and !empty($_GET["col"])) {
-		$Sort = " order by '". validate($_GET["col"]) . " " . validate($_GET["direction"]) . "'";
+		$Sort = " order by ". validate($_GET["col"]) . " " . validate($_GET["direction"]) ;
 	  }
 	  }
 	   
