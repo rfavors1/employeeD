@@ -57,7 +57,7 @@
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
-		echo "<div id='results'><table><tr><th>ID</th><th>Name</th><th>Email</th><th>Hire Date</th></tr><tr><th></th><th>Name</th><th>Email</th><th>Hire Date</th></tr>";
+		echo "<div id='results'><table><tr><th>ID</th><th>Name</th><th>Email</th><th>Hire Date</th></tr><tr><th> </th><th>Name</th><th>Email</th><th>Hire Date</th></tr>";
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			echo "<tr><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
