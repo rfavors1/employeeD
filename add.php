@@ -31,16 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $Hire = validate($_POST["Ehire"]);
   }
-}
-
-function validate($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-if (!$NameError and !$EmailError and !$HireError) {
+  
+  if (!$NameError and !$EmailError and !$HireError) {
   $link = mysql_connect('richfavorscom.ipagemysql.com', 'employee', 'richard'); 
   if (!$link) { 
     die('Could not connect: ' . mysql_error()); 
@@ -55,6 +47,14 @@ if (!$NameError and !$EmailError and !$HireError) {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
   
+}
+}
+
+function validate($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }
 
 ?>
