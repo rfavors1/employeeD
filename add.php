@@ -31,27 +31,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $Hire = validate($_POST["Ehire"]);
   }
-  echo $Hire;
-  echo $Name;
-  echo $Email;
   
   if (!$NameError and !$EmailError and !$HireError) {
-  echo "made it here2";
-  $link = mysql_connect('richfavorscom.ipagemysql.com', 'employee', 'richard'); 
-  if (!$link) { 
-    die('Could not connect: ' . mysql_error()); 
+  $link = new mysqli('richfavorscom.ipagemysql.com', 'employee', 'richard','employee_16_db'); 
+  if ($link->connect_error) {
+    die("Connection failed: " . $link->connect_error);
   } 
-  mysql_select_db(employee_16_db); 
   
   $sql = "INSERT INTO employee (Name, Email, HiringDate) VALUES ($Name, $Email, $Hire)";
 
-  if ($conn->query($sql) === TRUE) {
+  if ($link->query($sql) === TRUE) {
     echo "New record created successfully";
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $link->error;
   }
   
-}
+  $link->close();
+  }
 }
 
 function validate($data) {
