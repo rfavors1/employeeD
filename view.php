@@ -11,13 +11,13 @@
 
 <div id="viewform">
   <h3>View Employees</h3>
-  <p>Search Criteria</p>
+  <h3>Search Criteria</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Name: <input type="text" size=35 name="EnameS"></p>
     <p>Email: <input type="text" size=50 name="EemailS"></p>
     <p>Hiring Date Before: <input type="date" name="EhireBS"></p>
 	<p>Hiring Date After: <input type="date" name="EhireAS"></p>
-	<p><input type="button" value="Search"></p>
+	<p><input type="submit" value="Search"></p>
   </form>
 	</div>
 	<?php
