@@ -28,7 +28,7 @@
 	$password = $url["pass"];
 	$db = substr($url["path"], 1);
 	// define variables and set to empty values
-	$Name = $Email = $HireB = $HireA = "";
+	$Name = $Email = $HireB = $HireA = $Sort = "";
 	
 		
 
@@ -77,7 +77,7 @@
 	  } 
 
 	if (($_SERVER["REQUEST_METHOD"] == "POST") or ($_SERVER["REQUEST_METHOD"] == "GET")) {	  
-	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA; 	 
+	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA . $Sort; 	 
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
