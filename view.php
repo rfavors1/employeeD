@@ -55,10 +55,10 @@
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
-		echo "<div id='results'><table class='view'><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
+		echo "<div id='results'><table class='view'><tr><th></th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			echo "<tr><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
+			echo "<tr><td><img src='img/delete.png'> <img src='img/pencil.png'></td><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
 		}
 		echo "</table></div>";
 	} else {
