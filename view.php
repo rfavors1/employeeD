@@ -4,12 +4,13 @@
 <title>View Employees</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
 
 <div id="viewform">
+  <p><a class="goback" href="dashboard.php">Go Back</a></p>
   <h3>View Employees</h3>
   <h3>Search Criteria</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -55,7 +56,7 @@
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
-		echo "<div id='results'><table><tr><th>ID</th><th>Name</th><th>Email</th><th>Hire Date</th></tr>";
+		echo "<div id='results'><table><tr><th>ID</th><th>Name</th><th>Email</th><th>Hire Date</th></tr><tr><th></th><th>Name</th><th>Email</th><th>Hire Date</th></tr>";
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			echo "<tr><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
