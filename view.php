@@ -30,6 +30,7 @@
 	$Name = $Email = $HireB = $HireA = "";
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	  echo "made it";
 	  if (!empty($_POST["EnameS"])) {
 		$Name = "and Name like %'".$_POST["EnameS"]."%'";
 	  }
@@ -43,14 +44,15 @@
 	  }
 	  
 	  if (!empty($_POST["EhireAS"])) {
-		$HireB = "and HireDate >= '".$_POST["EhireAS"]."'";
+		$HireA = "and HireDate >= '".$_POST["EhireAS"]."'";
 	  }  
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
 		die("Connection failed: " . $link->connect_error);
 	  } 
 	  
-	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA;  
+	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA; 
+	 echo $sql; 
 	 
 	 $result = $link->query($sql);
 	
