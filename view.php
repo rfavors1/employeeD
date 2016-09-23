@@ -52,6 +52,7 @@
 	  } 
 	  
 	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA; 
+	 echo $sql;
 	 
 	 $result = $link->query($sql);
 	
