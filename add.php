@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($link->query($sql) === TRUE) {
     echo "<h2 class='success'>New record created successfully</h2>";
+	unset($_POST);
   } else {
     echo "Error: " . $sql . "<br>" . $link->error;
   }
