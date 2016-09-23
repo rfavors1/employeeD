@@ -74,9 +74,9 @@ function validate($data) {
   <h3>Add New Employee</h3>
   <p>*All fields are required.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p>Name: <input type="text" size=35 name="Ename"><span class="error"> <?php echo $NameError;?></span></p>
-    <p>Email: <input type="text" size=50 name="Eemail"><span class="error"> <?php echo $EmailError;?></span></p>
-    <p>Hiring Date: <input type="date" name="Ehire"><span class="error"> <?php echo $HireError;?></span></p>
+    <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $_POST["Ename"]; ?>"><span class="error"> <?php echo $NameError;?></span></p>
+    <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $_POST["Eemail"]; ?>"><span class="error"> <?php echo $EmailError;?></span></p>
+    <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $_POST["Ehire"]; ?>"><span class="error"> <?php echo $HireError;?></span></p>
 	<p><input type="submit" value="Add"></p>
   </form>
 </div>
