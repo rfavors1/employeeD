@@ -45,7 +45,7 @@
 	  }
 	  
 	  if (!empty($_GET["EhireAS"])) {
-		$HireA = " and HireDate >= '"validate(.$_GET["EhireAS"])."'";
+		$HireA = " and HireDate >= '".validate(.$_GET["EhireAS"])."'";
 	  }  
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
@@ -56,7 +56,7 @@
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
-		echo "<div id='results'><table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th>&nbsp;</th><th><a href='view.php?direction=up&col=ID'><img src='img/sort_down.png'></a> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
+		echo "<div id='results'><table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th>&nbsp;</th><th><a href='view.php?direction=up&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'><img src='img/sort_down.png'></a> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			echo "<tr><td><img src='img/delete.png'> <img src='img/pencil.png'></td><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
