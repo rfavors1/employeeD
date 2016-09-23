@@ -77,7 +77,8 @@
 	  } 
 
 	if (($_SERVER["REQUEST_METHOD"] == "POST") or ($_SERVER["REQUEST_METHOD"] == "GET")) {	  
-	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA . $Sort; 	 
+	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA . $Sort; 
+	 echo $sql;	 
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
