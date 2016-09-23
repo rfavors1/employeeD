@@ -14,10 +14,6 @@ $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
-echo "<p>Server: $server</p>";
-echo "<p>user: $username</p>";
-echo "<p>pw: $password</p>";
-echo "<p>db: $db</p>";
 // define variables and set to empty values
 $NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
@@ -27,12 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $NameError = "Name is required";
   } else {
     $Name = validate($_POST["Ename"]);
+	if (!preg_match("/^[a-zA-Z ]*$/",$Name)) {
+      $NameError = "Only letters and white space allowed"; 
+    }
   }
   
   if (empty($_POST["Eemail"])) {
     $EmailError = "Email is required";
   } else {
     $Email = validate($_POST["Eemail"]);
+	if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+      $EmailError = "Invalid email format"; 
+    }
   }
     
   if (empty($_POST["Ehire"])) {
