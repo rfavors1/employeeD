@@ -32,11 +32,11 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	  if (!empty($_POST["EnameS"])) {
-		$Name = " and Name like %'".$_POST["EnameS"]."%'";
+		$Name = " and Name like '%".$_POST["EnameS"]."%'";
 	  }
 	  
 	  if (!empty($_POST["EemailS"])) {
-		$Email = " and Email like %'".$_POST["EemailS"]."%'";
+		$Email = " and Email like '%".$_POST["EemailS"]."%'";
 	  }
 		
 	  if (!empty($_POST["EhireBS"])) {
