@@ -33,19 +33,19 @@
 		
 	if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	  if (!empty($_GET["EnameS"])) {
-		$Name = " and Name like '%".validate($_GET["EnameS"])."%'";
+		$Name = " and Name like '%". validate($_GET["EnameS"]) ."%'";
 	  }
 	  
 	  if (!empty($_GET["EemailS"])) {
-		$Email = " and Email like '%".validate($_GET["EemailS"])."%'";
+		$Email = " and Email like '%". validate($_GET["EemailS"]) ."%'";
 	  }
 		
 	  if (!empty($_GET["EhireBS"])) {
-		$HireB = " and HireDate <= '".validate($_GET["EhireBS"])."'";
+		$HireB = " and HireDate <= '". validate($_GET["EhireBS"]) ."'";
 	  }
 	  
 	  if (!empty($_GET["EhireAS"])) {
-		$HireA = " and HireDate >= '".validate(.$_GET["EhireAS"])."'";
+		$HireA = " and HireDate >= '". validate(.$_GET["EhireAS"]) ."'";
 	  }  
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
@@ -70,19 +70,19 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	  if (!empty($_POST["EnameS"])) {
-		$Name = " and Name like '%".validate($_POST["EnameS"])."%'";
+		$Name = " and Name like '%". validate($_POST["EnameS"]). "%'";
 	  }
 	  
 	  if (!empty($_POST["EemailS"])) {
-		$Email = " and Email like '%".validate($_POST["EemailS"])."%'";
+		$Email = " and Email like '%". validate($_POST["EemailS"]). "%'";
 	  }
 		
 	  if (!empty($_POST["EhireBS"])) {
-		$HireB = " and HireDate <= '".validate($_POST["EhireBS"])."'";
+		$HireB = " and HireDate <= '". validate($_POST["EhireBS"]) ."'";
 	  }
 	  
 	  if (!empty($_POST["EhireAS"])) {
-		$HireA = " and HireDate >= '".validate($_POST["EhireAS"])."'";
+		$HireA = " and HireDate >= '". validate($_POST["EhireAS"]) ."'";
 	  }  
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
