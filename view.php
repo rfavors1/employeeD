@@ -30,21 +30,22 @@
 	// define variables and set to empty values
 	$Name = $Email = $HireB = $HireA = "";
 	
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	  if (!empty($_POST["EnameS"])) {
-		$Name = " and Name like '%".$_POST["EnameS"]."%'";
+		
+	if ($_SERVER["REQUEST_METHOD"] == "GET") {
+	  if (!empty($_GET["EnameS"])) {
+		$Name = " and Name like '%".validate($_GET["EnameS"])."%'";
 	  }
 	  
-	  if (!empty($_POST["EemailS"])) {
-		$Email = " and Email like '%".$_POST["EemailS"]."%'";
+	  if (!empty($_GET["EemailS"])) {
+		$Email = " and Email like '%".validate($_GET["EemailS"])."%'";
 	  }
 		
-	  if (!empty($_POST["EhireBS"])) {
-		$HireB = " and HireDate <= '".$_POST["EhireBS"]."'";
+	  if (!empty($_GET["EhireBS"])) {
+		$HireB = " and HireDate <= '".validate($_GET["EhireBS"])."'";
 	  }
 	  
-	  if (!empty($_POST["EhireAS"])) {
-		$HireA = " and HireDate >= '".$_POST["EhireAS"]."'";
+	  if (!empty($_GET["EhireAS"])) {
+		$HireA = " and HireDate >= '"validate(.$_GET["EhireAS"])."'";
 	  }  
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
@@ -55,7 +56,44 @@
 	 $result = $link->query($sql);
 	
 	if ($result->num_rows > 0) {
-		echo "<div id='results'><table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th><a href='view.php?direction=up&col=id&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='img/sort_down.png'></a> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
+		echo "<div id='results'><table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th>&nbsp;</th><th><a href='view.php?direction=up&col=ID&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='img/sort_down.png'></a> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			echo "<tr><td><img src='img/delete.png'> <img src='img/pencil.png'></td><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
+		}
+		echo "</table></div>";
+	} else {
+		echo "<h2>0 results</h2>";
+	}
+	$link->close();
+	}
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	  if (!empty($_POST["EnameS"])) {
+		$Name = " and Name like '%".validate($_POST["EnameS"])."%'";
+	  }
+	  
+	  if (!empty($_POST["EemailS"])) {
+		$Email = " and Email like '%".validate($_POST["EemailS"])."%'";
+	  }
+		
+	  if (!empty($_POST["EhireBS"])) {
+		$HireB = " and HireDate <= '".validate($_POST["EhireBS"])."'";
+	  }
+	  
+	  if (!empty($_POST["EhireAS"])) {
+		$HireA = " and HireDate >= '".validate($_POST["EhireAS"])."'";
+	  }  
+	  $link = new mysqli($server,$username,$password,$db); 
+	  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+	  } 
+	  
+	 $sql = "SELECT * FROM employee WHERE 1=1" . $Name . $Email . $HireB . $HireA; 	 
+	 $result = $link->query($sql);
+	
+	if ($result->num_rows > 0) {
+		echo "<div id='results'><table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th></tr><tr><th>&nbsp;</th><th><a href='view.php?direction=up&col=ID&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='img/sort_down.png'></a> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th><th><img src='img/sort_down.png'> <img src='img/sort_up.png'></th></tr>";
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
 			echo "<tr><td><img src='img/delete.png'> <img src='img/pencil.png'></td><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td></tr>";
