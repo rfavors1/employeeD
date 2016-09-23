@@ -14,7 +14,6 @@ $NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  echo "<style>#addform {display: block;}</style>";
   if (empty($_POST["Ename"])) {
     $NameError = "Name is required";
   } else {
@@ -40,6 +39,24 @@ function validate($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
+if (!$NameError and !$EmailError and !$HireError) {
+  $link = mysql_connect('richfavorscom.ipagemysql.com', 'employee', 'richard'); 
+  if (!$link) { 
+    die('Could not connect: ' . mysql_error()); 
+  } 
+  mysql_select_db(employee_16_db); 
+  
+  $sql = "INSERT INTO employee (Name, Email, HiringDate) VALUES ($Name, $Email, $Hire)";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  
+}
+
 ?>
 <div id="addform">
   <p></p><a class="goback" href="dashboard.php">Go Back</a></p>
