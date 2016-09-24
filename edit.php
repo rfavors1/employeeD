@@ -33,7 +33,7 @@ $Name = $Email = $Hire = "";
 		die("Connection failed: " . $link->connect_error);
 	  } 
 	  
-	  $sql = "SELECT * FROM employee WHERE ID = " . valdate($_GET["ID"]);
+	  $sql = "SELECT * FROM employee WHERE ID = " . validate($_GET["ID"]);
 	  
 	  $result = $link->query($sql);
 		
