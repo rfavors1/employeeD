@@ -72,7 +72,7 @@ function validate($data) {
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
     <?php 
     if($_GET["Action"] == 'Delete') {
-    echo '<p><input type="submit" value="Delete"></p>';
+    echo '<p><input type="button" value="Delete"></p>';
     } else {
     echo '<p><input type="submit" value="Update"></p>';	
 	}
