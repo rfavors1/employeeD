@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "INSERT INTO employee (ID,Name,Email,HireDate,LastModified) VALUES ('','$Name','$Email','$Hire',now())";
 
   if ($link->query($sql) === TRUE) {
-    echo "<h2 class='success'>New record created successfully</h2>";
+    echo "<h2 class='success'>New record created successfully.</h2>";
 	unset($_POST);
   } else {
     echo "Error: " . $sql . "<br>" . $link->error;
