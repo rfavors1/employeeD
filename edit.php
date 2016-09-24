@@ -59,19 +59,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   //check to see if name changed, if so add to change log
   if ($_POST["Oname"] != $Name) {
     $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Name','" . $_POST["Oname"] . "','$Name',now())";
-	$link->query($sql)
+	$link->query($sql);
   }
   
   //check to see if email has changed, if so add to change log
   if ($_POST["Oemail"] != $Email) {
     $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Email','" . $_POST["Oemail"] . "','$Email',now())";
-	$link->query($sql)
+	$link->query($sql);
   }  
 
   //check to see if hire date has changed, if so add to change log
   if ($_POST["Ohire"] != $Hire) {
     $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'HireDate','" . $_POST["Ohire"] . "','$Hire',now())";
-	$link->query($sql)
+	$link->query($sql);
   }
   
   //close connection
