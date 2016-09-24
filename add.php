@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "INSERT INTO employee (ID,Name,Email,HireDate) VALUES ('','$Name','$Email','$Hire')";
+  $sql = "INSERT INTO employee (ID,Name,Email,HireDate,LastModified) VALUES ('','$Name','$Email','$Hire',now())";
 
   if ($link->query($sql) === TRUE) {
     echo "<h2 class='success'>New record created successfully</h2>";
