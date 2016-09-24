@@ -23,8 +23,8 @@ $Name = $Email = $Hire = "";
 	 echo '<p><a class="goback" href="view.php">Go Back</a></p>';
   } else {
     $ID = validate($_GET["ID"]);
-	$ID = intval($_GET["ID"]);
-	if (!(is_int($ID))) {
+	$ID = intval($ID);
+	if (!(is_integer($ID))) {
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
 	 echo '<p><a class="goback" href="view.php">Go Back</a></p>';	
 	} 
