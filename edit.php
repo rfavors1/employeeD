@@ -115,7 +115,7 @@ function validate($data) {
     <?php 
     if($_GET["Action"] == 'Delete') {
 	?>
-    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID ?>)"></p>
+    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . "," . $Name . "," . $Email . "," . $Hire ?>)"></p>
 	<?php
     } else {
 	?>
@@ -126,8 +126,8 @@ function validate($data) {
   </form>
 </div>
 <script>
-function Delete(id) {
-   var dataString = 'ID=' + id;
+function Delete(id,name,email,hire) {
+   var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
 	$.ajax({
 	type: "POST",
 	url: "delete.php",
