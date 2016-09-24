@@ -6,7 +6,7 @@ a:hover { color:#CCCCCC;}
 .error {color: red;}
 .goback {color: #0099FF; font-size: 20px;}
 .success {color:#00CC00; margin-left: 50px;}
-.count {font-weight: bold;}
+.count {font-weight: bold; margin-left: 50px;}
 #results {margin-top: 30px;}
 table {
     border-collapse: collapse;
