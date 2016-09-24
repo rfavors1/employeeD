@@ -10,6 +10,11 @@
 <body>
 
 <div id="viewform">
+  <?php
+  if($_GET["Action"] == 'DeleteSuccess') {
+  echo "<h2 class='success'>Record deleted successfully.</h2>"";
+  }
+  ?>
   <p><a class="goback" href="dashboard.php">Go Back</a></p>
   <h3>View Employees</h3>
   <h3>Search Criteria</h3>
