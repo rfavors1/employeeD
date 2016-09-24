@@ -101,7 +101,7 @@
 	} else {
 		echo "<div id='results'>";
 		echo "<p class='count'>Count: " . $result->num_rows . " Record(s)</p>";
-		echo "<table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th><th>Last Modified Date</th></tr><tr><th>&nbsp;</th>
+		echo "<table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th><th>LAST MODIFIED DATE</th></tr><tr><th>&nbsp;</th>
 		<th><a href='view.php?direction=desc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>
 		<img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>
 		<img src='img/sort_up.png'></a></th><th><a href='view.php?direction=desc&col=Name&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>
