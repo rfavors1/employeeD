@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "update employee set Name='$Name',Email='$Email',HireDate='$Hire',LastModified=now() where ID=$ID";
 
   if ($link->query($sql) === TRUE) {
-    echo "<h2 class='success'>Record updated successfully</h2>";
+    echo "<h2 class='success'>Record updated successfully.</h2>";
   } else {
     echo "Error: " . $sql . "<br>" . $link->error;
   }
@@ -101,8 +101,8 @@ function validate($data) {
 <div id="addform">
   <?php 
   if($_GET["Action"] == 'Delete') {
-  echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.";
-  }
+  echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
+  }  
   ?>
   <p><a class="goback" href="view.php">Go Back</a></p>
   <h3>Edit Employee</h3>
@@ -134,7 +134,7 @@ function Delete(id) {
 	data: dataString,
 	cache: false,
 	success: function(){
-	  document.write("<h2 style='color:#00CC00;margin-left: 50px;'>Record deleted successfully.</h2>");
+	  location.replace("view.php?Action=DeleteSuccess");
     }
 	});
 }
