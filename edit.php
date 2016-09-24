@@ -86,7 +86,6 @@ function validate($data) {
 <script>
 function Delete(id) {
    var dataString = 'ID =' + id;
-
 	$.ajax({
 	type: "POST",
 	url: "delete.php",
