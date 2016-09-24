@@ -18,7 +18,7 @@ $db = substr($url["path"], 1);
 $NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   if (empty($_POST["Ename"])) {
     $NameError = "Name is required";
   } else {
@@ -56,9 +56,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Error: " . $sql . "<br>" . $link->error;
   }
   
+  //check to see if name changed, if so add to change log
+  if ($_POST["Oname"] != $Name) {
+    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Name','" . $_POST["Oname"] . "','$Name',now())";
+	$link->query($sql)
+  }
+  
+  //check to see if email has changed, if so add to change log
+  if ($_POST["Oemail"] != $Email) {
+    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Email','" . $_POST["Oemail"] . "','$Email',now())";
+	$link->query($sql)
+  }  
+
+  //check to see if hire date has changed, if so add to change log
+  if ($_POST["Ohire"] != $Hire) {
+    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'HireDate','" . $_POST["Ohire"] . "','$Hire',now())";
+	$link->query($sql)
+  }
+  
+  //close connection
   $link->close();
   }
-} else {
+} else {//handles initial request for employee information (before update)
   if (empty($_GET["ID"])) {
      echo "<h2 class='error'>Employee ID is required.</h2>";
   } else {
@@ -87,11 +106,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	    }
 	  }
 	  
+	  
      $link->close();
     }
   }
 }
-function validate($data) {
+function validate($data) { //ensure proper data
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
@@ -111,7 +131,10 @@ function validate($data) {
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="error"> <?php echo $EmailError;?></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
-	<input type="hidden" name="ID" value="<?php echo $ID?>"
+	<input type="hidden" name="ID" value="<?php echo $ID?>">
+	<input type="hidden" name="Oname" value="<?php echo $Name?>">
+	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
+	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">			
     <?php 
     if($_GET["Action"] == 'Delete') {
 	?>
