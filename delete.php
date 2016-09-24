@@ -17,11 +17,18 @@ $db = substr($url["path"], 1);
 // define variables and set to empty values
 
   $ID = validate($_POST["ID"]);
+  $Name = validate($_POST["name"]);  
+  $Email = validate($_POST["email"]);  
+  $Hire = validate($_POST["hire"]);  
+  
   $ID = intval($ID);
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
   } 
+  
+  $sql = "INSERT INTO deletelog (DeleteID,ID,Name,Email,HireDate,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire',now())";
+  $link->query($sql);  
   
   $sql = "DELETE from employee where ID = " . $ID;
 
