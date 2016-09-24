@@ -20,13 +20,11 @@ $Name = $Email = $Hire = "";
 
   if (empty($_GET["ID"])) {
      echo "<h2 class='error'>Employee ID is required.</h2>";
-	 echo '<p><a class="goback" href="view.php">Go Back</a></p>';
   } else {
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
-	 echo '<p><a class="goback" href="view.php">Go Back</a></p>';	
 	} 
     else {
 	  $link = new mysqli($server,$username,$password,$db); 
@@ -58,9 +56,13 @@ function validate($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-
 ?>
 <div id="addform">
+  <?php 
+  if($_GET["Action"] == 'Delete') {
+  echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.";
+  }
+  ?>
   <p><a class="goback" href="view.php">Go Back</a></p>
   <h3>Edit Employee</h3>
   <p>*All fields are required.</p>
@@ -68,6 +70,13 @@ function validate($data) {
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="error"> <?php echo $EmailError;?></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
+    <?php 
+    if($_GET["Action"] == 'Delete') {
+    echo '<p><input type="submit" value="Delete"></p>';
+    } else {
+    echo '<p><input type="submit" value="Update"></p>';	
+	}
+  ?> 	
 	<p><input type="submit" value="Update"></p>
   </form>
 </div>
