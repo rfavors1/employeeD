@@ -48,10 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "update employee set Name='$Name',Email='$Email',HireDate='$Hire' where ID=$ID";
+  $sql = "update employee set Name='$Name',Email='$Email',HireDate='$Hire',LastModified=now() where ID=$ID";
 
   if ($link->query($sql) === TRUE) {
-    echo "<h2 class='success'>New record created successfully</h2>";
+    echo "<h2 class='success'>Record updated successfully</h2>";
   } else {
     echo "Error: " . $sql . "<br>" . $link->error;
   }
