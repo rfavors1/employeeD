@@ -101,7 +101,12 @@
 	} else {
 		echo "<div id='results'>";
 		echo "<p class='count'>Count: " . $result->num_rows . " Record(s)</p>";
-		echo "<table class='view'><tr><th>&nbsp;</th><th>ID</th>";
+		echo "<table class='view'><tr><th>&nbsp;</th>";
+	    if ($_GET["col"] == 'ID') {
+		  echo "<th style='color:#FFFF00;'>ID</th>";
+		} else {
+		  echo "<th>ID</th>";		
+		}
 		if ($_GET["col"] == 'Name') {
 		  echo "<th style='color:#FFFF00;'>NAME</th>";
 		} else {
