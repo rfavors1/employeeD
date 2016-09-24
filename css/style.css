@@ -8,6 +8,7 @@ a:hover { color:#CCCCCC;}
 .success {color:#00CC00; margin-left: 50px;}
 .count {font-weight: bold; margin-left: 50px;}
 #results {margin-top: 30px;}
+.higlighted {color: #FFFF00;}
 table {
     border-collapse: collapse;
     width: 75%;
