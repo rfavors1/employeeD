@@ -38,7 +38,7 @@ $Name = $Email = $Hire = "";
 	  $result = $link->query($sql);
 		
 	  if ($result->num_rows == 0) {
-		 echo "<h2 class='error'>Employee ID does not exist.</h2>"
+		 echo "<h2 class='error'>Employee ID does not exist.</h2>";
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["Name"];
