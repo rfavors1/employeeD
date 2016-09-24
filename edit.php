@@ -115,7 +115,7 @@ function validate($data) {
     <?php 
     if($_GET["Action"] == 'Delete') {
 	?>
-    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . "," . $Name . "," . $Email . "," . $Hire ?>)"></p>
+    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . ",'" . $Name . "','" . $Email . "','" . $Hire . "'"?>)"></p>
 	<?php
     } else {
 	?>
