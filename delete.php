@@ -15,7 +15,7 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 // define variables and set to empty values
-$_POST["ID"] = 12;
+
   $ID = validate($_POST["ID"]);
   $ID = intval($ID);
   $link = new mysqli($server,$username,$password,$db); 
