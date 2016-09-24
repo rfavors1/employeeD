@@ -101,7 +101,28 @@
 	} else {
 		echo "<div id='results'>";
 		echo "<p class='count'>Count: " . $result->num_rows . " Record(s)</p>";
-		echo "<table class='view'><tr><th>&nbsp;</th><th>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th><th>LAST MODIFIED DATE</th></tr><tr><th>&nbsp;</th>
+		echo "<table class='view'><tr><th>&nbsp;</th><th>ID</th>";
+		if ($_GET["col"] == 'Name') {
+		  echo "<th style='color:#FFFF00;'>NAME</th>";
+		} else {
+		  echo "<th>NAME</th>";		
+		}
+		if ($_GET["col"] == 'Email') {
+		  echo "<th style='color:#FFFF00;'>EMAIL</th>";
+		} else {
+		  echo "<th>EMAIL</th>";		
+		}		
+		if ($_GET["col"] == 'HireDate') {
+		  echo "<th style='color:#FFFF00;'>HIRE DATE</th>";
+		} else {
+		  echo "<th>HIRE DATE</th>";		
+		}	
+		if ($_GET["col"] == 'LastModified') {
+		  echo "<th style='color:#FFFF00;'>LAST MODIFIED</th>";
+		} else {
+		  echo "<th>LAST MODIFIED</th>";		
+		}		
+		echo "</tr><tr><th>&nbsp;</th>
 		<th><a href='view.php?direction=desc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>
 		<img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>
 		<img src='img/sort_up.png'></a></th><th><a href='view.php?direction=desc&col=Name&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>
