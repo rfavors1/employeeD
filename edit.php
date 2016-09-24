@@ -85,8 +85,16 @@ function validate($data) {
 </div>
 <script>
 function Delete(id) {
-   var dataString = 'ID =' + id;
-  alert(dataString);
+   var dataString = 'ID=' + id;
+	$.ajax({
+	type: "POST",
+	url: "delete.php",
+	data: dataString,
+	cache: false,
+	success: function(){
+	  document.write("<h2 class='success'>Record deleted successfully.</h2>");
+    }
+	});
 }
 </script>
 </body>
