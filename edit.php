@@ -77,7 +77,6 @@ function validate($data) {
     echo '<p><input type="submit" value="Update"></p>';	
 	}
   ?> 	
-	<p><input type="submit" value="Update"></p>
   </form>
 </div>
 </body>
