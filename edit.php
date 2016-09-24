@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $Hire = validate($_POST["Ehire"]);
   }
-  $ID = validate($_GET["ID"]);
+  $ID = validate($_POST["ID"]);
   $ID = intval($ID);
   if (!(is_integer($ID))) {
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "update employee set Name = '$Name',Email='$Email',HireDate='$Hire' where ID=$ID";
+  $sql = "update employee set Name='$Name',Email='$Email',HireDate='$Hire' where ID=$ID";
 
   if ($link->query($sql) === TRUE) {
     echo "<h2 class='success'>New record created successfully</h2>";
