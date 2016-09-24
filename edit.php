@@ -92,7 +92,7 @@ function Delete(id) {
 	data: dataString,
 	cache: false,
 	success: function(){
-	  document.write("<h2 class='success'>Record deleted successfully.</h2>");
+	  document.write("<h2 style='color:#00CC00;margin-left: 50px;'>Record deleted successfully.</h2>");
     }
 	});
 }
