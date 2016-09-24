@@ -24,7 +24,7 @@ $Name = $Email = $Hire = "";
   } else {
     $ID = validate($_GET["ID"]);
 	$ID = intval($_GET["ID"]);
-	if (!(is_int($ID)) {
+	if (!(is_int($ID))) {
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
 	 echo '<p><a class="goback" href="view.php">Go Back</a></p>';	
 	} 
