@@ -23,12 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $NameError = "Name is required";
   } else {
     $Name = validate($_POST["Ename"]);
+	if (!preg_match("/^[a-zA-Z ]*$/",$Name)) {
+      $NameError = "Only letters and white space allowed"; 
+    }
   }
   
   if (empty($_POST["Eemail"])) {
     $EmailError = "Email is required";
   } else {
     $Email = validate($_POST["Eemail"]);
+	if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+      $EmailError = "Invalid email format"; 
+    }
   }
     
   if (empty($_POST["Ehire"])) {
