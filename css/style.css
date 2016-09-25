@@ -47,7 +47,7 @@ th {
 }
 
 #right {float:left; background-color:#0099FF; width:200px; margin-top: 0px; margin-left: 0px; padding:0px; height: auto;  border-right-width: thick; border-right-style: solid; border-right-color: #333333;}
-#left {background-color: #CCCCCC; margin-top: 0px; margin-left: 200px; padding: 0px; height: auto; overflow:scroll;}
+#left {background-color: #CCCCCC; margin-top: 0px; margin-left: 200px; padding: 0px; height: 100%; overflow:auto;}
 html, body {margin: 0px; height: 100%; overflow:hidden;}
 h1 {color: #0099FF;}
 #container {height: 100%; border-top-width: thick; border-top-style: solid; border-top-color: #333333; background-color: #CCCCCC;}
