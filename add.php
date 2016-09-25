@@ -118,6 +118,7 @@ $(".open").click(function(){
     $(".menu").css("display","block"); 
 	$(".close").css({"display":"block","margin-left":"175px"}); 
 	$(".open").css("display","none"); 
+	$("#left").css("margin-left","175px");  	
   
 });
 </script>
