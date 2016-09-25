@@ -13,7 +13,13 @@ a {color: white; text-decoration: none;}
 a:hover { color:#CCCCCC;}
 .error {color: red;}
 .goback {color: #0099FF; font-size: 20px;}
-.success {color:#00CC00; margin-left: 50px;}
+.success {
+    display: block;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    margin: 3px;
+    padding: 5px;}
 .count {font-weight: bold; margin-left: 50px;}
 #results {margin-top: 30px;}
 th .higlighted {color: #FFFF00;}
