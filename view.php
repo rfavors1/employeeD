@@ -210,7 +210,7 @@
 		}
 		echo "</table></div>";
 	} else {
-		echo "<h2>0 results</h2>";
+		echo "<p class='count'>Count: 0 Record(s)</p>";
 	}
 	$link->close();
 	}
