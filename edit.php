@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	  $result = $link->query($sql);
 		
 	  if ($result->num_rows == 0) {
-		 echo "<h2 class='error'>Employee ID does not exist.</h2>";
+		 echo "<script>location.replace('edit.php?Action=Fail');</script>";
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["Name"];
@@ -143,7 +143,10 @@ function validate($data) { //ensure proper data
   <?php 
   if($_GET["Action"] == 'Delete') {
   echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
-  }  
+  }
+  if($_GET["Action"] == 'Fail') {
+  echo "<p class='error'>Employee ID does not exist.</p>";
+  } else {
   ?>
   <h3>Edit Employee</h3>
   <p>*All fields are required.</p>
@@ -154,16 +157,21 @@ function validate($data) { //ensure proper data
 	<input type="hidden" name="ID" value="<?php echo $ID?>">
 	<input type="hidden" name="Oname" value="<?php echo $Name?>">
 	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
-	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">			
+	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">
+	<?php
+	}
+	?>		
     <?php 
     if($_GET["Action"] == 'Delete') {
 	?>
     <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . ",'" . $Name . "','" . $Email . "','" . $Hire . "'"?>)"></p>
 	<?php
     } else {
+      if(!($_GET["Action"] == 'Fail')) {	  
 	?>
      <p><input type="submit" value="Update"></p>	
 	<?php
+	  }
 	}
     ?> 	
   </form>
