@@ -86,7 +86,6 @@ function validate($data) {
 </div>
 <div id="left">
 <div id="addform">
-  <p><a class="goback" href="dashboard.php">Go Back</a></p>
   <h3>Add New Employee</h3>
   <p>*All fields are required.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
