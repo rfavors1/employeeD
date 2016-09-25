@@ -8,10 +8,40 @@
 </head>
 
 <body>
-<div id="dash">
-  <h2>Employee Dashboard</h2>
-  <p><a id="add" href="/add.php">Add Employee</a></p>
-  <p><a id="view" href="/view.php">View Employees</a></p>
+<div id="header">
+<h1>Employee Dashboard</h1>
 </div>
+<div id="container">
+<div id="right">
+  <div id="top">
+    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="img/rightarrow.png" class="open">  	
+  </div>  
+  <ul class="menu">
+  <li><a href="add.php"  class="active">Add Employee</a></li>
+  <li><a href="view.php">View Employee</a></li>  
+  </ul>
+</div>
+<div id="left">
+</div>
+</div>
+<script>
+$(".close").click(function(){
+    $(".menu").css("display","none"); 
+	$(".close").css("display","none"); 
+	$(".open").css({"display":"block","margin-left":"5px"}); 
+	$("#right").css("width","30px");    
+	$("#left").css("margin-left","30px");  	
+});
+
+$(".open").click(function(){
+	$("#right").css("width","200px");  
+    $(".menu").css("display","block"); 
+	$(".close").css({"display":"block","margin-left":"175px"}); 
+	$(".open").css("display","none"); 
+	$("#left").css("margin-left","175px");  	
+  
+});
+</script>
 </body>
 </html>
