@@ -18,7 +18,7 @@
     <img src="img/rightarrow.png" class="open">  	
   </div>  
   <ul class="menu">
-  <li><a href="add.php"  class="active">Add Employee</a></li>
+  <li><a href="add.php">Add Employee</a></li>
   <li><a href="view.php">View Employee</a></li>  
   </ul>
 </div>
