@@ -25,6 +25,17 @@ a:hover { color:#CCCCCC;}
     right: 20px;
 	top: 90px;
 	width: 280px;}
+.fail {
+    display: block;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
+    padding: 5px;
+	position: absolute;
+    right: 20px;
+	top: 90px;
+	width: 280px;}	
 .count {font-weight: bold; margin-left: 50px;}
 #results {margin-top: 30px;}
 th .higlighted {color: #FFFF00;}
