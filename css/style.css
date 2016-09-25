@@ -25,6 +25,9 @@ a:hover { color:#CCCCCC;}
     right: 20px;
 	top: 90px;
 	width: 280px;}
+h2 {
+    margin-left: 50px;
+}
 .fail {
     display: block;
     background-color: red;
