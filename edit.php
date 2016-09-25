@@ -141,7 +141,7 @@ function validate($data) { //ensure proper data
 <div id="left">
   <?php 
   if($_GET["Action"] == 'Fail') {
-  echo "<div class='error'>Employee ID does not exist.</p>";
+  echo "<div class='error'>Employee ID does not exist.</div>";
   } else {
   ?>
 <div id="editform">
