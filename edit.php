@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   }
 } else {//handles initial request for employee information (before update)
   if (empty($_GET["ID"])) {
-     echo "<h2 class='error'>Employee ID is required.</h2>";
+     echo "<script>location.replace('edit.php?Action=Fail');</script>";
   } else {
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
@@ -141,7 +141,7 @@ function validate($data) { //ensure proper data
 <div id="left">
   <?php 
   if($_GET["Action"] == 'Fail') {
-  echo "<p class='error'>Employee ID does not exist.</p>";
+  echo "<div class='error'>Employee ID does not exist.</p>";
   } else {
   ?>
 <div id="editform">
