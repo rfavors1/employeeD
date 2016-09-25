@@ -26,3 +26,39 @@ th {
     background-color: #0099FF;
     color: white;
 }
+
+#right {float:left; background-color:#0099FF; width:200px; margin-top: 0px; margin-left: 0px; padding:0px; height: 100%;  border-right-width: thick; border-right-style: solid; border-right-color: #333333;}
+#left {background-color: #CCCCCC; margin-top: 0px; margin-left: 200px; padding: 0px; height: 100%;}
+html, body {margin: 0px; height: 100%;}
+h1 {color: #0099FF;}
+#container {height: 100%; border-top-width: thick; border-top-style: solid; border-top-color: #333333; background-color: #CCCCCC;}
+#top {margin-bottom: 20px; margin-top: 5px;}
+#header {height: 60px;}
+.open {display: none;}
+.active {
+    background-color: #333333;
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
