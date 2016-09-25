@@ -70,6 +70,21 @@ function validate($data) {
 }
 
 ?>
+<div id="header">
+<h1>Employee Dashboard</h1>
+</div>
+<div id="container">
+<div id="right">
+  <div id="top">
+    <img src="x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="rightarrow.png" class="open">  	
+  </div>  
+  <ul class="menu">
+  <li><a href="add.php"  class="active">Add Employee</a></li>
+  <li><a href="view.php">View Employee</a></li>  
+  </ul>
+</div>
+<div id="left">
 <div id="addform">
   <p><a class="goback" href="dashboard.php">Go Back</a></p>
   <h3>Add New Employee</h3>
@@ -81,5 +96,23 @@ function validate($data) {
 	<p><input type="submit" value="Add"></p>
   </form>
 </div>
+</div>
+</div>
+<script>
+$(".close").click(function(){
+    $(".menu").css("display","none"); 
+	$(".close").css("display","none"); 
+	$(".open").css({"display":"block","margin-left":"5px"}); 
+	$("#right").css("width","30px");    
+});
+
+$(".open").click(function(){
+	$("#right").css("width","200px");  
+    $(".menu").css("display","block"); 
+	$(".close").css({"display":"block","margin-left":"175px"}); 
+	$(".open").css("display","none"); 
+  
+});
+</script>
 </body>
 </html>
