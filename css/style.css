@@ -1,6 +1,6 @@
 /* CSS Document */
 #dash { width: 50%; height: auto; display:block; background-color:#0099FF; color:#FFFFFF; margin-left: 30px; border: 2px solid; padding-left: 20px; font-size:18px;}
-#addform, #viewform {margin-left: 50px;}
+#addform, #viewform {margin-left: 50px; background-color:white;display:block;width:auto;height:auto;}
 a {color: white; text-decoration: none;}
 a:hover { color:#CCCCCC;}
 .error {color: red;}
