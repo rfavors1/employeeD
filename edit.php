@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
-     echo "<h2 class='error'>Employee ID must be in number format.</h2>";
+     echo "<script>location.replace('edit.php?Action=Fail');</script>";
 	} 
     else {
 	  $link = new mysqli($server,$username,$password,$db); 
@@ -139,14 +139,16 @@ function validate($data) { //ensure proper data
   </ul>
 </div>
 <div id="left">
+  <?php 
+  if($_GET["Action"] == 'Fail') {
+  echo "<p class='error'>Employee ID does not exist.</p>";
+  } else {
+  ?>
 <div id="editform">
   <?php 
   if($_GET["Action"] == 'Delete') {
   echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
   }
-  if($_GET["Action"] == 'Fail') {
-  echo "<p class='error'>Employee ID does not exist.</p>";
-  } else {
   ?>
   <h3>Edit Employee</h3>
   <p>*All fields are required.</p>
