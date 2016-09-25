@@ -110,6 +110,7 @@ $(".close").click(function(){
 	$(".close").css("display","none"); 
 	$(".open").css({"display":"block","margin-left":"5px"}); 
 	$("#right").css("width","30px");    
+	$("#left").css("margin-left","30px");  	
 });
 
 $(".open").click(function(){
