@@ -8,21 +8,6 @@
 </head>
 
 <body>
-<div id="header">
-<h1>Employee Dashboard</h1>
-</div>
-<div id="container">
-<div id="right">
-  <div id="top">
-    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
-    <img src="img/rightarrow.png" class="open">  	
-  </div>  
-  <ul class="menu">
-  <li><a href="add.php"  class="active">Add Employee</a></li>
-  <li><a href="view.php">View Employee</a></li>  
-  </ul>
-</div>
-<div id="left">
 <?php
 $url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
 $server = $url["host"];
@@ -67,10 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "INSERT INTO employee (ID,Name,Email,HireDate,LastModified) VALUES ('','$Name','$Email','$Hire',now())";
 
   if ($link->query($sql) === TRUE) {
-    echo "<h2 class='success'>New record created successfully.</h2>";
+    echo "<script>location.replace('add.php?Action=Success');</script>";
 	unset($_POST);
   } else {
-    echo "Error: " . $sql . "<br>" . $link->error;
+    echo "<script>location.replace('add.php?Action=Fail');</script>";
   }
   
   $link->close();
@@ -84,6 +69,28 @@ function validate($data) {
   return $data;
 }
 
+?>
+<div id="header">
+<h1>Employee Dashboard</h1>
+</div>
+<div id="container">
+<div id="right">
+  <div id="top">
+    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="img/rightarrow.png" class="open">  	
+  </div>  
+  <ul class="menu">
+  <li><a href="add.php"  class="active">Add Employee</a></li>
+  <li><a href="view.php">View Employee</a></li>  
+  </ul>
+</div>
+<div id="left">
+<?php
+  if ($_GET["Action"] == 'Success') {
+    echo "<h2 class='success'>Employee record added successfully.</h2>";
+  } elseif ($_GET["Action"] == 'Fail') {
+    echo "<h2 class='error'>Unable to add employee record at this time.</h2>";  
+  }
 ?>
 <div id="addform">
   <h3>Add New Employee</h3>
