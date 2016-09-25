@@ -174,10 +174,10 @@ function validate($data) { //ensure proper data
      <p><input type="submit" value="Update"></p>	
 	<?php
 	  }
+	echo "</div>";
 	}
     ?> 	
   </form>
-</div>
 </div>
 </div>
 <script>
