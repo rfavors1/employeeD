@@ -118,13 +118,27 @@ function validate($data) { //ensure proper data
   return $data;
 }
 ?>
-<div id="addform">
+<div id="header">
+<h1>Employee Dashboard</h1>
+</div>
+<div id="container">
+<div id="right">
+  <div id="top">
+    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="img/rightarrow.png" class="open">  	
+  </div>  
+  <ul class="menu">
+  <li><a href="add.php">Add Employee</a></li>
+  <li><a href="view.php" class="active">View Employee</a></li>  
+  </ul>
+</div>
+<div id="left">
+<div id="editform">
   <?php 
   if($_GET["Action"] == 'Delete') {
   echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
   }  
   ?>
-  <p><a class="goback" href="view.php">Go Back</a></p>
   <h3>Edit Employee</h3>
   <p>*All fields are required.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -148,7 +162,26 @@ function validate($data) { //ensure proper data
     ?> 	
   </form>
 </div>
+</div>
+</div>
 <script>
+$(".close").click(function(){
+    $(".menu").css("display","none"); 
+	$(".close").css("display","none"); 
+	$(".open").css({"display":"block","margin-left":"5px"}); 
+	$("#right").css("width","30px");    
+	$("#left").css("margin-left","30px");  	
+});
+
+$(".open").click(function(){
+	$("#right").css("width","200px");  
+    $(".menu").css("display","block"); 
+	$(".close").css({"display":"block","margin-left":"175px"}); 
+	$(".open").css("display","none"); 
+	$("#left").css("margin-left","175px");  	
+  
+});
+
 function Delete(id,name,email,hire) {
    var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
 	$.ajax({
