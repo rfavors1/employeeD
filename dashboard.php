@@ -23,6 +23,7 @@
   </ul>
 </div>
 <div id="left">
+&nbsp;
 </div>
 </div>
 <script>
