@@ -8,6 +8,21 @@
 </head>
 
 <body>
+<div id="header">
+<h1>Employee Dashboard</h1>
+</div>
+<div id="container">
+<div id="right">
+  <div id="top">
+    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="img/rightarrow.png" class="open">  	
+  </div>  
+  <ul class="menu">
+  <li><a href="add.php"  class="active">Add Employee</a></li>
+  <li><a href="view.php">View Employee</a></li>  
+  </ul>
+</div>
+<div id="left">
 <?php
 $url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
 $server = $url["host"];
@@ -70,21 +85,6 @@ function validate($data) {
 }
 
 ?>
-<div id="header">
-<h1>Employee Dashboard</h1>
-</div>
-<div id="container">
-<div id="right">
-  <div id="top">
-    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
-    <img src="img/rightarrow.png" class="open">  	
-  </div>  
-  <ul class="menu">
-  <li><a href="add.php"  class="active">Add Employee</a></li>
-  <li><a href="view.php">View Employee</a></li>  
-  </ul>
-</div>
-<div id="left">
 <div id="addform">
   <h3>Add New Employee</h3>
   <p>*All fields are required.</p>
