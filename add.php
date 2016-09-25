@@ -76,8 +76,8 @@ function validate($data) {
 <div id="container">
 <div id="right">
   <div id="top">
-    <img src="x-mark.png" class="close" style="margin-left: 175px;">  
-    <img src="rightarrow.png" class="open">  	
+    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="img/rightarrow.png" class="open">  	
   </div>  
   <ul class="menu">
   <li><a href="add.php"  class="active">Add Employee</a></li>
