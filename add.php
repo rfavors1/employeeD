@@ -87,9 +87,9 @@ function validate($data) {
 <div id="left">
 <?php
   if ($_GET["Action"] == 'Success') {
-    echo "<h2 class='success'>Employee record added successfully.</h2>";
+    echo "<div class='success'>Employee record added successfully.</div>";
   } elseif ($_GET["Action"] == 'Fail') {
-    echo "<h2 class='error'>Unable to add employee record at this time.</h2>";  
+    echo "<div class='error'>Unable to add employee record at this time.</div>";  
   }
 ?>
 <div id="addform">
