@@ -69,7 +69,8 @@ html, body {margin: 0px; height: 100%; overflow:hidden;}
 h1 {color: #0099FF;}
 #container {height: 100%; border-top-width: thick; border-top-style: solid; border-top-color: #333333; background-color: #CCCCCC;}
 #top {margin-bottom: 20px; margin-top: 5px;}
-#header {height: 60px;}
+#header {height: 80px;}
+.lang {color:#0099FF;text-align:left;margin-right:20px;}
 .open {display: none;}
 .active {
     background-color: #333333;
