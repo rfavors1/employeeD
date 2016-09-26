@@ -160,9 +160,6 @@ function validate($data) { //ensure proper data
 	<input type="hidden" name="Oname" value="<?php echo $Name?>">
 	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
 	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">
-	<?php
-	}
-	?>		
     <?php 
     if($_GET["Action"] == 'Delete') {
 	?>
