@@ -10,7 +10,7 @@
 <body>
 <div id="header">
 <a href="dashboard.php"><h1>Employee Dashboard</h1></a>
-<a href="dashboard.php" title="PHP Version">PHP</a> <a href="dashboard.html" title="JavaScript Version">JavaScript</a>
+<div class="lang"><a href="dashboard.php" style="color: #333333;" title="PHP Version">PHP</a> <a href="dashboard.html" title="JavaScript Version">JavaScript</a></div>
 </div>
 <div id="container">
 <div id="right">
