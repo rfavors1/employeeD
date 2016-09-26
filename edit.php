@@ -174,10 +174,10 @@ function validate($data) { //ensure proper data
     ?> 	
   </form>
   </div>
-</div>
 <?php
     }
 ?>
+</div>
 </div>
 <script>
 $(".close").click(function(){
