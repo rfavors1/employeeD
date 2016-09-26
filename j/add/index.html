@@ -65,15 +65,14 @@ function validateForm() {
     } else {
 	   $(".name").html(EmailError);
 	} 
-  
+  console.log(validateEmail(email));
    if (!validateEmail(email))	{
 		EmailError = " Invalid email format.";	
 		$(".email").html(EmailError);
   }  else {
-	   $(".name").html(EmailError);
+	   $(".email").html(EmailError);
   } 
- 
-	
+ alert("made it");
     if (hire == null || hire == "") {
         HireError = " Hire Date is Required.";	
 		$(".hire").html(HireError);
