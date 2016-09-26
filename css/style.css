@@ -19,6 +19,7 @@ a:hover { color:#CCCCCC;}
     background-color: green;
     color: white;
     font-size: 18px;
+	text-align: center;	
     margin: 3px;
     padding: 5px;
 	position: absolute;
@@ -31,6 +32,7 @@ h2 {
 .fail {
     display: block;
     background-color: red;
+	text-align: center;
     color: white;
     font-size: 18px;
     margin: 3px;
