@@ -47,15 +47,21 @@ function validateForm() {
     if (name == null || name == "") {
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
-    }
+    } else {
+	   $(".name").html(NameError);
+	} 
     if (email == null || email == "") {
 		EmailError = " Email is Required.";	
 		$(".email").html(EmailError);
-    }
+    } else {
+	   $(".name").html(EmailError);
+	} 
     if (hire == null || hire == "") {
         HireError = " Hire Date is Required.";	
 		$(".hire").html(HireError);
-    }	
+    }  else {
+	   $(".name").html(HireError);
+	} 	
 	
 	if (NameError || EmailError || HireError) {
 	  return false;
