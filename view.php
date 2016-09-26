@@ -9,7 +9,7 @@
 
 <body>
 <div id="header">
-<h1>Employee Dashboard</h1>
+<a href="dashboard.php"><h1>Employee Dashboard</h1></a>
 </div>
 <div id="container">
 <div id="right">
