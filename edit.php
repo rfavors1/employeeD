@@ -194,7 +194,6 @@ $(".open").click(function(){
 
 function Delete(id,name,email,hire) {
    var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
-   alert(dataString);
 	$.ajax({
 	type: "POST",
 	url: "delete.php",
