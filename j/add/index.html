@@ -40,20 +40,26 @@
 function validateForm() {
     var name = document.forms["addE"]["Ename"].value;
 	var email = document.forms["addE"]["Eemail"].value;
-    var hire = document.forms["addE"]["Ehire"].value;	
+    var hire = document.forms["addE"]["Ehire"].value;
+	var NameError = false;
+	var EmailError = false;
+	var HireError = false;	
     if (name == null || name == "") {
 		$(".name").html(" Name is Required.");
-        return false;
+		NameError = true;
     }
     if (email == null || email == "") {
 		$(".email").html(" Email is Required.");
-        return false;
+		EmailError = true;
     }
     if (hire == null || hire == "") {
 		$(".hire").html(" Hire Date is Required.");
-        return false;
-    }		
+        HireError = true;
+    }	
 	
+	if (NameError || EmailError || HireError) {
+	  return false;
+	}	
 }
 $(".close").click(function(){
     $(".menu").css("display","none"); 
