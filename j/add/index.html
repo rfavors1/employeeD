@@ -48,11 +48,7 @@ function validateForm() {
     if (name == null || name == "") {
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
-    } else {
-	   $(".name").html(NameError);
-	} 
-
-   if (!validateName(name))	{
+	} else if (!validateName(name))	{
 		NameError = " Invalid Name format.";	
 		$(".Name").html(NameError);
   }  else {
@@ -62,17 +58,13 @@ function validateForm() {
     if (email == null || email == "") {
 		EmailError = " Email is Required.";	
 		$(".email").html(EmailError);
-    } else {
-	   $(".name").html(EmailError);
-	} 
-  console.log(validateEmail(email));
-   if (!validateEmail(email))	{
+	} else if (!validateEmail(email))	{
 		EmailError = " Invalid email format.";	
 		$(".email").html(EmailError);
   }  else {
 	   $(".email").html(EmailError);
   } 
- alert("made it");
+
     if (hire == null || hire == "") {
         HireError = " Hire Date is Required.";	
 		$(".hire").html(HireError);
