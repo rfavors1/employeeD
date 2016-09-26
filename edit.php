@@ -84,9 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   $link->close();
   }
 } else {//handles initial request for employee information (before update)
-  if (empty($_GET["ID"])) {
-     echo "<script>location.replace('edit.php?Action=Fail');</script>";
-  } else {
+  if (!empty($_GET["ID"])) {
+ //    echo "<script>location.replace('edit.php?Action=Fail');</script>";
+  //} else {
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
