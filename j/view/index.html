@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Edit Employee</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/employee.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+
+<div id="header">
+<a href="../dashboard.html"><h1>Employee Dashboard</h1></a>
+<div class="lang"><a href="../../dashboard.php" style="color: #0099FF;" title="PHP Version">PHP</a> <a href="../dashboard.html" style="color: #333333;text-decoration: underline;font-weight:bold;" title="JavaScript Version">JavaScript</a></div>
+</div>
+<div id="container">
+<div id="right">
+  <div id="top">
+    <img src="../img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="../img/rightarrow.png" class="open">  	
+  </div>  
+  <ul class="menu">
+  <li><a href="../add.php">Add Employee</a></li>
+  <li><a href="../view.php" class="active">View Employee</a></li>  
+  </ul>
+</div>
+<div id="left">
+  <div id="editform">
+  <h3>Edit Employee</h3>
+  <p>*All fields are required.</p>
+  <form  method="post" action="">
+    <p>Name: <input type="text" size=35 name="Ename" value=""><span class="error"></span></p>
+    <p>Email: <input type="text" size=50 name="Eemail" value="><span class="error"></span></p>
+    <p>Hiring Date: <input type="date" name="Ehire" value=""><span class="error"></span></p>
+	<input type="hidden" name="ID" value="">
+	<input type="hidden" name="Oname" value="">
+	<input type="hidden" name="Oemail" value="">
+	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">
+    <p><input type="button" value="Delete" onClick="Delete()"></p>
+	     <p><input type="submit" value="Update"></p>	
+  </form>
+  </div>
+</div>
+</div>
+<script>
+$(".close").click(function(){
+    $(".menu").css("display","none"); 
+	$(".close").css("display","none"); 
+	$(".open").css({"display":"block","margin-left":"5px"}); 
+	$("#right").css("width","30px");    
+	$("#left").css("margin-left","30px");  	
+});
+
+$(".open").click(function(){
+	$("#right").css("width","200px");  
+    $(".menu").css("display","block"); 
+	$(".close").css({"display":"block","margin-left":"175px"}); 
+	$(".open").css("display","none"); 
+	$("#left").css("margin-left","175px");  	
+  
+});
+
+function Delete(id,name,email,hire) {
+   var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
+	$.ajax({
+	type: "POST",
+	url: "delete.php",
+	data: dataString,
+	cache: false,
+	success: function(){
+	  location.replace("view.php?Action=DeleteSuccess");
+    }
+	});
+}
+</script>
+</body>
+</html>
