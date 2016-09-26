@@ -51,6 +51,14 @@ function validateForm() {
     } else {
 	   $(".name").html(NameError);
 	} 
+
+   if (!validateName(name))	{
+		NameError = " Invalid Name format.";	
+		$(".Name").html(NameError);
+  }  else {
+	   $(".name").html(NameError);
+  } 	
+  
     if (email == null || email == "") {
 		EmailError = " Email is Required.";	
 		$(".email").html(EmailError);
