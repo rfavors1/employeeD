@@ -168,7 +168,7 @@ function validate($data) { //ensure proper data
      <p><input type="submit" value="Update"></p>	
 	<?php
 	  }
-	  }
+	}
     ?> 	
   </form>
   </div>
