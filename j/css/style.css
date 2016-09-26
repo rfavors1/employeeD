@@ -1,0 +1,102 @@
+/* CSS Document */
+#dash { width: 50%; height: auto; display:block; background-color:#0099FF; color:#FFFFFF; margin-left: 30px; border: 2px solid; padding-left: 20px; font-size:18px;}
+#addform, #editform, #viewform {
+    margin-left: 50px;
+    background-color: white;
+    display: block;
+    width: 575px;
+    height: auto;
+    padding: 0px 10px 10px 10px;
+    box-shadow: 5px 5px grey;
+	margin-top: 60px;
+}
+a {color: white; text-decoration: none;}
+a:hover { color:#CCCCCC;}
+.error {color: red;}
+.goback {color: #0099FF; font-size: 20px;}
+.success {
+    display: block;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+	text-align: center;	
+    margin: 3px;
+    padding: 5px;
+	position: absolute;
+    right: 20px;
+	top: 90px;
+	width: 280px;}
+h2 {
+    margin-left: 50px;
+}
+.fail {
+    display: block;
+    background-color: red;
+	text-align: center;
+    color: white;
+    font-size: 18px;
+    margin: 3px;
+    padding: 5px;
+	position: absolute;
+    right: 20px;
+	top: 90px;
+	width: 280px;}	
+.count {font-weight: bold; margin-left: 50px;}
+#results {margin-top: 30px;}
+th .higlighted {color: #FFFF00;}
+table {
+    border-collapse: collapse;
+    width: 75%;
+    margin-left: 50px;
+	margin-bottom: 100px;
+}
+
+th, td {
+    text-align: center;
+    padding: 4px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #0099FF;
+    color: white;
+}
+
+#right {float:left; background-color:#0099FF; width:200px; margin-top: 0px; margin-left: 0px; padding:0px; height: 100%;  border-right-width: thick; border-right-style: solid; border-right-color: #333333;}
+#left {background-color: #CCCCCC; margin-top: 0px; margin-left: 200px; padding: 0px; height: 100%; overflow:auto;}
+html, body {margin: 0px; height: 100%; overflow:hidden;}
+h1 {color: #0099FF;}
+#container {height: 100%; border-top-width: thick; border-top-style: solid; border-top-color: #333333; background-color: #CCCCCC;}
+#top {margin-bottom: 20px; margin-top: 5px;}
+#header {height: 80px;}
+.lang {right:20px;display: block;position: absolute;}
+.open {display: none;}
+.active {
+    background-color: #333333;
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+	border: 1px solid #333333;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
