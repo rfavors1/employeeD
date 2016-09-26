@@ -42,15 +42,15 @@ function validateForm() {
 	var email = document.forms["addE"]["Eemail"].value;
     var hire = document.forms["addE"]["Ehire"].value;	
     if (name == null || name == "") {
-		$(".name").append(" Name is Required.");
+		$(".name").html(" Name is Required.");
         return false;
     }
     if (email == null || email == "") {
-		$(".email").append(" Email is Required.");
+		$(".email").html(" Email is Required.");
         return false;
     }
     if (hire == null || hire == "") {
-		$(".hire").append(" Hire Date is Required.");
+		$(".hire").html(" Hire Date is Required.");
         return false;
     }		
 	
