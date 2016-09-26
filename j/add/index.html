@@ -41,20 +41,20 @@ function validateForm() {
     var name = document.forms["addE"]["Ename"].value;
 	var email = document.forms["addE"]["Eemail"].value;
     var hire = document.forms["addE"]["Ehire"].value;
-	var NameError = false;
-	var EmailError = false;
-	var HireError = false;	
+	var NameError = "";
+	var EmailError = "";
+	var HireError = "";	
     if (name == null || name == "") {
-		$(".name").html(" Name is Required.");
-		NameError = true;
+		NameError = " Name is Required.";	
+		$(".name").html(NameError);
     }
     if (email == null || email == "") {
-		$(".email").html(" Email is Required.");
-		EmailError = true;
+		EmailError = " Email is Required.";	
+		$(".email").html(EmailError);
     }
     if (hire == null || hire == "") {
-		$(".hire").html(" Hire Date is Required.");
-        HireError = true;
+        HireError = " Hire Date is Required.";	
+		$(".hire").html(HireError);
     }	
 	
 	if (NameError || EmailError || HireError) {
