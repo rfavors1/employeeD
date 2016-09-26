@@ -139,15 +139,12 @@ function validate($data) { //ensure proper data
   </ul>
 </div>
 <div id="left">
-  <?php 
-  if($_GET["Action"] == 'Fail') {
-    echo "<div class='fail'>Employee ID does not exist.</div>";
-  } else {
-  ?>
   <div id="editform">
   <?php 
   if($_GET["Action"] == 'Delete') {
     echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
+  } elseif($_GET["Action"] == 'Fail') {
+    echo "<p class='error'>Employee ID does not exist.</p>";
   }
   ?>
   <h3>Edit Employee</h3>
@@ -175,9 +172,6 @@ function validate($data) { //ensure proper data
     ?> 	
   </form>
   </div>
-<?php
-    }
-?>
 </div>
 </div>
 <script>
