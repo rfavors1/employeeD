@@ -9,3 +9,8 @@ function validateEmail(email) {
 	
 	return check;
 }
+
+function validateName(name) 
+{  
+   return /^[A-z ]+$/.test(name);
+}
