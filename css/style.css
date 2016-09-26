@@ -70,7 +70,7 @@ h1 {color: #0099FF;}
 #container {height: 100%; border-top-width: thick; border-top-style: solid; border-top-color: #333333; background-color: #CCCCCC;}
 #top {margin-bottom: 20px; margin-top: 5px;}
 #header {height: 80px;}
-.lang {color:#0099FF;text-align:left;margin-right:20px;}
+.lang {right:20px;display: block;}
 .open {display: none;}
 .active {
     background-color: #333333;
