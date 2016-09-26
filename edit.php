@@ -144,37 +144,7 @@ function validate($data) { //ensure proper data
     echo "<div class='error'>Employee ID does not exist.</div>";
   } else {
   ?>
-  <div id="editform">
-  <?php 
-  if($_GET["Action"] == 'Delete') {
-    echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
-  }
-  ?>
-  <h3>Edit Employee</h3>
-  <p>*All fields are required.</p>
-  <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
-    <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="error"> <?php echo $EmailError;?></span></p>
-    <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
-	<input type="hidden" name="ID" value="<?php echo $ID?>">
-	<input type="hidden" name="Oname" value="<?php echo $Name?>">
-	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
-	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">
-    <?php 
-    if($_GET["Action"] == 'Delete') {
-	?>
-    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . ",'" . $Name . "','" . $Email . "','" . $Hire . "'"?>)"></p>
-	<?php
-    } else {
-      if(!($_GET["Action"] == 'Fail')) {	  
-	?>
-     <p><input type="submit" value="Update"></p>	
-	<?php
-	  }
-	  }
-    ?> 	
-  </form>
-  </div>
+
 <?php
     }
 ?>
