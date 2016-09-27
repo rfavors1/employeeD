@@ -45,15 +45,12 @@ function validateForm() {
 	var NameError = "";
 	var EmailError = "";
 	var HireError = "";	
-	alert(name);
     if (name == null || name == "") {
-
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
 	} else if (!validateName(name))	{
-	     alert('made');
 		NameError = " Invalid Name format.";	
-		$(".Name").html(NameError);
+		$(".name").html(NameError);
     }  else {
 	   $(".name").html(NameError);
     } 	
