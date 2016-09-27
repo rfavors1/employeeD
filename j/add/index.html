@@ -75,6 +75,8 @@ function validateForm() {
 	if (NameError || EmailError || HireError) {
 	  return false;
 	}	
+	
+	Add(name,email,hire);
 }
 $(".close").click(function(){
     $(".menu").css("display","none"); 
@@ -92,6 +94,22 @@ $(".open").click(function(){
 	$("#left").css("margin-left","175px");  	
   
 });
+function Add(name,email,hire) {
+   var dataString = 'Ename=' + name + '&Eemail=' + email + '&Ehire=' + hire;
+	$.ajax({
+	type: "POST",
+	url: "add.php",
+	data: dataString,
+	cache: false,
+	success: function(results){
+      if (results.status == 1) {
+	    $("#left").append("<div class='success'>Employee record added successfully.</div>");
+	  } else {
+	    $("#left").append("<div class='fail'>" + results.error + "</div>");	  
+	  }
+    }
+	});
+}
 </script>
 </body>
 </html>
