@@ -32,7 +32,7 @@ $_POST["Ehire"] = '2016-11-02';
   $link->close();
 
   $results = json_encode($results);
- echo results;  
+ echo $results;  
 
 
 function validate($data) {
