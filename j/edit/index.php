@@ -20,72 +20,6 @@ $db = substr($url["path"], 1);
 $NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
-  if (empty($_POST["Ename"])) {
-    $NameError = "Name is required";
-  } else {
-    $Name = validate($_POST["Ename"]);
-	if (!preg_match("/^[a-zA-Z ]*$/",$Name)) {
-      $NameError = "Only letters and white space allowed"; 
-    }
-  }
-  
-  if (empty($_POST["Eemail"])) {
-    $EmailError = "Email is required";
-  } else {
-    $Email = validate($_POST["Eemail"]);
-	if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
-      $EmailError = "Invalid email format"; 
-    }
-  }
-    
-  if (empty($_POST["Ehire"])) {
-    $HireError = "Hire Date is required";
-  } else {
-    $Hire = validate($_POST["Ehire"]);
-  }
-  $ID = validate($_POST["ID"]);
-  $ID = intval($ID);
-  if (!(is_integer($ID))) {
-     echo "<h2 class='error'>Employee ID must be in number format.</h2>";
-  } 
-	  
-  if (!$NameError and !$EmailError and !$HireError and is_integer($ID)) {
-  $link = new mysqli($server,$username,$password,$db); 
-  if ($link->connect_error) {
-    die("Connection failed: " . $link->connect_error);
-  } 
-  
-  $sql = "update employee set Name='$Name',Email='$Email',HireDate='$Hire',LastModified=now() where ID=$ID";
-
-  if ($link->query($sql) === TRUE) {
-    echo "<h2 class='success'>Record updated successfully.</h2>";
-  } else {
-    echo "Error: " . $sql . "<br>" . $link->error;
-  }
-  
-  //check to see if name changed, if so add to change log
-  if ($_POST["Oname"] != $Name) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Name','" . $_POST["Oname"] . "','$Name',now())";
-	$link->query($sql);
-  }
-  
-  //check to see if email has changed, if so add to change log
-  if ($_POST["Oemail"] != $Email) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Email','" . $_POST["Oemail"] . "','$Email',now())";
-	$link->query($sql);
-  }  
-
-  //check to see if hire date has changed, if so add to change log
-  if ($_POST["Ohire"] != $Hire) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'HireDate','" . $_POST["Ohire"] . "','$Hire',now())";
-	$link->query($sql);
-  }
-  
-  //close connection
-  $link->close();
-  }
-} else {//handles initial request for employee information (before update)
   if (!empty($_GET["ID"])) {
  //    echo "<script>location.replace('edit.php?Action=Fail');</script>";
   //} else {
@@ -117,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	  
      $link->close();
     }
-  }
+  
 }
 function validate($data) { //ensure proper data
   $data = trim($data);
@@ -152,7 +86,7 @@ function validate($data) { //ensure proper data
   ?>
   <h3>Edit Employee</h3>
   <p>*All fields are required.</p>
-  <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+  <form  method="post" name="updateE" onsubmit="return validateForm()">
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="name error"> <?php echo $NameError;?></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="email error"> <?php echo $EmailError;?></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="hire error"> <?php echo $HireError;?></span></p>
@@ -168,7 +102,7 @@ function validate($data) { //ensure proper data
     } else {
       if($_GET["Action"] != 'Fail') {	  
     ?>
-    <p><input type="button" value="Delete" onClick="ValidateForm(Ename,Eemail,Ehire,Oname,Oemail,Ohire)"></p>
+    <p><input type="submit" value="Submit"></p>
 	<?php
 	  }
 	}
@@ -179,9 +113,12 @@ function validate($data) { //ensure proper data
 </div>
 <script>
 function validateForm() {
-    var name = document.forms["addE"]["Ename"].value;
-	var email = document.forms["addE"]["Eemail"].value;
-    var hire = document.forms["addE"]["Ehire"].value;
+    var name = document.forms["updateE"]["Ename"].value;
+	var email = document.forms["updateE"]["Eemail"].value;
+    var hire = document.forms["updateE"]["Ehire"].value;
+    var oname = document.forms["updateE"]["Oname"].value;
+	var oemail = document.forms["updateE"]["Oemail"].value;
+    var ohire = document.forms["updateE"]["Ohire"].value;	
 	var NameError = "";
 	var EmailError = "";
 	var HireError = "";	
@@ -217,7 +154,7 @@ function validateForm() {
 	  return false;
 	}	
 	
-	Add(name,email,hire);
+	Update(name,email,hire,oname,oemail,ohire);
 }
 $(".close").click(function(){
     $(".menu").css("display","none"); 
@@ -235,6 +172,20 @@ $(".open").click(function(){
 	$("#left").css("margin-left","175px");  	
   
 });
+
+function Update(name,email,hire,oname,oemail,ohire) {
+   var dataString = 'Ename=' + name + '&Eemail=' + email + '&Ehire=' + hire + '&Oname=' + oname + '&Oemail=' + oemail + '&Ohire=' + ohire;
+	$.ajax({
+	type: "POST",
+	url: "../php/edit.php",
+	data: dataString,
+	dataType: 'text',
+    cache: false,
+	success: function(data){
+	  alert(data);
+    }
+	});
+}
 
 function Delete(id,name,email,hire) {
    var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
