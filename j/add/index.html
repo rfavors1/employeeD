@@ -107,7 +107,7 @@ function Add(name,email,hire) {
       if (results["status"] == 1) {
 	    $("#left").append("<div class='success'>Employee record added successfully.</div>");
 	  } else {
-	    $("#left").append("<div class='fail'>" + results.error + "</div>");	  
+	    $("#left").append("<div class='fail'>" + results["error"] + "</div>");	  
 	  }
     }
 	});
