@@ -126,7 +126,7 @@ function validateForm() {
     }  else {
 	   $(".name").html(NameError);
     } 	
-  	alert(NameError);
+
     if (email == null || email == "") {
 		EmailError = " Email is Required.";	
 		$(".email").html(EmailError);
