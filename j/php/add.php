@@ -29,7 +29,7 @@ $Name = $Email = $Hire = "";
   $link->close();
 
   $results = json_encode($results);
-  echo "<div class='success'>Employee record added successfully.</div>"
+  echo "Employee record added successfully."
 
 
 
