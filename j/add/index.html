@@ -100,10 +100,11 @@ function Add(name,email,hire) {
 	type: "POST",
 	url: "../php/add.php",
 	data: dataString,
+	dataType: "json",
 	cache: false,
 	success: function(results){
 	  alert(results["status"]);
-      if (results.status == 1) {
+      if (results["status"] == 1) {
 	    $("#left").append("<div class='success'>Employee record added successfully.</div>");
 	  } else {
 	    $("#left").append("<div class='fail'>" + results.error + "</div>");	  
