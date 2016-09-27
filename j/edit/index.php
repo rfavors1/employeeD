@@ -183,6 +183,7 @@ function Update(name,email,hire,oname,oemail,ohire) {
     cache: false,
 	success: function(data){
 	  alert(data);
+	  return false;
     }
 	});
 }
