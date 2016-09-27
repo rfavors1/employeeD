@@ -47,15 +47,16 @@ function validateForm() {
 	var HireError = "";	
 	alert(name);
     if (name == null || name == "") {
-	     alert('made');
+
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
 	} else if (!validateName(name))	{
+	     alert('made');
 		NameError = " Invalid Name format.";	
 		$(".Name").html(NameError);
-  }  else {
+    }  else {
 	   $(".name").html(NameError);
-  } 	
+    } 	
   
     if (email == null || email == "") {
 		EmailError = " Email is Required.";	
