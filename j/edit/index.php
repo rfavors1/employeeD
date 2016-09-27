@@ -165,7 +165,15 @@ $(".open").click(function(){
 	$("#left").css("margin-left","175px");  	
   
 });
-
+$(".Ename").change(function(){
+  $(".name").html("");
+});
+$(".Eemail").change(function(){
+  $(".email").html("");
+});
+$(".Ehire").change(function(){
+  $(".hire").html("");
+});
 function Update(id,name,email,hire,oname,oemail,ohire) {
    var dataString = 'ID=' + id + '&Ename=' + name + '&Eemail=' + email + '&Ehire=' + hire + '&Oname=' + oname + '&Oemail=' + oemail + '&Ohire=' + ohire;
 	$.ajax({
