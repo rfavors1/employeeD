@@ -4,7 +4,6 @@
 <title>Edit Employee</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="../js/employee.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
