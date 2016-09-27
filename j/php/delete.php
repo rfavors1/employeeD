@@ -19,14 +19,14 @@ $db = substr($url["path"], 1);
   } 
   
   $sql = "INSERT INTO deletelog (DeleteID,ID,Name,Email,HireDate,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire',now())";
-  if ($link->connect_error) {
-     $results = "Employee Record could not be added.";
-  } 
-  
-  $sql = "DELETE from employee where ID = " . $ID;
-
   if (!($link->query($sql) === TRUE)) {
      $results = "Employee Record could not be deleted.";
+  } else { 
+	  $sql = "DELETE from employee where ID = " . $ID;
+	
+	  if (!($link->query($sql) === TRUE)) {
+		 $results = "Employee Record could not be deleted.";
+	  }
   }
   
   $link->close();
