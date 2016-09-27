@@ -28,7 +28,7 @@ $Name = $Email = $Hire = "";
   
   $link->close();
 
-  $results = json_encode($results);
+ // $results = json_encode($results);
   //echo $sresults;  
 
 
