@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   $link->close();
 
-  $results = json_encode($results);
-  echo $sresults;  
+ // $results = json_encode($results);
+  //echo $sresults;  
 }
 
 
