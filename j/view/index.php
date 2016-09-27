@@ -104,14 +104,14 @@
 		echo "<div id='results'>";
 		echo "<p class='count'>Count: " . $result->num_rows . " Record(s)</p>";
 		echo "<table class='view'><tr><th>&nbsp;</th><th style='color:#FFFF00;'>ID</th><th>NAME</th><th>EMAIL</th><th>HIRE DATE</th><th>LAST MODIFIED DATE</th></tr><tr><th>&nbsp;</th>
-		<th><a href='../index.php?direction=desc&col=ID&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
-		<img src='../img/sort_down.png'></a> <a href='../index.php?direction=asc&col=ID&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
-		<img src='../img/sort_upy.png'></a></th><th><a href='../index.php?direction=desc&col=Name&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
-		<img src='../img/sort_down.png'> <a href='../index.php?direction=asc&col=Name&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
-		<img src='../img/sort_up.png'></a></th><th><a href='../index.php?direction=desc&col=Email&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
-		<img src='../img/sort_down.png'></a> <a href='../index.php?direction=asc&col=Email&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_up.png'></a></th>
-		<th><a href='../index.php?direction=desc&col=HireDate&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_down.png'></a> <a href='../index.php?direction=asc&col=HireDate&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_up.png'></a></th>
-		<th><a href='../index.php?direction=desc&col=LastModified&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_down.png'></a> <a href='../index.php?direction=asc&col=LastModified&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_up.png'></a></th></tr>";
+		<th><a href='../../view/index.php?direction=desc&col=ID&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
+		<img src='../img/sort_down.png'></a> <a href='../../view/index.php?direction=asc&col=ID&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
+		<img src='../img/sort_upy.png'></a></th><th><a href='../../view/index.php?direction=desc&col=Name&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
+		<img src='../img/sort_down.png'> <a href='../../view/index.php?direction=asc&col=Name&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
+		<img src='../img/sort_up.png'></a></th><th><a href='../../view/index.php?direction=desc&col=Email&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'>
+		<img src='../img/sort_down.png'></a> <a href='../../view/index.php?direction=asc&col=Email&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_up.png'></a></th>
+		<th><a href='../../view/index.php?direction=desc&col=HireDate&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_down.png'></a> <a href='../../view/index.php?direction=asc&col=HireDate&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_up.png'></a></th>
+		<th><a href='../../view/index.php?direction=desc&col=LastModified&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_down.png'></a> <a href='../../view/index.php?direction=asc&col=LastModified&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "'><img src='../img/sort_up.png'></a></th></tr>";
 	} else {
 		echo "<div id='results'>";
 		echo "<p class='count'>Count: " . $result->num_rows . " Record(s)</p>";
@@ -142,62 +142,62 @@
 		  echo "<th>LAST MODIFIED</th>";		
 		}		
 		echo "</tr><tr><th>&nbsp;</th>
-		<th><a href='../index.php?direction=desc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		<th><a href='../../view/index.php?direction=desc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'ID' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='../img/sort_downy.png'>";
 		} else {
 		  echo "<img src='../img/sort_down.png'>";		
 		}		
-		echo"</a> <a href='../index.php?direction=asc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a> <a href='../../view/index.php?direction=asc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'ID' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='../img/sort_upy.png'>";
 		} else {
 		  echo "<img src='../img/sort_up.png'>";		
 		}		
-		echo"</a></th><th><a href='../index.php?direction=desc&col=Name&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a></th><th><a href='../../view/index.php?direction=desc&col=Name&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'Name' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='../img/sort_downy.png'>";
 		} else {
 		  echo "<img src='../img/sort_down.png'>";		
 		}	
-		echo "<a href='../index.php?direction=asc&col=Name&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo "<a href='../../view/index.php?direction=asc&col=Name&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'Name' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='../img/sort_upy.png'>";
 		} else {
 		  echo "<img src='../img/sort_up.png'>";		
 		}			
-		echo "</a></th><th><a href='../index.php?direction=desc&col=Email&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo "</a></th><th><a href='../../view/index.php?direction=desc&col=Email&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 		if ($_GET["col"] == 'Email' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='../img/sort_downy.png'>";
 		} else {
 		  echo "<img src='../img/sort_down.png'>";		
 		}	
 		
-		echo"</a> <a href='../index.php?direction=asc&col=Email&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a> <a href='../../view/index.php?direction=asc&col=Email&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'Email' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='../img/sort_upy.png'>";
 		} else {
 		  echo "<img src='../img/sort_up.png'>";		
 		}		
-		echo"</a></th><th><a href='../index.php?direction=desc&col=HireDate&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a></th><th><a href='../../view/index.php?direction=desc&col=HireDate&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 		if ($_GET["col"] == 'HireDate' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='../img/sort_downy.png'>";
 		} else {
 		  echo "<img src='../img/sort_down.png'>";		
 		}	
-		echo"</a> <a href='../index.php?direction=asc&col=HireDate&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a> <a href='../../view/index.php?direction=asc&col=HireDate&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'HireDate' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='../img/sort_upy.png'>";
 		} else {
 		  echo "<img src='../img/sort_up.png'>";		
 		}		
-		echo"</a></th><th><a href='../index.php?direction=desc&col=LastModified&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a></th><th><a href='../../view/index.php?direction=desc&col=LastModified&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'LastModified' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='../img/sort_downy.png'>";
 		} else {
 		  echo "<img src='../img/sort_down.png'>";		
 		}			
-		echo"</a> <a href='../index.php?direction=asc&col=LastModified&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
+		echo"</a> <a href='../../view/index.php?direction=asc&col=LastModified&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "'>";
 	    if ($_GET["col"] == 'LastModified' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='../img/sort_upy.png'>";
 		} else {
