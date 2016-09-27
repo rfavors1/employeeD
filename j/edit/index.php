@@ -20,7 +20,7 @@ $db = substr($url["path"], 1);
 $NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
 
-  if (!empty($_GET["ID"])) {
+  if (empty($_GET["ID"]) {
      echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
   } else {
     $ID = validate($_GET["ID"]);
