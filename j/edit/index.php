@@ -115,9 +115,8 @@ function validateForm() {
 	var NameError = "";
 	var EmailError = "";
 	var HireError = "";	
-   
+    alert(name);
     if (name == null || name == "") {
-	alert("made");
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
 	} else if (!validateName(name))	{
