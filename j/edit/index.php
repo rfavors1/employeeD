@@ -5,6 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="../js/employee.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
 <body>
@@ -125,17 +127,18 @@ function validate($data) { //ensure proper data
 }
 ?>
 <div id="header">
-<a href="dashboard.php"><h1>Employee Dashboard</h1></a>
+<a href="../dashboard.html"><h1>Employee Dashboard</h1></a>
+<div class="lang"><a href="../../dashboard.php" style="color: #0099FF;" title="PHP Version">PHP</a> <a href="../dashboard.html" style="color: #333333;text-decoration: underline;font-weight:bold;" title="JavaScript Version">JavaScript</a></div>
 </div>
 <div id="container">
 <div id="right">
   <div id="top">
-    <img src="img/x-mark.png" class="close" style="margin-left: 175px;">  
-    <img src="img/rightarrow.png" class="open">  	
+    <img src="../img/x-mark.png" class="close" style="margin-left: 175px;">  
+    <img src="../img/rightarrow.png" class="open">  	
   </div>  
   <ul class="menu">
-  <li><a href="add.php">Add Employee</a></li>
-  <li><a href="view.php" class="active">View Employee</a></li>  
+  <li><a href="../add"  class="active">Add Employee</a></li>
+  <li><a href="../view">View Employee</a></li>  
   </ul>
 </div>
 <div id="left">
