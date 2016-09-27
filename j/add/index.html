@@ -29,7 +29,7 @@
   <h3>Add New Employee</h3>
   <p>*All fields are required.</p>
   <form name="addE" method="post" action="" onsubmit="return validateForm()">
-    <p>Name: <input type="text" size=35 name="Ename" value=""><span class="name error"></span></p>
+    <p>Name: <input type="text" size=35 name="Ename" value="" class="Ename"><span class="name error"></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value=""><span class="email error"></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value=""><span class="hire error"></span></p>
 	<p><input type="submit" value="Add"></p>
@@ -45,6 +45,7 @@ function validateForm() {
 	var NameError = "";
 	var EmailError = "";
 	var HireError = "";	
+
     if (name == null || name == "") {
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
@@ -78,6 +79,9 @@ function validateForm() {
 	
 	Add(name,email,hire);
 }
+$("Ename").change(function(){
+  $(".name").html("");
+});
 $(".close").click(function(){
     $(".menu").css("display","none"); 
 	$(".close").css("display","none"); 
