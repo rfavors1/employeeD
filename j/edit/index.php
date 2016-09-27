@@ -199,11 +199,16 @@ function Delete(id,name,email,hire) {
    var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
 	$.ajax({
 	type: "POST",
-	url: "delete.php",
-	data: dataString,
+	url: "../php/delete.php",
+	data: 'text',
 	cache: false,
-	success: function(){
-	  location.replace("view.php?Action=DeleteSuccess");
+	success: function(data){
+      alert(data);
+	  if (data == "Employee record added successfully.") 
+	    location.replace("../view/");
+	  } else {
+	     return false;
+	  }
     }
 	});
 }
