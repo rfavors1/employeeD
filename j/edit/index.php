@@ -22,7 +22,7 @@ $Name = $Email = $Hire = "";
 
   if (!empty($_GET["ID"])) {
      echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
-  //} else {
+  } else {
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
@@ -46,12 +46,10 @@ $Name = $Email = $Hire = "";
 	      $Email = $row["Email"];
 	      $Hire = $row["HireDate"];
 	    }
-	  }
-	  
-	  
+	  }  
      $link->close();
     }
-  
+   } 
 }
 function validate($data) { //ensure proper data
   $data = trim($data);
