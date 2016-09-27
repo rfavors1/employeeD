@@ -8,8 +8,10 @@ $password = $url["pass"];
 $db = substr($url["path"], 1);
 // define variables and set to empty values
 $Name = $Email = $Hire = "";
+$_POST["Ename"] = 'richard';
+$_POST["Eemail"] = 'fhajdjsf';
+$_POST["Ehire"] = '2016-11-02';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Name = validate($_POST["Ename"]);
   $Email = validate($_POST["Eemail"]);
   $Hire = validate($_POST["Ehire"]);
@@ -30,8 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $link->close();
 
   $results = json_encode($results);
- // echo results;  
-}
+ echo results;  
 
 
 function validate($data) {
