@@ -115,7 +115,7 @@ function validateForm() {
 	var NameError = "";
 	var EmailError = "";
 	var HireError = "";	
-    alert(name);
+
     if (name == null || name == "") {
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
@@ -140,7 +140,7 @@ function validateForm() {
         HireError = " Hire Date is Required.";	
 		$(".hire").html(HireError);
     }  else {
-	   $(".name").html(HireError);
+	   $(".hire").html(HireError);
 	} 	
 	
 	if (NameError || EmailError || HireError) {
