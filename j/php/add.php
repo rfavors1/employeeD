@@ -15,20 +15,20 @@ $Name = $Email = $Hire = "";
 
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
-     //$results["status"] = 0;
-     //$results["error"] = "Employee Record could not be added.";
+     $results["status"] = 0;
+     $results["error"] = "Employee Record could not be added.";
   } 
   
   $sql = "INSERT INTO employee (ID,Name,Email,HireDate,LastModified) VALUES ('','$Name','$Email','$Hire',now())";
 
   if (!($link->query($sql) === TRUE)) {
-     //$results["status"] = 0;
-     //$results["error"] = "Employee Record could not be added.";
+     $results["status"] = 0;
+     $results["error"] = "Employee Record could not be added.";
   }
   
   $link->close();
 
- // $results = json_encode($results);
+  $results = json_encode($results);
   //echo $sresults;  
 
 
