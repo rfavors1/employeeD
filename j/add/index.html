@@ -101,14 +101,13 @@ function Add(name,email,hire) {
 	url: "../php/add.php",
 	data: dataString,
 	dataType: "json",
-	cache: false,
-	success: function(results){
+	success: function(){
 	  alert("made");
-      if (results["status"] == 1) {
-	    $("#left").append("<div class='success'>Employee record added successfully.</div>");
-	  } else {
-	    $("#left").append("<div class='fail'>" + results["error"] + "</div>");	  
-	  }
+//      if (results["status"] == 1) {
+	 $("#left").append("<div class='success'>Employee record added successfully.</div>");
+	  //} else {
+	    //$("#left").append("<div class='fail'>" + results["error"] + "</div>");	  
+	  //}
     }
 	});
 }
