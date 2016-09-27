@@ -49,7 +49,7 @@ $Name = $Email = $Hire = "";
 	  }  
      $link->close();
     }
-   } 
+    
 }
 function validate($data) { //ensure proper data
   $data = trim($data);
