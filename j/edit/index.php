@@ -200,7 +200,8 @@ function Delete(id,name,email,hire) {
 	$.ajax({
 	type: "POST",
 	url: "../php/delete.php",
-	data: 'text',
+	data: dataString,
+	dataType: 'text',
 	cache: false,
 	success: function(data){
       alert(data);
