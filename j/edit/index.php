@@ -205,6 +205,11 @@ function Delete(id,name,email,hire) {
 	cache: false,
 	success: function(data){
       alert(data);
+	  if(data == "Employee Record deleted successfully.") {
+	    location.replace("../view");
+	  } else {
+	    return false;
+	  }
     }
 	});
 }
