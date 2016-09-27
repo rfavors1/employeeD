@@ -72,6 +72,7 @@ function validate($data) {
 ?>
 <div id="header">
 <a href="dashboard.php"><h1>Employee Dashboard</h1></a>
+<div class="lang" style="color: #0099FF;"><a href="dashboard.php" style="color: #333333;text-decoration: underline;font-weight:bold;" title="PHP Version">PHP</a> <a href="/j/dashboard.html" style="color: #0099FF;" title="JavaScript Version">JavaScript</a></div>
 </div>
 <div id="container">
 <div id="right">
@@ -80,7 +81,7 @@ function validate($data) {
     <img src="img/rightarrow.png" class="open">  	
   </div>  
   <ul class="menu">
-  <li><a href="add.php"  class="active">Add Employee</a></li>
+  <li><a href="add.php" class="active">Add Employee</a></li>
   <li><a href="view.php">View Employee</a></li>  
   </ul>
 </div>
