@@ -28,8 +28,8 @@ $Name = $Email = $Hire = "";
   
   $link->close();
 
- // $results = json_encode($results);
-  //echo $sresults;  
+  $results = json_encode($results);
+  echo $sresults;  
 
 
 
