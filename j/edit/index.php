@@ -112,6 +112,7 @@ function validateForm() {
     var oname = document.forms["updateE"]["Oname"].value;
 	var oemail = document.forms["updateE"]["Oemail"].value;
     var ohire = document.forms["updateE"]["Ohire"].value;	
+	var id = document.forms["updateE"]["ID"].value;
 	var NameError = "";
 	var EmailError = "";
 	var HireError = "";	
@@ -147,7 +148,7 @@ function validateForm() {
 	  return false;
 	}	
 	
-	Update(name,email,hire,oname,oemail,ohire);
+	Update(id,name,email,hire,oname,oemail,ohire);
 }
 $(".close").click(function(){
     $(".menu").css("display","none"); 
@@ -166,8 +167,8 @@ $(".open").click(function(){
   
 });
 
-function Update(name,email,hire,oname,oemail,ohire) {
-   var dataString = 'Ename=' + name + '&Eemail=' + email + '&Ehire=' + hire + '&Oname=' + oname + '&Oemail=' + oemail + '&Ohire=' + ohire;
+function Update(id,name,email,hire,oname,oemail,ohire) {
+   var dataString = 'ID=' + id + '&Ename=' + name + '&Eemail=' + email + '&Ehire=' + hire + '&Oname=' + oname + '&Oemail=' + oemail + '&Ohire=' + ohire;
 	$.ajax({
 	type: "POST",
 	url: "../php/edit.php",
