@@ -21,7 +21,7 @@ $NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
 
   if (!empty($_GET["ID"])) {
- //    echo "<script>location.replace('edit.php?Action=Fail');</script>";
+     echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
   //} else {
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
@@ -124,7 +124,6 @@ function validateForm() {
 	var HireError = "";	
 
     if (name == null || name == "") {
-	alert(name);
 		NameError = " Name is Required.";	
 		$(".name").html(NameError);
 	} else if (!validateName(name))	{
@@ -133,7 +132,7 @@ function validateForm() {
     }  else {
 	   $(".name").html(NameError);
     } 	
-  
+  	alert(NameError);
     if (email == null || email == "") {
 		EmailError = " Email is Required.";	
 		$(".email").html(EmailError);
