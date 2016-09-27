@@ -100,7 +100,8 @@ function Add(name,email,hire) {
 	type: "POST",
 	url: "../php/add.php",
 	data: dataString,
-	dataType: "json",
+	//dataType: "json",
+    cache: false,
 	success: function(){
 	  alert("made");
 /*      if (results["status"] == 1) {
