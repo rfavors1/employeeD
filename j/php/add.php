@@ -14,7 +14,7 @@ $Name = $Email = $Hire = "";
 
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
-     $results = "Employee Record could not be added.";
+     die("Connection failed: " . $link->connect_error);
   } 
   
   $sql = "INSERT INTO employee (ID,Name,Email,HireDate,LastModified) VALUES ('','$Name','$Email','$Hire',now())";
