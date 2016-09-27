@@ -102,9 +102,9 @@ function Add(name,email,hire) {
 	data: dataString,
 	dataType: "json",
     cache: false,
-	success: function(){
+	success: function(results){
 	 // $("#left").append("<div class='success'>Employee record added successfully.</div>");
-	  alert("made");
+	  alert(results["status"]);
 /*      if (results["status"] == 1) {
 	    $("#left").append("<div class='success'>Employee record added successfully.</div>");
 	  } else {
