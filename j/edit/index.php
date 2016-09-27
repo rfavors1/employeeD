@@ -17,18 +17,14 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 // define variables and set to empty values
-$NameError = $EmailError = $HireError = "";
 $Name = $Email = $Hire = "";
 
-  if (empty($_GET["ID"]) {
-     echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
-  } else {
+ 
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
-     echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
-	} 
-    else {
+      echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
+    } else {
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
 		die("Connection failed: " . $link->connect_error);
@@ -39,7 +35,7 @@ $Name = $Email = $Hire = "";
 	  $result = $link->query($sql);
 		
 	  if ($result->num_rows == 0) {
-		 echo "<script>location.replace('edit.php?Action=Fail');</script>";
+		 echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["Name"];
@@ -48,9 +44,8 @@ $Name = $Email = $Hire = "";
 	    }
 	  }  
      $link->close();
-    }
-    
-}
+    }  
+  
 function validate($data) { //ensure proper data
   $data = trim($data);
   $data = stripslashes($data);
