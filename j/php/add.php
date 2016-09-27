@@ -1,5 +1,6 @@
 <?php
-$results = array(status => 1, error => '');
+$results["status"] = 1;
+$results["error"] = '';
 $url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
 $server = $url["host"];
 $username = $url["user"];
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   $link->close();
   }
-  $results = $json->encode($results);
+  $results = json_encode($results);
   echo results;  
 }
 
