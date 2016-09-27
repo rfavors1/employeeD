@@ -98,7 +98,7 @@ function Add(name,email,hire) {
    var dataString = 'Ename=' + name + '&Eemail=' + email + '&Ehire=' + hire;
 	$.ajax({
 	type: "POST",
-	url: "add.php",
+	url: "../php/add.php",
 	data: dataString,
 	cache: false,
 	success: function(results){
