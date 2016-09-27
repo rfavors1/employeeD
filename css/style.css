@@ -24,7 +24,7 @@ a:hover { color:#CCCCCC;}
     padding: 5px;
 	position: absolute;
     right: 20px;
-	top: 90px;
+	top: 110px;
 	width: 280px;}
 h2 {
     margin-left: 50px;
@@ -39,7 +39,7 @@ h2 {
     padding: 5px;
 	position: absolute;
     right: 20px;
-	top: 90px;
+	top: 110px;
 	width: 280px;}	
 .count {font-weight: bold; margin-left: 50px;}
 #results {margin-top: 30px;}
