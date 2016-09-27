@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
-     echo "<script>location.replace('edit.php?Action=Fail');</script>";
+     echo "<script>location.replace('../edit/index.php?Action=Fail');</script>";
 	} 
     else {
 	  $link = new mysqli($server,$username,$password,$db); 
@@ -153,9 +153,9 @@ function validate($data) { //ensure proper data
   <h3>Edit Employee</h3>
   <p>*All fields are required.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
-    <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="error"> <?php echo $EmailError;?></span></p>
-    <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
+    <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="name error"> <?php echo $NameError;?></span></p>
+    <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="email error"> <?php echo $EmailError;?></span></p>
+    <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="hire error"> <?php echo $HireError;?></span></p>
 	<input type="hidden" name="ID" value="<?php echo $ID?>">
 	<input type="hidden" name="Oname" value="<?php echo $Name?>">
 	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
@@ -168,7 +168,7 @@ function validate($data) { //ensure proper data
     } else {
       if($_GET["Action"] != 'Fail') {	  
     ?>
-     <p><input type="submit" value="Update"></p>	
+    <p><input type="button" value="Delete" onClick="ValidateForm(Ename,Eemail,Ehire,Oname,Oemail,Ohire)"></p>
 	<?php
 	  }
 	}
@@ -178,6 +178,47 @@ function validate($data) { //ensure proper data
 </div>
 </div>
 <script>
+function validateForm() {
+    var name = document.forms["addE"]["Ename"].value;
+	var email = document.forms["addE"]["Eemail"].value;
+    var hire = document.forms["addE"]["Ehire"].value;
+	var NameError = "";
+	var EmailError = "";
+	var HireError = "";	
+
+    if (name == null || name == "") {
+		NameError = " Name is Required.";	
+		$(".name").html(NameError);
+	} else if (!validateName(name))	{
+		NameError = " Invalid Name format.";	
+		$(".name").html(NameError);
+    }  else {
+	   $(".name").html(NameError);
+    } 	
+  
+    if (email == null || email == "") {
+		EmailError = " Email is Required.";	
+		$(".email").html(EmailError);
+	} else if (!validateEmail(email))	{
+		EmailError = " Invalid email format.";	
+		$(".email").html(EmailError);
+  }  else {
+	   $(".email").html(EmailError);
+  } 
+
+    if (hire == null || hire == "") {
+        HireError = " Hire Date is Required.";	
+		$(".hire").html(HireError);
+    }  else {
+	   $(".name").html(HireError);
+	} 	
+	
+	if (NameError || EmailError || HireError) {
+	  return false;
+	}	
+	
+	Add(name,email,hire);
+}
 $(".close").click(function(){
     $(".menu").css("display","none"); 
 	$(".close").css("display","none"); 
