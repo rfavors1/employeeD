@@ -207,7 +207,7 @@
    }
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			echo "<tr><td><a href='edit.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='../img/delete.png'></a>&nbsp; <a href='edit.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='../img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td><td>" . $row["LastModified"] . "</td></tr>";
+			echo "<tr><td><a href='../edit/index.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='../img/delete.png'></a>&nbsp; <a href='../edit/index.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='../img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["Name"]."</td><td>".$row["Email"]."</td><td>" . $row["HireDate"] . "</td><td>" . $row["LastModified"] . "</td></tr>";
 		}
 		echo "</table></div>";
 	} else {
