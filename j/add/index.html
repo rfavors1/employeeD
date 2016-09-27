@@ -104,13 +104,7 @@ function Add(name,email,hire) {
 	dataType: 'text',
     cache: false,
 	success: function(data){
-	 // $("#left").append("<div class='success'>Employee record added successfully.</div>");
-	  $(".success").append(data);
-/*      if (results["status"] == 1) {
-	    $("#left").append("<div class='success'>Employee record added successfully.</div>");
-	  } else {
-	    $("#left").append("<div class='fail'>" + results["error"] + "</div>");	  
-	  }*/
+	  alert(data);
     }
 	});
 }
