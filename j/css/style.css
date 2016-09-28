@@ -1,5 +1,5 @@
 /* CSS Document */
-#dash { width: 50%; height: auto; display:block; background-color:#0099FF; color:#FFFFFF; margin-left: 30px; border: 2px solid; padding-left: 20px; font-size:18px;}
+#dash { width: 50%; height: auto; display:block; background-color:#F62217; color:#FFFFFF; margin-left: 30px; border: 2px solid; padding-left: 20px; font-size:18px;}
 #addform, #editform, #viewform {
     margin-left: 50px;
     background-color: white;
@@ -13,7 +13,7 @@
 a {color: white; text-decoration: none;}
 a:hover { color:#CCCCCC;}
 .error {color: red;}
-.goback {color: #0099FF; font-size: 20px;}
+.goback {color: #F62217; font-size: 20px;}
 .success {
     display: block;
     background-color: green;
@@ -59,11 +59,11 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: #0099FF;
+    background-color: #F62217;
     color: white;
 }
 
-#right {float:left; background-color:#0099FF; width:200px; margin-top: 0px; margin-left: 0px; padding:0px; height: 100%;  border-right-width: thick; border-right-style: solid; border-right-color: #333333;}
+#right {float:left; background-color:#F62217; width:200px; margin-top: 0px; margin-left: 0px; padding:0px; height: 100%;  border-right-width: thick; border-right-style: solid; border-right-color: #333333;}
 #left {background-color: #CCCCCC; margin-top: 0px; margin-left: 200px; padding: 0px; height: 100%; overflow:auto;}
 html, body {margin: 0px; height: 100%; overflow:hidden;}
 h1 {color:#F62217;}
