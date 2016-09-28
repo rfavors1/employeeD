@@ -10,6 +10,7 @@
     box-shadow: 5px 5px grey;
 	margin-top: 60px;
 }
+
 a {color: white; text-decoration: none;}
 a:hover { color:#CCCCCC;}
 .error {color: red;}
