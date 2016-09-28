@@ -18,7 +18,7 @@ $db = substr($url["path"], 1);
 // define variables and set to empty values
 $Name = $Email = $Hire = "";
 
- 
+ if($_GET["Action"] != 'Fail') {
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
@@ -44,7 +44,7 @@ $Name = $Email = $Hire = "";
 	  }  
      $link->close();
     }  
-  
+  }
 function validate($data) { //ensure proper data
   $data = trim($data);
   $data = stripslashes($data);
