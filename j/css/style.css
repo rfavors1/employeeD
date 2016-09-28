@@ -12,6 +12,7 @@
 }
 
 a {color: white; text-decoration: none;}
+
 a:hover { color:#CCCCCC;}
 .error {color: red;}
 .goback {color: #F62217; font-size: 20px;}
