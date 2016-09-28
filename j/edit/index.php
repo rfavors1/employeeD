@@ -63,8 +63,8 @@ function validate($data) { //ensure proper data
     <img src="../img/rightarrow.png" class="open">  	
   </div>  
   <ul class="menu">
-  <li><a href="../add"  class="active">Add Employee</a></li>
-  <li><a href="../view">View Employee</a></li>  
+  <li><a href="../add">Add Employee</a></li>
+  <li><a href="../view" class="active">View Employee</a></li>  
   </ul>
 </div>
 <div id="left">
