@@ -106,12 +106,13 @@ function validate($data) {
 	<p>Supervisor: <select>
 	<?php 
 	$options = employeeName();
+	 echo $options;
 	foreach ($options as &$value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
 	  echo "<option value='" . $i . "'>" . $n . "</option>";
    }
-   echo $value;
+  
    ?>
     </select></p>
 	<p><input type="submit" value="Add"></p>
