@@ -18,10 +18,14 @@ $db = substr($url["path"], 1);
 	 
 	 while($row = $result->fetch_assoc()) {
 	    echo $row["id"] . " " . $row["name"];
-	   array_push($rows,$row);
-	   echo $rows[0];
+		$new_array[$row['id']]['id'] = $row['id'];
+        $new_array[$row['id']]['link'] = $row['name'];
 	 }
-	 echo $rows;
+	 foreach($new_array as $array)
+{       
+   echo $array['id'].'<br />';
+   echo $array['name'].'<br />';
+}
 	 return $rows;
 }
 
