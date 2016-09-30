@@ -23,6 +23,6 @@ $db = substr($url["path"], 1);
 	 return $rows;
 }
 
-employeeName();
-	  
+$result = employeeName();
+echo $result;	  
 ?>
