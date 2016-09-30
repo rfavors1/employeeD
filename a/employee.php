@@ -19,7 +19,7 @@ $db = substr($url["path"], 1);
 	 while($row = $result->fetch_assoc()) {
 	   array_push($rows,$row);
 	 }
-	 
+	 echo $rows;
 	 return $rows;
 }
 	  
