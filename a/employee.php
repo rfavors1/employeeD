@@ -13,7 +13,7 @@ $db = substr($url["path"], 1);
 		die("Connection failed: " . $link->connect_error);
   } 
   
-  	 $sql = "SELECT id,name FROM employee e left join department d on d.manager_id = e.id";
+  	 $sql = "SELECT e.id,e.name FROM employee e left join department d on d.manager_id = e.id";
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
