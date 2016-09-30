@@ -106,7 +106,6 @@ function validate($data) {
 	<p>Supervisor: <select>
 	<?php 
 	$options = employeeName();
-	 echo $options;
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
@@ -118,7 +117,6 @@ function validate($data) {
 	<p>Department: <select>
 	<?php 
 	$options = departmentName();
-	 echo $options;
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
