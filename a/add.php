@@ -111,6 +111,7 @@ function validate($data) {
 	  $n = $value["name"];
 	  echo "<option value='" . $i . "'>" . $n . "</option>";
    }
+   echo $value;
    ?>
     </select></p>
 	<p><input type="submit" value="Add"></p>
