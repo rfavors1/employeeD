@@ -17,18 +17,18 @@ $db = substr($url["path"], 1);
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
-	    echo $row["id"] . " " . $row["name"];
+	    //echo $row["id"] . " " . $row["name"];
 		$new_array[$row['id']]['id'] = $row['id'];
-        $new_array[$row['id']]['link'] = $row['name'];
+        $new_array[$row['id']]['name'] = $row['name'];
 	 }
-	 foreach($new_array as $array)
+/*	 foreach($new_array as $array)
 {       
    echo $array['id'].'<br />';
    echo $array['name'].'<br />';
-}
-	 return $rows;
+}*/
+	 return $new_array;
 }
 
-$result = employeeName();
-echo $result;	  
+//$result = employeeName();
+//echo $result;	  
 ?>
