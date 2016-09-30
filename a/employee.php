@@ -22,5 +22,7 @@ $db = substr($url["path"], 1);
 	 echo $rows;
 	 return $rows;
 }
+
+employeeName();
 	  
 ?>
