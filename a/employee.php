@@ -17,6 +17,7 @@ $db = substr($url["path"], 1);
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
+	    echo $row["id"] . " " . $row["name"];
 	   array_push($rows,$row);
 	 }
 	 echo $rows;
