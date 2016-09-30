@@ -115,6 +115,18 @@ function validate($data) {
   
    ?>
     </select></p>
+	<p>Department: <select>
+	<?php 
+	$options = departmentName();
+	 echo $options;
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";
+   }
+  
+   ?>
+    </select></p>
 	<p><input type="submit" value="Add"></p>
   </form>
 </div>
