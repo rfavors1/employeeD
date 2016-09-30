@@ -109,7 +109,7 @@ function validate($data) {
 	foreach ($options as &$value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	  echo "<option value='$i'>$n</option>";
+	  echo "<option value='" . $i "'>" . $n . "</option>";
    }
    ?>
     </select></p>
