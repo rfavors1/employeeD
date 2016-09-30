@@ -19,6 +19,7 @@ $db = substr($url["path"], 1);
 	 while($row = $result->fetch_assoc()) {
 	    echo $row["id"] . " " . $row["name"];
 	   array_push($rows,$row);
+	   echo $rows[0];
 	 }
 	 echo $rows;
 	 return $rows;
