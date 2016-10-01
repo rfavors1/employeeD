@@ -24,7 +24,7 @@ $db = substr($url["path"], 1);
 		die("Connection failed: " . $link->connect_error);
   } 
   
-  	 $sql = "SELECT max(e.id),e.hiredate FROM employeetb e";
+  	 $sql = "SELECT e.id,e.hiredate FROM employeetb e";
 	 //echo $sql;
 	 $result = $link->query($sql);
 	 
