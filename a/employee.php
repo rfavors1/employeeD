@@ -33,17 +33,17 @@ $db = substr($url["path"], 1);
 		echo $id;
         $hire = $row['HireDate'];
 	 }
-     return $id;
+
   	 $sql = "SELECT id,days_due FROM training";
 	 $result = $link->query($sql);
 	 
-/*	 while($row = $result->fetch_assoc()) {
+  	 while($row = $result->fetch_assoc()) {
 		$training_id = $row['id'];
 		echo "training: " . $training_id;
 		$days = $row['days_due'];
 		$interval = $days . " days";
 		$date = $hire;
-		//date_add($date,date_interval_create_from_date_string($interval));
+		date_add($date,date_interval_create_from_date_string($interval));
 		echo "Date: " . $date;
         $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
 
@@ -52,8 +52,8 @@ $db = substr($url["path"], 1);
 	 
 }
 
-$id = NewHireTraining();
-echo $id;
+NewHireTraining();
+//echo $id;
 //Return list of department names
 function departmentName() {
 
