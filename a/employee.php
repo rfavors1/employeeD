@@ -1,5 +1,42 @@
 <?php
 
+//add new hire training dates when employee added
+function NewHireTraining() {
+
+$url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+  $link = new mysqli($server,$username,$password,$db); 
+  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+  } 
+  
+  	 $sql = "SELECT max(e.id),e.hiredate FROM employeetb e";
+	 $result = $link->query($sql);
+	 
+	 while($row = $result->fetch_assoc()) {
+		$id = $row['id'];
+        $hire = $row['hiredate'];
+	 }
+
+  	 $sql = "SELECT id,days_due FROM training";
+	 $result = $link->query($sql);
+	 
+	 while($row = $result->fetch_assoc()) {
+		$training_id = $row['id'];
+		$days = $row['days_due'];
+		$interval = $days . " days";
+		$date = $hire;
+		date_add($date,date_interval_create_from_date_string($interval));
+        $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date',0)";
+
+        $link->query($sql)
+	}	 
+	 
+}
 
 
 //Return list of department names

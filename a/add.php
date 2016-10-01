@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($link->query($sql) === TRUE) {
     echo "<script>location.replace('add.php?Action=Success');</script>";
-	//NewHireTraining();
+	NewHireTraining();
 	unset($_POST);
   } else {
     echo "<script>location.replace('add.php?Action=Fail');</script>";
@@ -122,11 +122,11 @@ function validate($data) {
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	  if ($Supervisor == $i) {
-	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
-	  } else {
+	 // if ($Supervisor == $i) {
+	  //  echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	  //} else {
 	    echo "<option value='" . $i . "'>" . $n . "</option>";      
-	  }
+	  //}
 
    }
   
@@ -138,11 +138,11 @@ function validate($data) {
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	  if ($Department == $i) {
-	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
-	  } else {
+	  //if ($Department == $i) {
+	  //  echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	  //} else {
 	    echo "<option value='" . $i . "'>" . $n . "</option>";      
-	  }
+	  //}
    }
   
    ?>
