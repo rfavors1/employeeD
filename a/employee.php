@@ -32,8 +32,14 @@ $db = substr($url["path"], 1);
 		$id = $row['max_id'];
         $hire = $row['hire_date'];
 	 }
-  echo $id;
-  echo $hire;
+    echo $id;
+    echo $hire;
+  
+  	$training = Training();
+	foreach ($training as $value) {
+	  $i = $value["id"];
+	  $d = $value["days_due"];
+	}
   mysqli_close($link);
 }
 
