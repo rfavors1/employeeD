@@ -40,7 +40,10 @@ $db = substr($url["path"], 1);
 	  $i = $value["id"];
 	  $d = $value["days_due"];
 	  echo "<p>" . $i . " " . $d . "</p>";
+	  $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,complete) VALUES ('',$id,$i,'$hire',0)";
+	  $link->query($sql);
 	}
+  
   mysqli_close($link);
 }
 
