@@ -33,7 +33,7 @@ $db = substr($url["path"], 1);
 		$date = $hire;
 		date_add($date,date_interval_create_from_date_string($interval));
 		echo "Date: " . $date;
-        $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date',0)";
+        $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
 
         $link->query($sql)
 	}	 
