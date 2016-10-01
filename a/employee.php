@@ -39,6 +39,7 @@ $db = substr($url["path"], 1);
 	foreach ($training as $value) {
 	  $i = $value["id"];
 	  $d = $value["days_due"];
+	  echo "<p>" . $i . " " . $d . "</p>";
 	}
   mysqli_close($link);
 }
