@@ -32,10 +32,7 @@ $db = substr($url["path"], 1);
 		$id = $row['max_id'];
         $hire = $row['hire_date'];
 	 }
-  $link = new mysqli($server,$username,$password,$db); 
-  if ($link->connect_error) {
-		die("Connection failed: " . $link->connect_error);
-  } 
+
   	 $sql = "SELECT id as training_id,days_due as days FROM training";
 	 $result = $link->query($sql);
 	 
@@ -46,11 +43,10 @@ $db = substr($url["path"], 1);
 		//$interval = $days . " days";
 		//$date = $hire;
 		//echo $interval;
-		echo $row['days_due'];
 		//date_add($date,date_interval_create_from_date_string($interval));
 		//echo "Date: " . $date;
         //$sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
-  ) 
+     ) 
 }
 
 NewHireTraining();
