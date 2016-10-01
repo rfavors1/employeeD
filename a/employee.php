@@ -39,8 +39,9 @@ echo $hire;
 	 echo $sql;
 	 $result = $link->query($sql);
      while($row = $result->fetch_assoc()) {
-		$training_id = $row['training_id'];
-		$days = $row['days'];
+	   $training_id = "fjkjfdfdjk";
+		//$training_id = $row['training_id'];
+		//$days = $row['days'];
 		//$interval = $days . " days";
 		//$date = $hire;
 		//echo $interval;
