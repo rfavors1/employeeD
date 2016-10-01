@@ -39,8 +39,11 @@ $db = substr($url["path"], 1);
 	foreach ($training as $value) {
 	  $i = $value["id"];
 	  $d = $value["days_due"];
+	  $interval = "+ " . $d . " days";
+	  $date = $hire;
+      $date2 = date('Y-m-d', strtotime($date . $interval));
 	  echo "<p>" . $i . " " . $d . "</p>";
-	  $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,complete) VALUES ('',$id,$i,'$hire',0)";
+	  $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,complete) VALUES ('',$id,$i,'$date2',0)";
 	  $link->query($sql);
 	}
   
