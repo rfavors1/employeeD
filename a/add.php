@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $Hire = validate($_POST["Ehire"]);
   }
-   //echo $_POST["Esup"] . " made " . $_POST["Edept"];
+   echo $_POST["Esup"] . " made " . $_POST["Edept"];
   if (empty($_POST["Esup"])) {
     $SupervisorError = "Supervisor is required";
   } else {
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($link->query($sql) === TRUE) {
     echo "<script>location.replace('add.php?Action=Success');</script>";
-	NewHireTraining();
+	//NewHireTraining();
 	unset($_POST);
   } else {
     echo "<script>location.replace('add.php?Action=Fail');</script>";
