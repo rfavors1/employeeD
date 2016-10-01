@@ -18,8 +18,8 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 // define variables and set to empty values
-$NameError = $EmailError = $HireError = "";
-$Name = $Email = $Hire = "";
+$NameError = $EmailError = $HireError = $SupervisorError = $DepartmentError = "";
+$Name = $Email = $Hire = $Supervisor = $Department = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["Ename"])) {
@@ -46,16 +46,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Hire = validate($_POST["Ehire"]);
   }
   
+  if (empty($_POST["Esup"])) {
+    $HireError = "Supervisor is required";
+  } else {
+    $Hire = validate($_POST["Esup"]);
+  }  
+
+  if (empty($_POST["Edept"])) {
+    $HireError = "Department is required";
+  } else {
+    $Hire = validate($_POST["Edept"]);
+  } 
+    
   if (!$NameError and !$EmailError and !$HireError) {
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "INSERT INTO employee (ID,Name,Email,HireDate,LastModified) VALUES ('','$Name','$Email','$Hire',now())";
+  $sql = "INSERT INTO employeetb (ID,Name,Email,HireDate,LastModified,SupervisorID,DepartmentID) VALUES ('','$Name','$Email','$Hire',now(),'$Supervisor','$Department')";
 
   if ($link->query($sql) === TRUE) {
     echo "<script>location.replace('add.php?Action=Success');</script>";
+	NewHireTraining();
 	unset($_POST);
   } else {
     echo "<script>location.replace('add.php?Action=Fail');</script>";
@@ -103,28 +116,37 @@ function validate($data) {
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $_POST["Ename"]; ?>"><span class="error"> <?php echo $NameError;?></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $_POST["Eemail"]; ?>"><span class="error"> <?php echo $EmailError;?></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $_POST["Ehire"]; ?>"><span class="error"> <?php echo $HireError;?></span></p>
-	<p>Supervisor: <select>
+	<p>Supervisor: <select name-"Esup">
 	<?php 
 	$options = employeeName();
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";
+	  if ($Supervisor == $i) {
+	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	  } else {
+	    echo "<option value='" . $i . "'>" . $n . "</option>";      
+	  }
+
    }
   
    ?>
-    </select></p>
-	<p>Department: <select>
+    </select><span class="error"> <?php echo $SupervisorError;?></span></p>
+	<p>Department: <select name="Edept">
 	<?php 
 	$options = departmentName();
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";
+	  if ($Department == $i) {
+	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	  } else {
+	    echo "<option value='" . $i . "'>" . $n . "</option>";      
+	  }
    }
   
    ?>
-    </select></p>
+    </select><span class="error"> <?php echo $DepartmentError;?></span></p>
 	<p><input type="submit" value="Add"></p>
   </form>
 </div>
