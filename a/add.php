@@ -138,11 +138,11 @@ function validate($data) {
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	  //if ($Department == $i) {
-	  //  echo "<option value='" . $i . "' selected>" . $n . "</option>";
-	  //} else {
+	  if ($Department == $i) {
+	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	  } else {
 	    echo "<option value='" . $i . "'>" . $n . "</option>";      
-	  //}
+	  }
    }
   
    ?>
