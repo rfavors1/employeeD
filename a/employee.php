@@ -57,11 +57,11 @@ $db = substr($url["path"], 1);
 	 while($row = $result->fetch_assoc()) {
 
 		$training_id = $row['training_id'];
-		$days = $row['days'];
-		$interval = $days . " days";
+		//$days = $row['days'];
+		//$interval = $days . " days";
 		//$date = $hire;
 		echo $training_id;
-		echo $interval;
+		//echo $interval;
 		echo $id;
 		echo $hire;
 		//date_add($date,date_interval_create_from_date_string($interval));
