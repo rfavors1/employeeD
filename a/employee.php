@@ -36,22 +36,21 @@ $db = substr($url["path"], 1);
   if ($link->connect_error) {
 		die("Connection failed: " . $link->connect_error);
   } 
-  	 $sql = "SELECT id,days_due FROM training";
+  	 $sql = "SELECT id as training_id,days_due as days FROM training";
 	 $result = $link->query($sql);
 	 
      while($row = $result->fetch_assoc()) {
 		$training_id = $row['id'];
-		echo $training_id;
-		$days = $row['days_due'];
+		echo $row['training_id'];
+		$days = $row['days'];
 		//$interval = $days . " days";
-		$date = $hire;
+		//$date = $hire;
 		//echo $interval;
-		echo $days;
+		echo $row['days_due'];
 		//date_add($date,date_interval_create_from_date_string($interval));
 		//echo "Date: " . $date;
         //$sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
-  )
-	 
+  ) 
 }
 
 NewHireTraining();
