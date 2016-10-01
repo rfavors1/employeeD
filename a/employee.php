@@ -32,7 +32,7 @@ $db = substr($url["path"], 1);
 		$id = $row['id'];
         $hire = $row['hiredate'];
 	 }
-     echo $id;
+     return $id;
   	 $sql = "SELECT id,days_due FROM training";
 	 $result = $link->query($sql);
 	 
@@ -51,7 +51,8 @@ $db = substr($url["path"], 1);
 	 
 }
 
-NewHireTraining();
+$id = NewHireTraining();
+echo $id;
 //Return list of department names
 function departmentName() {
 
