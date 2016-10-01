@@ -25,12 +25,12 @@ $db = substr($url["path"], 1);
   } 
   
   	 $sql = "SELECT max(e.id),e.hiredate FROM employeetb e";
-	 echo $sql;
+	 //echo $sql;
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
 		$id = $row['ID'];
-		echo $id;
+		echo $row['ID'];
         $hire = $row['HireDate'];
 	 }
 
