@@ -37,7 +37,7 @@ $db = substr($url["path"], 1);
 	 $result = $link->query($sql);
 	 
      while($row = $result->fetch_assoc()) {
-		$training_id = $row['id'];
+		$training_id = $row['training_id'];
 		echo $row['training_id'];
 		$days = $row['days'];
 		//$interval = $days . " days";
