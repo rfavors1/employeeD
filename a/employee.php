@@ -25,6 +25,7 @@ $db = substr($url["path"], 1);
   } 
   
   	 $sql = "SELECT max(e.id),e.hiredate FROM employeetb e";
+	 echo $sql;
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
