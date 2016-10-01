@@ -53,7 +53,8 @@ $db = substr($url["path"], 1);
   	 $sql = "SELECT id as training_id, days_due as days FROM training";
 	 
 	 $result = $link->query($sql);
-     while($row = $result->fetch_assoc()) {
+	 
+	 while($row = $result->fetch_assoc()) {
 
 		$training_id = $row['training_id'];
 		$days = $row['days'];
