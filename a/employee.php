@@ -30,7 +30,7 @@ $db = substr($url["path"], 1);
 	 
 	 while($row = $result->fetch_assoc()) {
 		$id = $row['ID'];
-		echo $row['ID'];
+		echo $row['id'];
         $hire = $row['HireDate'];
 	 }
 
