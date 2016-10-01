@@ -37,8 +37,8 @@ echo $hire;
 
   	 $sql = "SELECT id as training_id, days_due as days FROM training";
 	 echo $sql;
-	 $result = $link->query($sql);
-     while($rows = $result->fetch_assoc()) {
+	 $results = $link->query($sql);
+     while($rows = $results->fetch_assoc()) {
 	   $training_id = "fjkjfdfdjk";
 		//$training_id = $row['training_id'];
 		//$days = $row['days'];
