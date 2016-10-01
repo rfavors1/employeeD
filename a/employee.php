@@ -29,16 +29,14 @@ $db = substr($url["path"], 1);
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
-		$id = $row['ID'];
-		echo $row['max_id'];
+		$id = $row['max_id'];
         $hire = $row['hire_date'];
-		echo $hire;
 	 }
 
   	 $sql = "SELECT id,days_due FROM training";
 	 $result = $link->query($sql);
 	 
-/*  	 while($row = $result->fetch_assoc()) {
+     while($row = $result->fetch_assoc()) {
 		$training_id = $row['id'];
 		echo "training: " . $training_id;
 		$days = $row['days_due'];
@@ -49,7 +47,7 @@ $db = substr($url["path"], 1);
         $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
 
         $link->query($sql)
-	}	*/
+	}	
 	 
 }
 
