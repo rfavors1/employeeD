@@ -32,7 +32,10 @@ $db = substr($url["path"], 1);
 		$id = $row['max_id'];
         $hire = $row['hire_date'];
 	 }
-
+  $link = new mysqli($server,$username,$password,$db); 
+  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+  } 
   	 $sql = "SELECT id,days_due FROM training";
 	 $result = $link->query($sql);
 	 
