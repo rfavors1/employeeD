@@ -25,28 +25,20 @@ $db = substr($url["path"], 1);
   } 
   
   	 $sql = "SELECT max(e.id) as max_id, e.hiredate as hire_date FROM employeetb e";
-	 //echo $sql;
+	
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
 		$id = $row['max_id'];
         $hire = $row['hire_date'];
 	 }
+echo $id;
+echo $hire;
 
-  	 $sql = "SELECT id as training_id,days_due as days FROM training";
+  	 $sql = "SELECT id as training_id, days_due as days FROM training";
+	 echo $sql;
 	 $result = $link->query($sql);
 	 
-     while($row = $result->fetch_assoc()) {
-		$training_id = $row['training_id'];
-		echo $row['training_id'];
-		$days = $row['days'];
-		//$interval = $days . " days";
-		//$date = $hire;
-		//echo $interval;
-		//date_add($date,date_interval_create_from_date_string($interval));
-		//echo "Date: " . $date;
-        //$sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
-     ) 
 }
 
 NewHireTraining();
