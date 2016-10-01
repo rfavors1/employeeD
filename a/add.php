@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($link->query($sql) === TRUE) {
     echo "<script>location.replace('add.php?Action=Success');</script>";
-	//NewHireTraining();
+	NewHireTraining();
 	unset($_POST);
   } else {
     echo "<script>location.replace('add.php?Action=Fail');</script>";
