@@ -34,23 +34,39 @@ $db = substr($url["path"], 1);
 	 }
 echo $id;
 echo $hire;
+  AddTrainings($id,$hire);
+}
 
+function AddTrainings($id,$hire) {
+
+$url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+  $link = new mysqli($server,$username,$password,$db); 
+  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+  } 
+  
   	 $sql = "SELECT id as training_id, days_due as days FROM training";
-	 echo $sql;
-	 $results = $link->query($sql);
-     while($rows = $results->fetch_assoc()) {
-	   $training_id = "fjkjfdfdjk";
-		//$training_id = $row['training_id'];
-		//$days = $row['days'];
-		//$interval = $days . " days";
+	 
+	 $result = $link->query($sql);
+     while($row = $result->fetch_assoc()) {
+
+		$training_id = $row['training_id'];
+		$days = $row['days'];
+		$interval = $days . " days";
 		//$date = $hire;
-		//echo $interval;
+		echo $training_id;
+		echo $interval;
+		echo $id;
+		echo $hire;
 		//date_add($date,date_interval_create_from_date_string($interval));
 		//echo "Date: " . $date;
         //$sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
      ) 	 
-	 echo $training_id;
-	 echo $days;
 }
 
 NewHireTraining();
