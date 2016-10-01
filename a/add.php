@@ -122,11 +122,11 @@ function validate($data) {
 	foreach ($options as $value) {
 	  $i = $value["id"];
 	  $n = $value["name"];
-	 // if ($Supervisor == $i) {
-	  //  echo "<option value='" . $i . "' selected>" . $n . "</option>";
-	  //} else {
+	 if ($Supervisor == $i) {
+	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	 } else {
 	    echo "<option value='" . $i . "'>" . $n . "</option>";      
-	  //}
+	 }
 
    }
   
