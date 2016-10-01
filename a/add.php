@@ -47,18 +47,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   
   if (empty($_POST["Esup"])) {
-    $HireError = "Supervisor is required";
+    $SupervisorError = "Supervisor is required";
   } else {
-    $Hire = validate($_POST["Esup"]);
+    $Supervisor = validate($_POST["Esup"]);
   }  
 
   if (empty($_POST["Edept"])) {
-    $HireError = "Department is required";
+    $DepartmentError = "Department is required";
   } else {
-    $Hire = validate($_POST["Edept"]);
+    $Department = validate($_POST["Edept"]);
   } 
     
-  if (!$NameError and !$EmailError and !$HireError) {
+  if (!$NameError and !$EmailError and !$HireError and !$SupervisorError and !$DepartmentError) {
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);

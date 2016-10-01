@@ -1,5 +1,6 @@
 <?php
 
+//add new hire training dates when employee added
 function NewHireTraining() {
 
 $url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
@@ -33,7 +34,7 @@ $db = substr($url["path"], 1);
         $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date',0)";
 
         $link->query($sql)
-	 }	 
+	}	 
 	 
 }
 
