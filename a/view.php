@@ -38,6 +38,28 @@
     <p>Hiring Date Before: <input type="date" name="EhireBS"></p>
 	<p>Hiring Date After: <input type="date" name="EhireAS"></p>
 	<p><input type="submit" value="Search"></p>
+	<p>Supervisor: <select name="Esup">
+		<option value=""></option>
+	<?php 
+	$options = employeeName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";      
+   }  
+   ?>
+    </select></p>
+	<p>Department: <select name="Edept">
+	<option value=""></option>
+	<?php 
+	$options = departmentName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";  
+   }  
+   ?>
+    </select></p>
   </form>
 	</div>
 	<?php
