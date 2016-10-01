@@ -116,7 +116,7 @@ function validate($data) {
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $_POST["Ename"]; ?>"><span class="error"> <?php echo $NameError;?></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $_POST["Eemail"]; ?>"><span class="error"> <?php echo $EmailError;?></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $_POST["Ehire"]; ?>"><span class="error"> <?php echo $HireError;?></span></p>
-	<p>Supervisor: <select name-"Esup">
+	<p>Supervisor: <select name="Esup">
 	<?php 
 	$options = employeeName();
 	foreach ($options as $value) {
