@@ -29,9 +29,9 @@ $db = substr($url["path"], 1);
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
-		$id = $row['id'];
+		$id = $row['ID'];
 		echo $id;
-        $hire = $row['hiredate'];
+        $hire = $row['HireDate'];
 	 }
      return $id;
   	 $sql = "SELECT id,days_due FROM training";
