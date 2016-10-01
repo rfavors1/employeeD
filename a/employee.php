@@ -30,6 +30,7 @@ $db = substr($url["path"], 1);
 	 
 	 while($row = $result->fetch_assoc()) {
 		$id = $row['id'];
+		echo $id;
         $hire = $row['hiredate'];
 	 }
      return $id;
