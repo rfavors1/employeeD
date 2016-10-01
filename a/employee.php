@@ -40,7 +40,7 @@ $db = substr($url["path"], 1);
 		$training_id = $row['id'];
 		echo "training: " . $training_id;
 		$days = $row['days_due'];
-		$interval = $days . " days";
+		//$interval = $days . " days";
 		$date = $hire;
 		echo $interval;
 		echo $date;
