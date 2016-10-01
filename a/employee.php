@@ -48,7 +48,7 @@ $db = substr($url["path"], 1);
         $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
 
         $link->query($sql)
-	}	*/ 
+	}	
 	 
 }
 
