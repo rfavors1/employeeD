@@ -32,42 +32,9 @@ $db = substr($url["path"], 1);
 		$id = $row['max_id'];
         $hire = $row['hire_date'];
 	 }
-echo $id;
-echo $hire;
-  AddTrainings($id,$hire);
-}
-
-function AddTrainings($id,$hire) {
-
-$url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
-$server = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
-$db = substr($url["path"], 1);
-
-  $link = new mysqli($server,$username,$password,$db); 
-  if ($link->connect_error) {
-		die("Connection failed: " . $link->connect_error);
-  } 
-  
-  	 $sql = "SELECT id as training_id, days_due as days FROM training";
-	 
-	 $result = $link->query($sql);
-	 
-	 while($row = $result->fetch_assoc()) {
-
-		$training_id = $row['training_id'];
-		//$days = $row['days'];
-		//$interval = $days . " days";
-		//$date = $hire;
-		echo $training_id;
-		//echo $interval;
-		echo $id;
-		echo $hire;
-		//date_add($date,date_interval_create_from_date_string($interval));
-		//echo "Date: " . $date;
-        //$sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,completed) VALUES ('','$id','$training_id','$date','0')";
-     ) 	 
+  echo $id;
+  echo $hire;
+  mysqli_close($link);
 }
 
 NewHireTraining();
@@ -94,6 +61,33 @@ $db = substr($url["path"], 1);
         $new_array[$row['id']]['name'] = $row['name'];
 	 }
 
+     mysqli_close($link);
+	 return $new_array;
+}
+
+//Return list of trainings
+function Training() {
+
+$url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+  $link = new mysqli($server,$username,$password,$db); 
+  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+  } 
+  
+  	 $sql = "SELECT t.id,t.days_due FROM training t";
+	 $result = $link->query($sql);
+	 
+	 while($row = $result->fetch_assoc()) {
+		$new_array[$row['id']]['id'] = $row['id'];
+        $new_array[$row['id']]['days_due'] = $row['days_due'];
+	 }
+
+     mysqli_close($link);
 	 return $new_array;
 }
 
@@ -118,7 +112,8 @@ $db = substr($url["path"], 1);
 		$new_array[$row['id']]['id'] = $row['id'];
         $new_array[$row['id']]['name'] = $row['name'];
 	 }
-
+     
+	 mysqli_close($link);
 	 return $new_array;
 }
 
