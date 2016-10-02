@@ -257,25 +257,25 @@
 		  echo "<img src='img/sort_up.png'>";		
 		}	
 		echo"</a></th><th><a href='view.php?direction=desc&col=SupervisorID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
-	    if ($_GET["col"] == 'Supervisor' and $_GET["direction"] == 'desc'  ) {
+	    if ($_GET["col"] == 'SupervisorID' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='img/sort_downy.png'>";
 		} else {
 		  echo "<img src='img/sort_down.png'>";		
 		}			
 		echo"</a></th><th><a href='view.php?direction=asc&col=SupervisorID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
-	    if ($_GET["col"] == 'Supervisor' and $_GET["direction"] == 'asc'  ) {
+	    if ($_GET["col"] == 'SupervisorID' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='img/sort_upy.png'>";
 		} else {
 		  echo "<img src='img/sort_up.png'>";		
 		}
 		echo"</a></th><th><a href='view.php?direction=desc&col=DepartmentID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
-	    if ($_GET["col"] == 'Department' and $_GET["direction"] == 'desc'  ) {
+	    if ($_GET["col"] == 'DepartmentID' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='img/sort_downy.png'>";
 		} else {
 		  echo "<img src='img/sort_down.png'>";		
 		}			
 		echo"</a></th><th><a href='view.php?direction=asc&col=DepartmentID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
-	    if ($_GET["col"] == 'Department' and $_GET["direction"] == 'asc'  ) {
+	    if ($_GET["col"] == 'DepartmentID' and $_GET["direction"] == 'asc'  ) {
 		  echo "<img src='img/sort_upy.png'>";
 		} else {
 		  echo "<img src='img/sort_up.png'>";		
