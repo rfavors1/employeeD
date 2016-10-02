@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 		die("Connection failed: " . $link->connect_error);
 	  } 
 	  
-	  $sql = "SELECT * FROM employeetb WHERE ID = " . $ID;
+	  $sql = "SELECT e.*,d.name as dept_name FROM e.employeetb left join department d on e.DepartmentID = d.id WHERE e.ID = " . $ID;
 	  
 	  $result = $link->query($sql);
 		
@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	      $Email = $row["Email"];
 	      $Hire = $row["HireDate"];
 		  $Supervisor = $row["SupervisorID"];
-		  $Department = $row["DepartmentID"];
+		  $Department = $row["dept_name"];
 	    }
 	  }
 	  
@@ -178,7 +178,7 @@ function validate($data) { //ensure proper data
   <p>*All fields are required.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Name: <?php echo $Name?></p>
-	<p>Department: </p>
+	<p>Department: <?php echo $Department . $ID?> </p>
     <?php
       $sql = "select e.*, t.name from employee_training e left join training t on t.id = e.training_id where e.employee_id = " . $ID;
 	  
