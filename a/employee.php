@@ -141,11 +141,11 @@ $db = substr($url["path"], 1);
 		die("Connection failed: " . $link->connect_error);
   } 
   
-  	 $sql = "select count(id) from employee_training where employee_id = " . $id . " and complete = 0 and due_date < now()";
+  	 $sql = "select count(id) as count_id from employee_training where employee_id = " . $id . " and complete = 0 and due_date < now()";
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
-		if($row['id'] > 0) {
+		if($row['count_id'] > 0) {
 		  $c = "Overdue";
         } else {
 		  $c = "Compliant";
