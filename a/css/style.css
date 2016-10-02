@@ -44,7 +44,7 @@ h2 {
 .count {font-weight: bold; margin-left: 50px;}
 #results {margin-top: 30px;}
 th .higlighted {color: #FFFF00;}
-table {
+.view {
     border-collapse: collapse;
     width: 90%;
     margin-left: 50px;
