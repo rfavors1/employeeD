@@ -180,6 +180,11 @@ function validate($data) { //ensure proper data
     <p>Name: <?php echo $Name?></p>
 	<p>Department: <?php echo $Department . $ID?> </p>
     <?php
+	  $link = new mysqli($server,$username,$password,$db); 
+	  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+	  } 
+	  
       $sql = "select e.*, t.name from employee_training e left join training t on t.id = e.training_id where e.employee_id = " . $ID;
 	  
 	  $result = $link->query($sql);
@@ -188,7 +193,7 @@ function validate($data) { //ensure proper data
 		 echo "<h2>No Trainings at this time.</h2>";
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
-		  echo "<p>Training Name: " . $row["name"] . "Due Date: <input type='date' name='due' value='" . $row["due_date"] . "'>";
+		  echo "<p>Training Name: " . $row["name"] . "Due Date: <input type='date' name='due' value='" . $row["due_date"] . "'></p>";
 	    }
 	  }
 	?>
