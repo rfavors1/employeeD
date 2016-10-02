@@ -286,9 +286,9 @@
 		while($row = $result->fetch_assoc()) {
 		    $training = TrainingCompliance($row["ID"]);
 			if ($training == 'Compliant') {
-			  $train = "<a href='edittraining.php?ID=" . $row["ID"] . "' title='Edit/View Trainings' style='text-decoration:underline;color=green;'>" . $training . "</a>";
+			  $train = "<a href='edittraining.php?ID=" . $row["ID"] . "' title='Edit/View Trainings' class='compliant'>" . $training . "</a>";
 			} else {
-			  $train = "<a href='edittraining.php?ID=" . $row["ID"] . "' title='Edit/View Trainings' style='text-decoration:underline;color=red;'>" . $training . "</a>";
+			  $train = "<a href='edittraining.php?ID=" . $row["ID"] . "' title='Edit/View Trainings' class='overdue'>" . $training . "</a>";
 			}
 			echo "<tr><td><a href='edit.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='img/delete.png'></a>&nbsp; <a href='edit.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["name"]."</td><td>".$row["Email"]."</td><td>" . $row["hire"] . "</td><td>" . $row["modified"] .  "</td><td>"  . $row["supname"] . "</td><td>" . $row["deptname"] . "</td><td>" . $train . "</td></tr>";
 		}
