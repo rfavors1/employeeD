@@ -102,7 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   
   //check to see if department id has changed, if so add to change log
   if ($_POST["Odept"] != $Department) {
-    echo "made";
     $sql = "INSERT INTO changeloga (ChangeID,ID,TableName,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','DepartmentID'," . $_POST["Odept"] . ",$Department,now())";
 	$link->query($sql);
   }
