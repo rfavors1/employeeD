@@ -32,7 +32,7 @@ $db = substr($url["path"], 1);
   $sql = "INSERT INTO deleteloga (DeleteID,ID,Name,Email,HireDate,SupervisorID,DepartmentID,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire','$Supervisor','$Department',now())";
   $link->query($sql);  
   
-  $sql = "DELETE from employee where ID = " . $ID;
+  $sql = "DELETE from employeetb where ID = " . $ID;
 
   $link->query($sql);
   
