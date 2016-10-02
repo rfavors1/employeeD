@@ -154,7 +154,7 @@
 		<th><a href='view.php?direction=desc&col=HireDate&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=HireDate&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_up.png'></a></th>
 		<th><a href='view.php?direction=desc&col=LastModified&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=LastModified&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_up.png'></a></th>
         <th><a href='view.php?direction=desc&col=Supervisor&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=Supervisor&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_up.png'></a></th>
-        <th><a href='view.php?direction=desc&col=Department&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=Department&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_up.png'></a></th><th>&nbsp;</th><th>&nbsp;</th></tr>";
+        <th><a href='view.php?direction=desc&col=Department&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_down.png'></a> <a href='view.php?direction=asc&col=Department&EnameS=" . $_POST["EnameS"] . "&EemailS=" . $_POST["EemailS"] . "&EhireBS=" . $_POST["EhireBS"] . "&EhireAS=" . $_POST["EhireAS"] . "&Esup=" . $_POST["Esup"] . "&Edept=" . $_POST["Edept"] . "'><img src='img/sort_up.png'></a></th><th>&nbsp;</th></tr>";
 	} else {
 		echo "<div id='results'>";
 		echo "<p class='count'>Count: " . $result->num_rows . " Record(s)</p>";
@@ -280,11 +280,11 @@
 		} else {
 		  echo "<img src='img/sort_up.png'>";		
 		}							
- 		echo"</a></th><th>&nbsp;</th><th>&nbsp;</th></tr>";
+ 		echo"</a></th><th>&nbsp;</th></tr>";
    }
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			echo "<tr><td><a href='edit.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='img/delete.png'></a>&nbsp; <a href='edit.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["name"]."</td><td>".$row["Email"]."</td><td>" . $row["hire"] . "</td><td>" . $row["modified"] .  "</td><td>"  . TrainingCompliance($row["ID"]) . "</td><td>" . $row["supname"] . "</td><td>" . $row["deptname"] . "</td></tr>";
+			echo "<tr><td><a href='edit.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='img/delete.png'></a>&nbsp; <a href='edit.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["name"]."</td><td>".$row["Email"]."</td><td>" . $row["hire"] . "</td><td>" . $row["modified"] .  "</td><td>"  . $row["supname"] . "</td><td>" . $row["deptname"] . "</td><td>" . TrainingCompliance($row["ID"]) . "</td></tr>";
 		}
 		echo "</table></div>";
 	} else {
