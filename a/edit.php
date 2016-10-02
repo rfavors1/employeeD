@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 		 echo "<script>location.replace('edit.php?Action=Fail');</script>";
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
-	      $Name = $row["Name"];
+	      $Name = $row["name"];
 	      $Email = $row["Email"];
 	      $Hire = $row["HireDate"];
 		  $Supervisor = $row["SupervisorID"];
