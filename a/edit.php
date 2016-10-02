@@ -78,30 +78,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   
   //check to see if name changed, if so add to change log
   if ($_POST["Oname"] != $Name) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Name','employeetb','" . $_POST["Oname"] . "','$Name',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','Name','" . $_POST["Oname"] . "','$Name',now())";
 	$link->query($sql);
   }
   
   //check to see if email has changed, if so add to change log
   if ($_POST["Oemail"] != $Email) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Email','employeetb','" . $_POST["Oemail"] . "','$Email',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','Email','" . $_POST["Oemail"] . "','$Email',now())";
 	$link->query($sql);
   }  
 
   //check to see if hire date has changed, if so add to change log
   if ($_POST["Ohire"] != $Hire) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'HireDate','employeetb','" . $_POST["Ohire"] . "','$Hire',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','HireDate','" . $_POST["Ohire"] . "','$Hire',now())";
 	$link->query($sql);
   }
   //check to see if supervisor id has changed, if so add to change log
   if ($_POST["Osup"] != $Supervisor) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'SupervisorID','employeetb','" . $_POST["Osup"] . "','$Supervisor',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','SupervisorID','" . $_POST["Osup"] . "','$Supervisor',now())";
 	$link->query($sql);
   }  
   
   //check to see if department id has changed, if so add to change log
   if ($_POST["Odept"] != $Department) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'DepartmentID','employeetb','" . $_POST["Odept"] . "','$Hire',now())";
+    echo "made";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','DepartmentID','" . $_POST["Odept"] . "','$Department',now())";
 	$link->query($sql);
   }
   
