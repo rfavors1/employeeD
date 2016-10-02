@@ -136,7 +136,7 @@
 	  } 
 
 	if (($_SERVER["REQUEST_METHOD"] == "POST") or (!empty($_GET["direction"]) and !empty($_GET["col"]))) {	  
-	 $sql = "SELECT e.*, date_format(e.HireDate,'%b %e %Y') as hire,s.name as supname ,d.name as deptname from employeetb s, employeetb e left join department d on d.manager_id = e.SupervisorID where e.SupervisorID = s.id" . $Name . $Email . $HireB . $HireA . $Sup . $Dept . $Sort; 
+	 $sql = "SELECT e.*, date_format(e.HireDate,'%b %e %Y') as hire,date_format(e.LastModified,'%b %e %Y %l:%i %p') as modified,s.name as supname ,d.name as deptname from employeetb s, employeetb e left join department d on d.manager_id = e.SupervisorID where e.SupervisorID = s.id" . $Name . $Email . $HireB . $HireA . $Sup . $Dept . $Sort; 
 	 
 	 $result = $link->query($sql);
 	
@@ -284,7 +284,7 @@
    }
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			echo "<tr><td><a href='edit.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='img/delete.png'></a>&nbsp; <a href='edit.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["name"]."</td><td>".$row["Email"]."</td><td>" . $row["hire"] . "</td><td>" . $row["LastModified"] . "</td><td>" . $row["supname"] . "</td><td>" . $row["deptname"] . "</td></tr>";
+			echo "<tr><td><a href='edit.php?Action=Delete&ID=" . $row["ID"] . "' title='Delect Record'><img src='img/delete.png'></a>&nbsp; <a href='edit.php?ID=" . $row["ID"] . "' title='Edit Record'><img src='img/pencil.png'></a></td><td>".$row["ID"]."</td><td>".$row["name"]."</td><td>".$row["Email"]."</td><td>" . $row["hire"] . "</td><td>" . $row["modified"] . "</td><td>" . $row["supname"] . "</td><td>" . $row["deptname"] . "</td></tr>";
 		}
 		echo "</table></div>";
 	} else {
