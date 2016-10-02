@@ -192,7 +192,7 @@ function validate($data) { //ensure proper data
 	  if ($result->num_rows == 0) {
 		 echo "<h2>No Trainings at this time.</h2>";
 	  } else {	
-	    echo "<table class='view'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
+	    echo "<table class='viewt'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
 	    while($row = $result->fetch_assoc()) {
 		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due' value='" . $row["due_date"] . "'></td>";
 	      echo "<td><select name='complete'>";
