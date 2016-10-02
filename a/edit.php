@@ -15,8 +15,8 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 // define variables and set to empty values
-$NameError = $EmailError = $HireError = "";
-$Name = $Email = $Hire = "";
+$NameError = $EmailError = $HireError = $SupervisorError = $DepartmentError = "";
+$Name = $Email = $Hire = $Supervisor = $Department = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   if (empty($_POST["Ename"])) {
@@ -48,13 +48,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
   } 
 	  
-  if (!$NameError and !$EmailError and !$HireError and is_integer($ID)) {
+  if (empty($_POST["Esup"])) {
+    $SupervisorError = "Supervisor is required";
+  } else {
+    $Supervisor = validate($_POST["Esup"]);
+  }  
+
+  if (empty($_POST["Edept"])) {
+    $DepartmentError = "Department is required";
+  } else {
+    $Department = validate($_POST["Edept"]);
+  } 
+    
+  if (!$NameError and !$EmailError and !$HireError and !$SupervisorError and !$DepartmentError) {
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "update employee set Name='$Name',Email='$Email',HireDate='$Hire',LastModified=now() where ID=$ID";
+  $sql = "update employeetb set Name='$Name',Email='$Email',HireDate='$Hire',LastModified=now(),SupervisorID='$Supervisor',DepartmentID='$Department' where ID=$ID";
 
   if ($link->query($sql) === TRUE) {
     echo "<h2 class='success'>Record updated successfully.</h2>";
@@ -64,19 +76,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   
   //check to see if name changed, if so add to change log
   if ($_POST["Oname"] != $Name) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Name','" . $_POST["Oname"] . "','$Name',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Name','employeetb','" . $_POST["Oname"] . "','$Name',now())";
 	$link->query($sql);
   }
   
   //check to see if email has changed, if so add to change log
   if ($_POST["Oemail"] != $Email) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Email','" . $_POST["Oemail"] . "','$Email',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'Email','employeetb','" . $_POST["Oemail"] . "','$Email',now())";
 	$link->query($sql);
   }  
 
   //check to see if hire date has changed, if so add to change log
   if ($_POST["Ohire"] != $Hire) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'HireDate','" . $_POST["Ohire"] . "','$Hire',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'HireDate','employeetb','" . $_POST["Ohire"] . "','$Hire',now())";
+	$link->query($sql);
+  }
+  //check to see if supervisor id has changed, if so add to change log
+  if ($_POST["Osup"] != $Supervisor) {
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'SupervisorID','employeetb','" . $_POST["Osup"] . "','$Supervisor',now())";
+	$link->query($sql);
+  }  
+  
+  //check to see if department id has changed, if so add to change log
+  if ($_POST["Odept"] != $Department) {
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'DepartmentID','employeetb','" . $_POST["Odept"] . "','$Hire',now())";
 	$link->query($sql);
   }
   
@@ -98,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 		die("Connection failed: " . $link->connect_error);
 	  } 
 	  
-	  $sql = "SELECT * FROM employee WHERE ID = " . $ID;
+	  $sql = "SELECT * FROM employeetb WHERE ID = " . $ID;
 	  
 	  $result = $link->query($sql);
 		
@@ -109,6 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	      $Name = $row["Name"];
 	      $Email = $row["Email"];
 	      $Hire = $row["HireDate"];
+		  $Supervisor = $row["SupervisorID"];
+		  $Department = $row["DepartmentID"];
 	    }
 	  }
 	  
@@ -154,14 +179,47 @@ function validate($data) { //ensure proper data
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
     <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="error"> <?php echo $EmailError;?></span></p>
     <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
+	<p>Supervisor: <select name="Esup">
+	<?php 
+	$options = employeeName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	 if ($Supervisor == $i) {
+	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	 } else {
+	    echo "<option value='" . $i . "'>" . $n . "</option>";      
+	 }
+
+   }
+  
+   ?>
+    </select><span class="error"> <?php echo $SupervisorError;?></span></p>
+	<p>Department: <select name="Edept">
+	<?php 
+	$options = departmentName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  if ($Department == $i) {
+	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
+	  } else {
+	    echo "<option value='" . $i . "'>" . $n . "</option>";      
+	  }
+   }
+  
+   ?>
+    </select><span class="error"> <?php echo $DepartmentError;?></span></p>
 	<input type="hidden" name="ID" value="<?php echo $ID?>">
 	<input type="hidden" name="Oname" value="<?php echo $Name?>">
 	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
 	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">
+	<input type="hidden" name="Osup" value="<?php echo $Supervisor?>">
+	<input type="hidden" name="Odept" value="<?php echo $Department?>">	
     <?php 
     if($_GET["Action"] == 'Delete') {
 	?>
-    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . ",'" . $Name . "','" . $Email . "','" . $Hire . "'"?>)"></p>
+    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . ",'" . $Name . "','" . $Email . "','" . $Hire . "','" . $Supervor . "','" . $Department . "'"?>)"></p>
 	<?php
     } else {
       if($_GET["Action"] != 'Fail') {	  
@@ -193,8 +251,8 @@ $(".open").click(function(){
   
 });
 
-function Delete(id,name,email,hire) {
-   var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire;
+function Delete(id,name,email,hire,supervisor,department) {
+   var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire + '&supervisor=' + supervisor + '&department=' + department;
 	$.ajax({
 	type: "POST",
 	url: "delete.php",
