@@ -136,7 +136,7 @@
 	  } 
 
 	if (($_SERVER["REQUEST_METHOD"] == "POST") or (!empty($_GET["direction"]) and !empty($_GET["col"]))) {	  
-	 $sql = "SELECT e.*, date_format(e.HireDate,'%b %e %Y) as hire,s.name as supname ,d.name as deptname from employeetb s, employeetb e left join department d on d.manager_id = e.SupervisorID where e.SupervisorID = s.id" . $Name . $Email . $HireB . $HireA . $Sup . $Dept . $Sort; 
+	 $sql = "SELECT e.*, date_format(e.HireDate,'%b %e %Y') as hire,s.name as supname ,d.name as deptname from employeetb s, employeetb e left join department d on d.manager_id = e.SupervisorID where e.SupervisorID = s.id" . $Name . $Email . $HireB . $HireA . $Sup . $Dept . $Sort; 
 	 
 	 $result = $link->query($sql);
 	
