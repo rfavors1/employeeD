@@ -67,7 +67,7 @@ th, td {
 .overdue a:hover {text-decoration:underline;color:#333333;}
 
 .view tr:nth-child(even){background-color: #f2f2f2}
-.viewt tr:nth-child(even){background-color:#CCCCCC}
+.viewt tr:nth-child(odd){background-color:#CCCCCC}
 .viewt tr:nth-child(even){background-color:#999999}
 th {
     background-color: #0099FF;
