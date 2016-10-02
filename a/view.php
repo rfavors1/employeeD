@@ -255,7 +255,31 @@
 		  echo "<img src='img/sort_upy.png'>";
 		} else {
 		  echo "<img src='img/sort_up.png'>";		
-		}		
+		}	
+		echo"</a></th><th><a href='view.php?direction=desc&col=Supervisor&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
+	    if ($_GET["col"] == 'Supervisor' and $_GET["direction"] == 'desc'  ) {
+		  echo "<img src='img/sort_downy.png'>";
+		} else {
+		  echo "<img src='img/sort_down.png'>";		
+		}			
+		echo"</a> <a href='view.php?direction=asc&col=Supervisor&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
+	    if ($_GET["col"] == 'Supervisor' and $_GET["direction"] == 'asc'  ) {
+		  echo "<img src='img/sort_upy.png'>";
+		} else {
+		  echo "<img src='img/sort_up.png'>";		
+		}
+				echo"</a></th><th><a href='view.php?direction=desc&col=Department&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
+	    if ($_GET["col"] == 'Department' and $_GET["direction"] == 'desc'  ) {
+		  echo "<img src='img/sort_downy.png'>";
+		} else {
+		  echo "<img src='img/sort_down.png'>";		
+		}			
+		echo"</a> <a href='view.php?direction=asc&col=Department&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
+	    if ($_GET["col"] == 'Department' and $_GET["direction"] == 'asc'  ) {
+		  echo "<img src='img/sort_upy.png'>";
+		} else {
+		  echo "<img src='img/sort_up.png'>";		
+		}							
  		echo"</a></th></tr>";
    }
 		// output data of each row
