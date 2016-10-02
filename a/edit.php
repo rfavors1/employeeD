@@ -95,14 +95,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   }
   //check to see if supervisor id has changed, if so add to change log
   if ($_POST["Osup"] != $Supervisor) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','SupervisorID','" . $_POST["Osup"] . "','$Supervisor',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','SupervisorID'," . $_POST["Osup"] . ",$Supervisor,now())";
 	$link->query($sql);
   }  
   
   //check to see if department id has changed, if so add to change log
   if ($_POST["Odept"] != $Department) {
     echo "made";
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','DepartmentID','" . $_POST["Odept"] . "','$Department',now())";
+    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','DepartmentID'," . $_POST["Odept"] . ",$Department,now())";
 	$link->query($sql);
   }
   
