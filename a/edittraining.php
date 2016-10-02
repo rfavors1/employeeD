@@ -19,26 +19,28 @@ $db = substr($url["path"], 1);
 $Complete = $DComplete = $Due = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
-    $Due = validate($_POST["due"]);
-    $Complete = intval(validate($_POST["complete"]));
-    $DComplete = validate($_POST["dcomplete"]);
-  $ID = validate($_POST["ID"]);
-  $ID = intval($ID);
-  if (!(is_integer($ID))) {
-     echo "<h2 class='error'>Employee ID must be in number format.</h2>";
-  } 
-	  
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID";
+  $ID = validate($_POST["ID"]);
+  $ID = intval($ID);
+  if (!(is_integer($ID))) {
+     echo "<h2 class='error'>Employee ID must be in number format.</h2>";
+  } 
+  for($i=1;$i<=4;$i++) {
+    $d = "due_" . $i;
+	$c = "complete_" . $i;
+	$dc = "dcomplete_" . $i;
+    $Due = validate($_POST[$d]);
+    $Complete = intval(validate($_POST[$c]));
+    $DComplete = validate($_POST[$dc]);
+	
+    $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and id=$i";
 
-  if ($link->query($sql) === TRUE) {
+    $link->query($sql);
     echo "<h2 class='success'>Record updated successfully.</h2>";
-  } else {
-    echo "Error: " . $sql . "<br>" . $link->error;
   }
 
   //close connection
