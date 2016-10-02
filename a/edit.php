@@ -9,6 +9,8 @@
 
 <body>
 <?php
+include_once 'employee.php';
+
 $url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
 $server = $url["host"];
 $username = $url["user"];
