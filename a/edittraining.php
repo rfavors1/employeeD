@@ -195,13 +195,13 @@ function validate($data) { //ensure proper data
 	    echo "<table class='view'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
 	    while($row = $result->fetch_assoc()) {
 		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due' value='" . $row["due_date"] . "'></td>";
-	      echo "<td><select name=''>";
+	      echo "<td><select name='complete'>";
 		  if ($row["complete"] == 0) {
 		    echo "<option value=1>Yes</option><option value=0 selected>No</option>";
 		  } else {
 		    echo "<option value=1 selected>Yes</option><option value=0>No</option>";		  
 		  }
-		  echo "</select></td><td>fdjfh</td></tr>";
+		  echo "</select></td><td><input type='date' name='dcomplete' value='" . $row["date_complete"] . "'></td></tr>";
 		}
 		echo "</table>";
 	  }
