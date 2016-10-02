@@ -53,7 +53,7 @@ th .higlighted {color: #FFFF00;}
 
 .viewt {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
 }
 
 th, td {
@@ -67,7 +67,7 @@ th, td {
 .overdue a:hover {text-decoration:underline;color:#333333;}
 
 .view tr:nth-child(even){background-color: #f2f2f2}
-.viewt tr:nth-child(even){background-color: #33FFFF}
+.viewt tr:nth-child(even){background-color:#CCCCCC}
 th {
     background-color: #0099FF;
     color: white;
