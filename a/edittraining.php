@@ -128,14 +128,14 @@ function validate($data) { //ensure proper data
 	    echo "<table class='viewt' style='margin-left:0px;margin-bottom:10px'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
 	    while($row = $result->fetch_assoc()) {
 		  $i++;
-		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due-" .$i "' value='" . $row["due_date"] . "'></td>";
-	      echo "<td><select name='complete-" .$i "'>";
+		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due_" .$i "' value='" . $row["due_date"] . "'></td>";
+	      echo "<td><select name='complete_" .$i "'>";
 		  if ($row["complete"] == 0) {
 		    echo "<option value=1>Yes</option><option value=0 selected>No</option>";
 		  } else {
 		    echo "<option value=1 selected>Yes</option><option value=0>No</option>";		  
 		  }
-		  echo "</select></td><td><input type='date' name='dcomplete-" .$i "' value='" . $row["date_complete"] . "'></td></tr>";
+		  echo "</select></td><td><input type='date' name='dcomplete_" .$i "' value='" . $row["date_complete"] . "'></td></tr>";
 		}
 		echo "</table>";
 	  }
