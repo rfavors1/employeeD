@@ -66,9 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["name"];
-	      $Email = $row["Email"];
-	      $Hire = $row["HireDate"];
-		  $Supervisor = $row["SupervisorID"];
 		  $Department = $row["dept_name"];
 	    }
 	  }
@@ -126,17 +123,19 @@ function validate($data) { //ensure proper data
 		
 	  if ($result->num_rows == 0) {
 		 echo "<h2>No Trainings at this time.</h2>";
-	  } else {	
+	  } else {
+	    $i = 0;
 	    echo "<table class='viewt' style='margin-left:0px;margin-bottom:10px'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
 	    while($row = $result->fetch_assoc()) {
-		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due' value='" . $row["due_date"] . "'></td>";
-	      echo "<td><select name='complete'>";
+		  $i++;
+		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due-" .$i "' value='" . $row["due_date"] . "'></td>";
+	      echo "<td><select name='complete-" .$i "'>";
 		  if ($row["complete"] == 0) {
 		    echo "<option value=1>Yes</option><option value=0 selected>No</option>";
 		  } else {
 		    echo "<option value=1 selected>Yes</option><option value=0>No</option>";		  
 		  }
-		  echo "</select></td><td><input type='date' name='dcomplete' value='" . $row["date_complete"] . "'></td></tr>";
+		  echo "</select></td><td><input type='date' name='dcomplete-" .$i "' value='" . $row["date_complete"] . "'></td></tr>";
 		}
 		echo "</table>";
 	  }
@@ -167,19 +166,6 @@ $(".open").click(function(){
 	$("#left").css("margin-left","175px");  	
   
 });
-
-function Delete(id,name,email,hire,supervisor,department) {
-   var dataString = 'ID=' + id + '&name=' + name + '&email=' + email + '&hire=' + hire + '&supervisor=' + supervisor + '&department=' + department;
-	$.ajax({
-	type: "POST",
-	url: "delete.php",
-	data: dataString,
-	cache: false,
-	success: function(){
-	  location.replace("view.php?Action=DeleteSuccess");
-    }
-	});
-}
 </script>
 </body>
 </html>
