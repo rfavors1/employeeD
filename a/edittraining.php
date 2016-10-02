@@ -205,65 +205,17 @@ function validate($data) { //ensure proper data
 		}
 		echo "</table>";
 	  }
-	?>
-    <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
-    <p>Email: <input type="text" size=50 name="Eemail" value="<?php echo $Email?>"><span class="error"> <?php echo $EmailError;?></span></p>
-    <p>Hiring Date: <input type="date" name="Ehire" value="<?php echo $Hire?>"><span class="error"> <?php echo $HireError;?></span></p>
-	<p>Supervisor: <select name="Esup">
-	<?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	 if ($Supervisor == $i) {
-	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
-	 } else {
-	    echo "<option value='" . $i . "'>" . $n . "</option>";      
-	 }
-
-   }
-  
-   ?>
-    </select><span class="error"> <?php echo $SupervisorError;?></span></p>
-	<p>Department: <select name="Edept">
-	<?php 
-	$options = departmentName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  if ($Department == $i) {
-	    echo "<option value='" . $i . "' selected>" . $n . "</option>";
-	  } else {
-	    echo "<option value='" . $i . "'>" . $n . "</option>";      
-	  }
-   }
-  
-   ?>
-    </select><span class="error"> <?php echo $DepartmentError;?></span></p>
-	<input type="hidden" name="ID" value="<?php echo $ID?>">
-	<input type="hidden" name="Oname" value="<?php echo $Name?>">
-	<input type="hidden" name="Oemail" value="<?php echo $Email?>">
-	<input type="hidden" name="Ohire" value="<?php echo $Hire?>">
-	<input type="hidden" name="Osup" value="<?php echo $Supervisor?>">
-	<input type="hidden" name="Odept" value="<?php echo $Department?>">	
-    <?php 
-    if($_GET["Action"] == 'Delete') {
-	?>
-    <p><input type="button" value="Delete" onClick="Delete(<?php echo $ID . ",'" . $Name . "','" . $Email . "','" . $Hire . "','" . $Supervor . "','" . $Department . "'"?>)"></p>
-	<?php
-    } else {
-      if($_GET["Action"] != 'Fail') {	  
     ?>
+    <p><input type="button" value="Go Back" onClick="GoBack()"></p>  
      <p><input type="submit" value="Update"></p>	
-	<?php
-	  }
-	}
-    ?> 	
   </form>
   </div>
 </div>
 </div>
 <script>
+function GoBack() {
+  window.history.back();
+}
 $(".close").click(function(){
     $(".menu").css("display","none"); 
 	$(".close").css("display","none"); 
