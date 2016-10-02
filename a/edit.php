@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   
   //check to see if name changed, if so add to change log
   if ($_POST["Oname"] != $Name) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'','Name','" . $_POST["Oname"] . "','$Name',now())";
+    $sql = "INSERT INTO changelog (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','Name','" . $_POST["Oname"] . "','$Name',now())";
 	$link->query($sql);
   }
   
