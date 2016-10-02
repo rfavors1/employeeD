@@ -29,7 +29,7 @@ $db = substr($url["path"], 1);
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "INSERT INTO deletelog (DeleteID,ID,Name,Email,HireDate,SupervisorID,DepartmentID,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire','$Supervisor','$Department',now())";
+  $sql = "INSERT INTO deleteloga (DeleteID,ID,Name,Email,HireDate,SupervisorID,DepartmentID,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire','$Supervisor','$Department',now())";
   $link->query($sql);  
   
   $sql = "DELETE from employee where ID = " . $ID;
