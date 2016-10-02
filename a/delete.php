@@ -20,6 +20,8 @@ $db = substr($url["path"], 1);
   $Name = validate($_POST["name"]);  
   $Email = validate($_POST["email"]);  
   $Hire = validate($_POST["hire"]);  
+  $Supervisor = validate($_POST["supervisor"]);  
+  $Department = validate($_POST["department"]);    
   
   $ID = intval($ID);
   $link = new mysqli($server,$username,$password,$db); 
@@ -27,7 +29,7 @@ $db = substr($url["path"], 1);
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "INSERT INTO deletelog (DeleteID,ID,Name,Email,HireDate,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire',now())";
+  $sql = "INSERT INTO deletelog (DeleteID,ID,Name,Email,HireDate,SupervisorID,DepartmentID,DeleteDate) VALUES ('',$ID,'$Name','$Email','$Hire','$Supervisor','$Department',now())";
   $link->query($sql);  
   
   $sql = "DELETE from employee where ID = " . $ID;
