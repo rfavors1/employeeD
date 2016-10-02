@@ -20,7 +20,7 @@ $Complete = $DComplete = $Due = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $Due = validate($_POST["due"]);
-    $Complete = validate($_POST["complete"]);
+    $Complete = intval(validate($_POST["complete"]));
     $DComplete = validate($_POST["dcomplete"]);
   $ID = validate($_POST["ID"]);
   $ID = intval($ID);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "update employee_training set due_date='$Due',complete='$Complete',date_complete='$DComplete' where employee_id=$ID";
+  $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID";
 
   if ($link->query($sql) === TRUE) {
     echo "<h2 class='success'>Record updated successfully.</h2>";
