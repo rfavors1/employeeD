@@ -16,99 +16,34 @@ $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
-// define variables and set to empty values
-$NameError = $EmailError = $HireError = $SupervisorError = $DepartmentError = "";
-$Name = $Email = $Hire = $Supervisor = $Department = "";
+$Complete = $DComplete = $Due = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
-  if (empty($_POST["Ename"])) {
-    $NameError = "Name is required";
-  } else {
-    $Name = validate($_POST["Ename"]);
-	if (!preg_match("/^[a-zA-Z ]*$/",$Name)) {
-      $NameError = "Only letters and white space allowed"; 
-    }
-  }
-  
-  if (empty($_POST["Eemail"])) {
-    $EmailError = "Email is required";
-  } else {
-    $Email = validate($_POST["Eemail"]);
-	if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
-      $EmailError = "Invalid email format"; 
-    }
-  }
-    
-  if (empty($_POST["Ehire"])) {
-    $HireError = "Hire Date is required";
-  } else {
-    $Hire = validate($_POST["Ehire"]);
-  }
+    $Due = validate($_POST["due"]);
+    $Complete = validate($_POST["complete"]);
+    $DComplete = validate($_POST["dcomplete"]);
   $ID = validate($_POST["ID"]);
   $ID = intval($ID);
   if (!(is_integer($ID))) {
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
   } 
 	  
-  if (empty($_POST["Esup"])) {
-    $SupervisorError = "Supervisor is required";
-  } else {
-    $Supervisor = validate($_POST["Esup"]);
-  }  
-
-  if (empty($_POST["Edept"])) {
-    $DepartmentError = "Department is required";
-  } else {
-    $Department = validate($_POST["Edept"]);
-  } 
-    
-  if (!$NameError and !$EmailError and !$HireError and !$SupervisorError and !$DepartmentError) {
   $link = new mysqli($server,$username,$password,$db); 
   if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
   } 
   
-  $sql = "update employeetb set Name='$Name',Email='$Email',HireDate='$Hire',LastModified=now(),SupervisorID='$Supervisor',DepartmentID='$Department' where ID=$ID";
+  $sql = "update employee_training set due_date='$Due',complete='$Complete',date_complete='$DComplete' where employee_id=$ID";
 
   if ($link->query($sql) === TRUE) {
     echo "<h2 class='success'>Record updated successfully.</h2>";
   } else {
     echo "Error: " . $sql . "<br>" . $link->error;
   }
-  $table = "employeetb";
-  
-  //check to see if name changed, if so add to change log
-  if ($_POST["Oname"] != $Name) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,TableName,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','Name','" . $_POST["Oname"] . "','$Name',now())";
-	$link->query($sql);
-  }
-  
-  //check to see if email has changed, if so add to change log
-  if ($_POST["Oemail"] != $Email) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,TableName,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','Email','" . $_POST["Oemail"] . "','$Email',now())";
-	$link->query($sql);
-  }  
 
-  //check to see if hire date has changed, if so add to change log
-  if ($_POST["Ohire"] != $Hire) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,TableName,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','HireDate','" . $_POST["Ohire"] . "','$Hire',now())";
-	$link->query($sql);
-  }
-  //check to see if supervisor id has changed, if so add to change log
-  if ($_POST["Osup"] != $Supervisor) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,TableName,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','SupervisorID'," . $_POST["Osup"] . ",$Supervisor,now())";
-	$link->query($sql);
-  }  
-  
-  //check to see if department id has changed, if so add to change log
-  if ($_POST["Odept"] != $Department) {
-    $sql = "INSERT INTO changeloga (ChangeID,ID,TableName,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','DepartmentID'," . $_POST["Odept"] . ",$Department,now())";
-	$link->query($sql);
-  }
-  
   //close connection
   $link->close();
-  }
+
 } else {//handles initial request for employee information (before update)
   if (!empty($_GET["ID"])) {
     $ID = validate($_GET["ID"]);
@@ -192,7 +127,7 @@ function validate($data) { //ensure proper data
 	  if ($result->num_rows == 0) {
 		 echo "<h2>No Trainings at this time.</h2>";
 	  } else {	
-	    echo "<table class='viewt' style='margin-left:0px;'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
+	    echo "<table class='viewt' style='margin-left:0px;margin-bottom:10px'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
 	    while($row = $result->fetch_assoc()) {
 		  echo "<td>" . $row["name"] . "</td><td><input type='date' name='due' value='" . $row["due_date"] . "'></td>";
 	      echo "<td><select name='complete'>";
@@ -206,8 +141,8 @@ function validate($data) { //ensure proper data
 		echo "</table>";
 	  }
     ?>
-    <p><input type="button" value="Go Back" onClick="GoBack()"></p>  
-     <p><input type="submit" value="Update"></p>	
+	<input type="hidden" name="ID" value="<?php echo $ID ?>">
+     <p><input type="submit" value="Update"> <input type="button" value="Go Back" onClick="GoBack()"></p> 
   </form>
   </div>
 </div>
