@@ -194,7 +194,7 @@
 		} else {
 		  echo "<th>DEPARTMENT</th>";		
 		}						
-		echo "</tr><th>TRAININGS</th><tr><th>&nbsp;</th>
+		echo "<th>TRAININGS</th></tr><tr><th>&nbsp;</th>
 		<th><a href='view.php?direction=desc&col=ID&EnameS=" . $_GET["EnameS"] . "&EemailS=" . $_GET["EemailS"] . "&EhireBS=" . $_GET["EhireBS"] . "&EhireAS=" . $_GET["EhireAS"] . "&Esup=" . $_GET["Esup"] . "&Edept=" . $_GET["Edept"] . "'>";
 	    if ($_GET["col"] == 'ID' and $_GET["direction"] == 'desc'  ) {
 		  echo "<img src='img/sort_downy.png'>";
