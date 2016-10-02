@@ -75,10 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   } else {
     echo "Error: " . $sql . "<br>" . $link->error;
   }
+  $table = "employeetb";
   
   //check to see if name changed, if so add to change log
   if ($_POST["Oname"] != $Name) {
-    $sql = "INSERT INTO changelog (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'employeetb','Name','" . $_POST["Oname"] . "','$Name',now())";
+    $sql = "INSERT INTO changelog (ChangeID,ID,Table,Field,OldValue,NewValue,ChangeDate) VALUES ('',$ID,'$table','Name','" . $_POST["Oname"] . "','$Name',now())";
 	$link->query($sql);
   }
   
