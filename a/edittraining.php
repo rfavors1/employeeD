@@ -178,7 +178,7 @@ function validate($data) { //ensure proper data
   <p>*All fields are required.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Name: <?php echo $Name?></p>
-	<p>Department: <?php echo $Department . $ID?> </p>
+	<p>Department: <?php echo $Department ?> </p>
     <?php
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
