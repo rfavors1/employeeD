@@ -191,17 +191,19 @@ function validate($data) { //ensure proper data
 		
 	  if ($result->num_rows == 0) {
 		 echo "<h2>No Trainings at this time.</h2>";
-	  } else {	   
+	  } else {	
+	    echo "<table class='view'><tr><th>TRAINING NAME</th><th>DUE DATE</th><th>COMPLETE</th><th>DATE COMPLETE</th></tr>";   
 	    while($row = $result->fetch_assoc()) {
-		  echo "<p>Training Name: " . $row["name"] . " Due Date: <input type='date' name='due' value='" . $row["due_date"] . "'> ";
-	      echo "<select name=''>";
+		  echo "<td>" . $row["name"] . "</td><input type='date' name='due' value='" . $row["due_date"] . "'></td>";
+	      echo "<td><select name=''>";
 		  if ($row["complete"] == 0) {
 		    echo "<option value=1>Yes</option><option value=0 selected>No</option>";
 		  } else {
 		    echo "<option value=1 selected>Yes</option><option value=0>No</option>";		  
 		  }
-		  echo "</select></p>";
+		  echo "</select></td><td>fdjfh</td></tr>";
 		}
+		echo "</table>";
 	  }
 	?>
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
