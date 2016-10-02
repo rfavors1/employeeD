@@ -51,6 +51,11 @@ table {
 	margin-bottom: 120px;
 }
 
+.viewt {
+    border-collapse: collapse;
+    width: 90%;
+}
+
 th, td {
     text-align: center;
     padding: 4px;
