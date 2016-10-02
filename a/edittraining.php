@@ -189,6 +189,7 @@ function validate($data) { //ensure proper data
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
 		  echo "<p>Training Name: " . $row["name"] . "Due Date: <input type='date' name='due' value='" . $row["due_date"] . "'>";
+	    }
 	  }
 	?>
     <p>Name: <input type="text" size=35 name="Ename" value="<?php echo $Name?>"><span class="error"> <?php echo $NameError;?></span></p>
