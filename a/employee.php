@@ -127,6 +127,35 @@ $db = substr($url["path"], 1);
 	 return $new_array;
 }
 
+//determine if employee has completed all trainings by due date
+function TrainingCompliance($id) {
+
+$url = parse_url("mysql://bd49b5ceb61b1f:edcd06f9@us-cdbr-iron-east-04.cleardb.net/heroku_c17a9191641ffc8?reconnect=true");
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+  $link = new mysqli($server,$username,$password,$db); 
+  if ($link->connect_error) {
+		die("Connection failed: " . $link->connect_error);
+  } 
+  
+  	 $sql = "select count(id) from employee_training where employee_id = " . $id . " and complete = 0 and due_date < now()";
+	 $result = $link->query($sql);
+	 
+	 while($row = $result->fetch_assoc()) {
+		if($row['id'] > 0) {
+		  $c = "Overdue";
+        } else {
+		  $c = "Compliant";
+		}
+	 }
+     
+	 mysqli_close($link);
+	 return $c;
+}
+
 ?>
 </body>
 </html>
