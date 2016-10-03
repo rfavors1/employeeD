@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and training_id=$j";
 
     $link->query($sql);
-    echo "<h2 class='success'>Record updated successfully.</h2>";
+    echo "<script>location.replace('edit.php?Action=Success&ID=" . $ID . "');</script>";
   }
 
   //close connection
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $ID = validate($_GET["ID"]);
 	$ID = intval($ID);
 	if (!(is_integer($ID))) {
-     echo "<script>location.replace('edit.php?Action=Fail');</script>";
+     echo "<script>location.replace('edit.php?Action=Exist');</script>";
 	} 
     else {
 	  $link = new mysqli($server,$username,$password,$db); 
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	  $result = $link->query($sql);
 		
 	  if ($result->num_rows == 0) {
-		 echo "<script>location.replace('edit.php?Action=Fail');</script>";
+		 echo "<script>location.replace('edit.php?Action=Exist');</script>";
 	  } else {	   
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["name"];
@@ -104,9 +104,11 @@ function validate($data) { //ensure proper data
 <div id="left">
   <div id="editform">
   <?php 
-  if($_GET["Action"] == 'Delete') {
-    echo "<p class='error'>Are you sure want to delete this record? You will not be able to undo these changes.</p>";
+  if($_GET["Action"] == 'Success') {
+    echo "<p class='success'>Training Record updaded successfully.</p>";
   } elseif($_GET["Action"] == 'Fail') {
+    echo "<p class='error'>Training Record update failed.</p>";
+  } elseif($_GET["Action"] == 'Exist') {
     echo "<p class='error'>Employee ID does not exist.</p>";
   }
   ?>
