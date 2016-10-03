@@ -35,20 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $d = "due_" . $s;
 	$c = "complete_" . $s;
 	$dc = "dcomplete_" . $s;
-		  $today = date("Y-m-d");
-	echo $today;
+	$today = date("Y-m-d");
 	if (empty($_POST[$d])) {
 	  echo "<script>alert('Due Date is required.');location.replace('edittraining.php?ID=" . $ID . "');</script>";
 	} else {
+	  if ($_POST[$d] == 1 and empty($_POST[$dc])) {
+	    $_POST[$dc] = $today;
+	  }
     $Due = $_POST[$d];
     $Complete = intval($_POST[$c]);
     $DComplete = $_POST[$dc];
-		  
-
- //     $date2=date_create($DComplete);
-      $day_comp = date("Y-m-d",strtotime($_POST[$dc]));
-      $diff=date_diff($today,$day_comp);
-
 	
     $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and training_id=$j";
 
