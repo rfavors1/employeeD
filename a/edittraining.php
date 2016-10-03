@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $d = "due_" . $s;
 	$c = "complete_" . $s;
 	$dc = "dcomplete_" . $s;
-	echo $_POST["due_1"];
+	echo $_POST[$d];
     $Due = validate($_POST["due_1"]);
 	echo "<script>alert($Due);</script>";
     $Complete = intval(validate($_POST[$c]));
