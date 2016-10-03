@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $DComplete = $_POST[$dc];
 		  
 	  $today = date_create();
-      $date2=date_create($DComplete);
-      $diff=date_diff($today,$date2);
+ //     $date2=date_create($DComplete);
+      $diff=date_diff($today,$_POST[$dc]);
 	  echo "<script>alert($diff);</script>";
 	
     $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and training_id=$j";
