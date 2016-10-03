@@ -151,7 +151,7 @@ function validate($data) { //ensure proper data
 	if(($_GET["Action"] != 'Fail') and ($_GET["Action"] != 'Exist')) {
       echo '<p><input type="submit" value="Update"> <input type="button" value="Go Back" onClick="GoBack()"></p>';
     } else {
-      echo '<p><input type="button" value="Go Back" onClick="GoToView()"></p>';
+      echo '<p><input type="button" value="Go To View" onClick="GoToView()"></p>';
 	}
    ?>
      
