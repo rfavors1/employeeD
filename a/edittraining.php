@@ -147,7 +147,14 @@ function validate($data) { //ensure proper data
 	  }
     ?>
 	<input type="hidden" name="ID" value="<?php echo $ID ?>">
-     <p><input type="submit" value="Update"> <input type="button" value="Go Back" onClick="GoBack()"></p> 
+	<?php
+	if(($_GET["Action"] != 'Fail') and ($_GET["Action"] != 'Exist')) {
+      echo '<p><input type="submit" value="Update"> <input type="button" value="Go Back" onClick="GoBack()"></p>';
+    } else {
+      echo '<p><input type="button" value="Go Back" onClick="GoToView()"></p>';
+	}
+   ?>
+     
   </form>
   </div>
 </div>
@@ -155,6 +162,9 @@ function validate($data) { //ensure proper data
 <script>
 function GoBack() {
   window.history.back();
+}
+function GoToView() {
+  location.replace('view.php');
 }
 $(".close").click(function(){
     $(".menu").css("display","none"); 
