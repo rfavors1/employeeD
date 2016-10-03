@@ -32,18 +32,15 @@ $db = substr($url["path"], 1);
 		$id = $row['max_id'];
         $hire = $row['hire_date'];
 	 }
-    echo $id;
-    echo $hire;
-  
   	$training = Training();
 	foreach ($training as $value) {
 	  $i = $value["id"];
 	  $d = $value["days_due"];
-	  echo "<p>" . $d . "</p>";
+	  echo "<p>" . $d . " ";
 	  $interval = "+ " . $d . " days";
 	  $date = $hire;
       $date2 = date('Y-m-d', strtotime($date . $interval));
-	  echo "<p>" . $date2 . "</p>";
+	  echo $date2 . "</p>";
 	  $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,complete,date_complete) VALUES ('',$id,$i,'$date2',0,'')";
 	  $link->query($sql);
 	}
