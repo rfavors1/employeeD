@@ -53,7 +53,7 @@ $db = substr($url["path"], 1);
   
   mysqli_close($link);
 }
-NewHireTraining();
+
 //Return list of department names
 function departmentName() {
 
