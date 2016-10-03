@@ -29,15 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
   if (!(is_integer($ID))) {
      echo "<h2 class='error'>Employee ID must be in number format.</h2>";
   } 
-  for($i=1;$i<=4;$i++) {
-    $d = "due_" . $i;
-	$c = "complete_" . $i;
-	$dc = "dcomplete_" . $i;
+  for($i=0;$i<4;$i++) {
+    $j = 2 + ($i * 10);
+	$s = $i + 1;
+    $d = "due_" . $s;
+	$c = "complete_" . $s;
+	$dc = "dcomplete_" . $s;
     $Due = validate($_POST[$d]);
+	echo "<script>alert($Due);</script>";
     $Complete = intval(validate($_POST[$c]));
     $DComplete = validate($_POST[$dc]);
 	
-    $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and id=$i";
+    $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and id=$j";
 
     $link->query($sql);
     echo "<h2 class='success'>Record updated successfully.</h2>";
