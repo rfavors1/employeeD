@@ -42,9 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $Complete = intval($_POST[$c]);
     $DComplete = $_POST[$dc];
 		  
-	  $today = date_create();
+	  $today = date("Y-m-d");
  //     $date2=date_create($DComplete);
-      $diff=date_diff($today,$_POST[$dc]);
+      $day_comp = strtotime($_POST[$dc]);
+      $diff=date_diff($today,$day_comp);
 	  echo "<script>alert($diff);</script>";
 	
     $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and training_id=$j";
