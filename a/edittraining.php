@@ -41,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	} else {
 	  if (($_POST[$c] == 1) and empty($_POST[$dc])) {
 	    $_POST[$dc] = $today;
-	    echo "made";
 	  }
     $Due = $_POST[$d];
     $Complete = intval($_POST[$c]);
@@ -71,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 		die("Connection failed: " . $link->connect_error);
 	  } 
 	  
-	  $sql = "SELECT e.*, d.name as dept_name FROM employeetb e left join department d on e.DepartmentID = d.id WHERE e.ID = " . $ID;
+	  $sql = "SELECT e.*, date_format(e.HireDate,'%b %e %Y') as hire, d.name as dept_name FROM employeetb e left join department d on e.DepartmentID = d.id WHERE e.ID = " . $ID;
 	  
 	  $result = $link->query($sql);
 		
@@ -81,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["name"];
 		  $Department = $row["dept_name"];
-		  $Hire = $row["HireDate"];
+		  $Hire = $row["hire"];
 	    }
 	  }
 	  
