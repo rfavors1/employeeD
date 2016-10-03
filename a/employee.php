@@ -39,16 +39,18 @@ $db = substr($url["path"], 1);
 	foreach ($training as $value) {
 	  $i = $value["id"];
 	  $d = $value["days_due"];
+	  echo "<p>" . $d . "</p>";
 	  $interval = "+ " . $d . " days";
 	  $date = $hire;
       $date2 = date('Y-m-d', strtotime($date . $interval));
+	  echo "<p>" . $date2 . "</p>";
 	  $sql = "INSERT INTO employee_training (id,employee_id,training_id,due_date,complete,date_complete) VALUES ('',$id,$i,'$date2',0,'')";
 	  $link->query($sql);
 	}
   
   mysqli_close($link);
 }
-
+NewHireTraining();
 //Return list of department names
 function departmentName() {
 
