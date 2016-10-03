@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	$dc = "dcomplete_" . $s;
 	if (empty($_POST[$d])) {
 	  echo "<script>alert('Due Date is required.');location.replace('edittraining.php?ID=" . $ID . "');</script>";
-	}
+	} else {
     $Due = $_POST[$d];
     $Complete = intval($_POST[$c]);
     $DComplete = $_POST[$dc];
@@ -46,10 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 
     $link->query($sql);
     echo "<script>location.replace('edittraining.php?Action=Success&ID=" . $ID . "');</script>";
+	}
   }
 
   //close connection
   $link->close();
+ 
 
 } else {//handles initial request for employee information (before update)
   if (!empty($_GET["ID"])) {
