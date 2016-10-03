@@ -35,13 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $d = "due_" . $s;
 	$c = "complete_" . $s;
 	$dc = "dcomplete_" . $s;
-	echo $_POST[$d];
-    $Due = validate($_POST["due_1"]);
-	echo "<script>alert($Due);</script>";
-    $Complete = intval(validate($_POST[$c]));
-    $DComplete = validate($_POST[$dc]);
+    $Due = $_POST[$d];
+    $Complete = intval($_POST[$c]);
+    $DComplete = $_POST[$dc];
 	
-    $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and id=$j";
+    $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and training_id=$j";
 
     $link->query($sql);
     echo "<h2 class='success'>Record updated successfully.</h2>";
