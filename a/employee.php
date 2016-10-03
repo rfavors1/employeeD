@@ -24,14 +24,22 @@ $db = substr($url["path"], 1);
 		die("Connection failed: " . $link->connect_error);
   } 
   
-  	 $sql = "SELECT max(e.id) as max_id, e.hiredate as hire_date FROM employeetb e";
+  	 $sql = "SELECT max(e.id) as max_id, e.HireDate as hire_date FROM employeetb e";
 	
 	 $result = $link->query($sql);
 	 
 	 while($row = $result->fetch_assoc()) {
 		$id = $row['max_id'];
-        $hire = $row['hire_date'];
 	 }
+
+  	 $sql = "SELECT e.HireDate as hire_date FROM employeetb e where ID = $id";
+	
+	 $result = $link->query($sql);
+	 
+	 while($row = $result->fetch_assoc()) {
+		$hire = $row['HireDate'];
+	 }	 
+	 echo $hire;
   	$training = Training();
 	foreach ($training as $value) {
 	  $i = $value["id"];
