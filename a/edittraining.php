@@ -35,6 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $d = "due_" . $s;
 	$c = "complete_" . $s;
 	$dc = "dcomplete_" . $s;
+	if (empty($_POST[$d])) {
+	  echo "<script>alert('Due Date is required.');location.replace('edittraining.php?ID=" . $ID . "');</script>";
+	}
     $Due = $_POST[$d];
     $Complete = intval($_POST[$c]);
     $DComplete = $_POST[$dc];
