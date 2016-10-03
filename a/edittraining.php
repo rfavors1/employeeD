@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	}
   }
   
-  echo "<script>location.replace('edittraining.php?Action=Success&ID=" . $ID . "');</script>";
+  //echo "<script>location.replace('edittraining.php?Action=Success&ID=" . $ID . "');</script>";
   //close connection
   $link->close();
  
