@@ -41,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
     $Due = $_POST[$d];
     $Complete = intval($_POST[$c]);
     $DComplete = $_POST[$dc];
+		  
+	  $today = date("Y-m-d");
+      $your_date = strtotime($DComplete);
+      $datediff = $today - $your_date;
+	  echo $datediff;
 	
     $sql = "update employee_training set due_date='$Due',complete=$Complete,date_complete='$DComplete' where employee_id=$ID and training_id=$j";
 
@@ -117,8 +122,8 @@ function validate($data) { //ensure proper data
     echo "<p class='error'>Employee ID does not exist.</p>";
   }
   ?>
-  <h3>Edit Employee</h3>
-  <p>*All fields are required.</p>
+  <h3>Edit Employee Trainings</h3>
+  <p>Note: If Training is updated to complete, Date completed will default to today if left blank.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Name: <?php echo $Name?></p>
 	<p>Department: <?php echo $Department ?> </p>
