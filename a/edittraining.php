@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	if (empty($_POST[$d])) {
 	  echo "<script>alert('Due Date is required.');location.replace('edittraining.php?ID=" . $ID . "');</script>";
 	} else {
-	  if (($_POST[$d] == 1) and empty($_POST[$dc])) {
+	  if (($_POST[$c] == 1) and empty($_POST[$dc])) {
 	    $_POST[$dc] = $today;
 	    echo "made";
 	  }
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	}
   }
   
-  //echo "<script>location.replace('edittraining.php?Action=Success&ID=" . $ID . "');</script>";
+  echo "<script>location.replace('edittraining.php?Action=Success&ID=" . $ID . "');</script>";
   //close connection
   $link->close();
  
