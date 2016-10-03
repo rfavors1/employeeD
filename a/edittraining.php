@@ -81,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { //handles update
 	    while($row = $result->fetch_assoc()) {
 	      $Name = $row["name"];
 		  $Department = $row["dept_name"];
+		  $Hire = $row["HireDate"];
 	    }
 	  }
 	  
@@ -123,10 +124,11 @@ function validate($data) { //ensure proper data
   }
   ?>
   <h3>Edit Employee Trainings</h3>
-  <p>Note: If Training is updated to complete, Date completed will default to today if left blank.</p>
+  <p>Note: If Training is updated to complete, Date Completed will default to today if left blank.</p>
   <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Name: <?php echo $Name?></p>
 	<p>Department: <?php echo $Department ?> </p>
+	<p>Hire Date: <?php echo $Hire ?> </p>
     <?php
 	  $link = new mysqli($server,$username,$password,$db); 
 	  if ($link->connect_error) {
