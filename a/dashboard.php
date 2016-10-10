@@ -19,7 +19,7 @@
     <img src="img/rightarrow.png" class="open">  	
   </div>  
   <ul class="menu">
-  <li class="employee">EMPLOYEES</li>
+  <li class="employee"><a href="#">EMPLOYEES</a></li>
   <li class="elink"><a href="add.php">Add Employee</a></li>
   <li><a href="view.php">View Employee</a></li>  
   </ul>
