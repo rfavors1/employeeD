@@ -111,4 +111,4 @@ li a:hover {
     background-color: #555;
     color: white;
 }
-li .elink { display: hidden;}
+li.elink { display: hidden;}
