@@ -112,3 +112,4 @@ li a:hover {
     color: white;
 }
 li.elink { display: none;}
+li.employee {curser: pointer;}
