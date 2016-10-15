@@ -31,8 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Subscriber Information </h3>
-  <h3>Add</h3>
+  <h3>Add Subscriber</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Financial Institution Name: 
       <input type="text" size=35 name="EnameS"></p>
