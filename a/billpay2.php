@@ -38,13 +38,13 @@
       <input type="text" size=35 name="EnameS"></p>
     <p>Product Name:
       <input type="text" size=35 name="EnameS2">
-</p>
+    </p>
     <p>Routing Infomation: 
       <input type="text" size=50 name="EemailS"></p>
     <p>Transit Number:  
       <input type="text" size=50 name="EemailS2">
     </p>
-    <p>Bill Pay Product: 
+    <p>Service District Name: 
 	  <select name="Esup">
 		<option value=""></option>
 	<?php 
@@ -56,7 +56,7 @@
    }  
    ?>
     </select></p>
-	<p>Bill Pay Product Type: 
+	<p>Service District Type: 
 	  <select name="Edept">
 	<option value=""></option>
 	<?php 
@@ -68,6 +68,19 @@
    }  
    ?>
     </select></p>
+	<p>Element Name:
+      <select name="select">
+        <option value=""></option>
+        <?php 
+	$options = departmentName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";  
+   }  
+   ?>
+      </select>
+	</p>
 	<p><input type="submit" value="Search"></p>	
   </form>
 	</div>
