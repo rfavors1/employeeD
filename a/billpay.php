@@ -32,7 +32,7 @@
   }
   ?>
   <h3>Subscriber Information </h3>
-  <h3>Search Criteria</h3>
+  <h3>Add</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Financial Institution Name: 
       <input type="text" size=35 name="EnameS"></p>
@@ -43,14 +43,11 @@
       <input type="text" size=50 name="EemailS"></p>
     <p>Transit Number:  
       <input type="text" size=50 name="EemailS2">
-    </p>
-    <p>User's Name:
-      <input type="text" size=50 name="EemailS22">
 </p>
-    <p>User ID: 
-	    <select name="Esup">
-		    <option value=""></option>
-	    <?php 
+    <p>Bill Pay Product :
+      <select name="Esup">
+        <option value=""></option>
+        <?php 
 	$options = employeeName();
 	foreach ($options as $value) {
 	  $i = $value["id"];
@@ -58,9 +55,52 @@
 	  echo "<option value='" . $i . "'>" . $n . "</option>";      
    }  
    ?>
-        </select>
+      </select>
+</p>
+    <p><strong>Bill Pay Subscriber Information: </strong></p>
+    <p>Subscriber Type:
+      <select name="select">
+        <option value=""></option>
+        <?php 
+	$options = employeeName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";      
+   }  
+   ?>
+      </select>
+</p>
+    <p>Primary Account Holder Name:
+      <input type="text" size=50 name="EemailS22">
+</p>
+    <p>Tax ID or SSN: 
+      <input type="text" size=50 name="EemailS222">
+</p>
+    <p>Phone: 
+      <input type="text" size=35 name="EnameS222"> 
+      Email: 
+      <input type="text" size=35 name="EnameS223">
     </p>
-    <p><input type="submit" value="Search"></p>	
+    <p>Temporary Password:
+        <input type="text" size=35 name="EnameS22">
+    </p>
+    <p>Password Change Frequency:
+      <select name="select2">
+        <option value=""></option>
+        <?php 
+	$options = employeeName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";      
+   }  
+   ?>
+      </select>
+</p>
+    <p>
+      <input name="submit" type="submit" value="Add">
+    </p>	
   </form>
 	</div>
 	<?php
