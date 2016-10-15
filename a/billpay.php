@@ -31,63 +31,9 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Update Subscriber</h3>
+  <h3>Subscriber Search </h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p>Financial Institution Name: 
-      <input name="EnameS" type="text" value="FedLoan" size=35></p>
-    <p>Product Name:
-      <input name="EnameS2" type="text" value="Student Loan" size=35>
-</p>
-    <p>Routing Infomation: 
-      <input name="EemailS" type="text" value="000340200" size=50>
-    </p>
-    <p>Transit Number:  
-      <input type="text" size=50 name="EemailS2">
-</p>
-    <p>Bill Pay Product :
-      <select name="Esup">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select>
-</p>
-    <p><strong>Bill Pay Subscriber Information: </strong></p>
-    <p>Subscriber Type:
-      <select name="select">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select> 
-      Identifier: 1111111 Activity Intent Key: 1BC-1-11A</p>
-    <p>Primary Account Holder Name:
-      <input name="EemailS22" type="text" value="Richard Favors" size=50>
-</p>
-    <p>Tax ID or SSN: 
-      <input name="EemailS222" type="text" value="1111111" size=20> 
-      Address: 
-      <input type="text" size=20 name="EemailS222">
-</p>
-    <p>Phone: 
-      <input name="EnameS222" type="text" value="212-555-5555" size=25> 
-      Email: 
-      <input name="EnameS223" type="text" value="example@aiuto.com" size=25>
-    </p>
-    <p>Temporary Password:
-        <input type="text" size=35 name="EnameS22">
-    </p>
-    <p>Password Change Frequency:
+    <p>Search Type:
       <select name="select2">
         <option value=""></option>
         <?php 
@@ -100,8 +46,55 @@
    ?>
       </select>
 </p>
+    <p>Subscriber Name:
+        <input name="EnameS" type="text" value="" size=35>
+    </p>
+    <p>Person Name:
+      <input name="EnameS2" type="text" size=35>
+</p>
+    <p>Phone:
+      <input name="EnameS222" type="text" size=25>
+</p>
+    <p>Address:
+      <input name="EemailS222" type="text" size=20>
+City:
+<input type="text" size=20 name="EemailS222">
+</p>
+    <p>Subscriber Type:
+      <select name="select">
+        <option value=""></option>
+        <?php 
+	$options = employeeName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";      
+   }  
+   ?>
+      </select>
+       Subscriber Status:
+       <select name="select3">
+         <option value=""></option>
+         <?php 
+	$options = employeeName();
+	foreach ($options as $value) {
+	  $i = $value["id"];
+	  $n = $value["name"];
+	  echo "<option value='" . $i . "'>" . $n . "</option>";      
+   }  
+   ?>
+       </select>
+</p>
+    <p>Subscriber ID:
+      <input name="EemailS2222" type="text" size=20>
+Account ID:
+      <input name="EemailS2223" type="text" size=20>
+</p>
+    <p>Tax ID/SSN: 
+      <input name="EemailS2224" type="text" size=20>
+    </p>
     <p>
-      <input name="submit" type="submit" value="Update">
+      <input name="submit" type="submit" value="Search">
     </p>	
   </form>
 	</div>
