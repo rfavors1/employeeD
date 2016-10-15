@@ -75,9 +75,7 @@
       <input type="text" size=50 name="EemailS22">
 </p>
     <p>Tax ID or SSN: 
-      <input type="text" size=20 name="EemailS222">
-</p>
-    <p>Address: 
+      <input type="text" size=20 name="EemailS222"> Address: 
       <input type="text" size=20 name="EemailS222">
 </p>
     <p>Phone: 
