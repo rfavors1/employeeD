@@ -41,9 +41,7 @@
     <p>Transit Number:  
       <input type="text" size=50 name="EemailS2">
     </p>
-    <p>Hiring Date Before: <input type="date" name="EhireBS"></p>
-	<p>Hiring Date After: <input type="date" name="EhireAS"></p>
-	<p>Bill Pay Product: 
+    <p>Bill Pay Product: 
 	  <select name="Esup">
 		<option value=""></option>
 	<?php 
