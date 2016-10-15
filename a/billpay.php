@@ -75,12 +75,15 @@
       <input type="text" size=50 name="EemailS22">
 </p>
     <p>Tax ID or SSN: 
-      <input type="text" size=50 name="EemailS222">
+      <input type="text" size=20 name="EemailS222">
+</p>
+    <p>Address: 
+      <input type="text" size=20 name="EemailS222">
 </p>
     <p>Phone: 
-      <input type="text" size=35 name="EnameS222"> 
+      <input type="text" size=25 name="EnameS222"> 
       Email: 
-      <input type="text" size=35 name="EnameS223">
+      <input type="text" size=25 name="EnameS223">
     </p>
     <p>Temporary Password:
         <input type="text" size=35 name="EnameS22">
