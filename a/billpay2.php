@@ -31,23 +31,12 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Institution</h3>
-  <h3>Search Criteria</h3>
+  <h3>Subscriber Lookup </h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <p>Financial Institution Name: 
-      <input type="text" size=35 name="EnameS"></p>
-    <p>Product Name:
-      <input type="text" size=35 name="EnameS2">
-    </p>
-    <p>Routing Infomation: 
-      <input type="text" size=50 name="EemailS"></p>
-    <p>Transit Number:  
-      <input type="text" size=50 name="EemailS2">
-    </p>
-    <p>Service District Name: 
+    <p>Bill Pay Product: 
 	  <select name="Esup">
-		<option value=""></option>
-	<?php 
+		  <option value=""></option>
+	      <?php 
 	$options = employeeName();
 	foreach ($options as $value) {
 	  $i = $value["id"];
@@ -55,32 +44,14 @@
 	  echo "<option value='" . $i . "'>" . $n . "</option>";      
    }  
    ?>
-    </select></p>
-	<p>Service District Type: 
-	  <select name="Edept">
-	<option value=""></option>
-	<?php 
-	$options = departmentName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";  
-   }  
-   ?>
-    </select></p>
-	<p>Element Name:
-      <select name="select">
-        <option value=""></option>
-        <?php 
-	$options = departmentName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";  
-   }  
-   ?>
       </select>
-	</p>
+    </p>
+    <p>Subscriber Identifier:
+      <input type="text" size=20 name="EemailS222">
+</p>
+	<p>Associated User ID:
+      <input type="text" size=20 name="EemailS2222">
+</p>
 	<p><input type="submit" value="Search"></p>	
   </form>
 	</div>
