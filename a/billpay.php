@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Institution</h3>
+  <h3>Subscriber Information </h3>
   <h3>Search Criteria</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Financial Institution Name: 
@@ -44,10 +44,13 @@
     <p>Transit Number:  
       <input type="text" size=50 name="EemailS2">
     </p>
-    <p>Bill Pay Product: 
-	  <select name="Esup">
-		<option value=""></option>
-	<?php 
+    <p>User's Name:
+      <input type="text" size=50 name="EemailS22">
+</p>
+    <p>User ID: 
+	    <select name="Esup">
+		    <option value=""></option>
+	    <?php 
 	$options = employeeName();
 	foreach ($options as $value) {
 	  $i = $value["id"];
@@ -55,20 +58,9 @@
 	  echo "<option value='" . $i . "'>" . $n . "</option>";      
    }  
    ?>
-    </select></p>
-	<p>Bill Pay Product Type: 
-	  <select name="Edept">
-	<option value=""></option>
-	<?php 
-	$options = departmentName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";  
-   }  
-   ?>
-    </select></p>
-	<p><input type="submit" value="Search"></p>	
+        </select>
+    </p>
+    <p><input type="submit" value="Search"></p>	
   </form>
 	</div>
 	<?php
