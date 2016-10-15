@@ -31,15 +31,16 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Add Subscriber</h3>
+  <h3>Update Subscriber</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Financial Institution Name: 
-      <input type="text" size=35 name="EnameS"></p>
+      <input name="EnameS" type="text" value="FedLoan" size=35></p>
     <p>Product Name:
-      <input type="text" size=35 name="EnameS2">
+      <input name="EnameS2" type="text" value="Student Loan" size=35>
 </p>
     <p>Routing Infomation: 
-      <input type="text" size=50 name="EemailS"></p>
+      <input name="EemailS" type="text" value="000340200" size=50>
+    </p>
     <p>Transit Number:  
       <input type="text" size=50 name="EemailS2">
 </p>
@@ -68,19 +69,20 @@
 	  echo "<option value='" . $i . "'>" . $n . "</option>";      
    }  
    ?>
-      </select>
-</p>
+      </select> 
+      Identifier: 1111111 </p>
     <p>Primary Account Holder Name:
-      <input type="text" size=50 name="EemailS22">
+      <input name="EemailS22" type="text" value="Richard Favors" size=50>
 </p>
     <p>Tax ID or SSN: 
-      <input type="text" size=20 name="EemailS222"> Address: 
+      <input name="EemailS222" type="text" value="1111111" size=20> 
+      Address: 
       <input type="text" size=20 name="EemailS222">
 </p>
     <p>Phone: 
-      <input type="text" size=25 name="EnameS222"> 
+      <input name="EnameS222" type="text" value="212-555-5555" size=25> 
       Email: 
-      <input type="text" size=25 name="EnameS223">
+      <input name="EnameS223" type="text" value="example@aiuto.com" size=25>
     </p>
     <p>Temporary Password:
         <input type="text" size=35 name="EnameS22">
@@ -99,7 +101,7 @@
       </select>
 </p>
     <p>
-      <input name="submit" type="submit" value="Add">
+      <input name="submit" type="submit" value="Update">
     </p>	
   </form>
 	</div>
