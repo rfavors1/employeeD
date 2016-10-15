@@ -70,7 +70,7 @@
    }  
    ?>
       </select> 
-      Identifier: 1111111 </p>
+      Identifier: 1111111 Activity Intent Key: 111-1-111-111</p>
     <p>Primary Account Holder Name:
       <input name="EemailS22" type="text" value="Richard Favors" size=50>
 </p>
