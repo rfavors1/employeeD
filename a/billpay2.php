@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Payee Search</h3>
+  <h3>Payment Approval </h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Bill Pay Product: 
 	  <select name="Esup">
@@ -49,46 +49,16 @@
     <p>Subscriber Identifier:
       <input type="text" size=20 name="EemailS222">
 </p>
-	<p>Exclude non-activated: 
-	  <select name="select">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select>
-	</p>
-	<p>Include deleted: 
-	  <select name="select7">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select>
-	</p>
-	<p>'eBill' Payees Only: 
-	  <select name="select8">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select>
-	</p>
-	<p><input type="submit" value="Search"></p>	
+    <p>Payment ID:
+      <input type="text" size=20 name="EemailS2222">
+</p>
+    <p>Amount: 
+      <input type="text" size=20 name="EemailS222222">
+      Payee Name:
+      <input type="text" size=20 name="EemailS22222">
+</p>
+    <p><input type="submit" value="Approve">
+	</p>	
   </form>
 	</div>
 	<?php
