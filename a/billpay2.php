@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Scheduled Payment Search</h3>
+  <h3>Payee Search</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Bill Pay Product: 
 	  <select name="Esup">
@@ -49,46 +49,8 @@
     <p>Subscriber Identifier:
       <input type="text" size=20 name="EemailS222">
 </p>
-	<p>Start Date: 
-	  <input type="text" size=20 name="EemailS2223"> 
-	  End Date: 
-	  <input type="text" size=20 name="EemailS2224">
-	</p>
-	<p>Low Amount: 
-	  <input type="text" size=20 name="EemailS2225"> 
-	  High Amount: 
-	  <input type="text" size=20 name="EemailS2226">
-	</p>
-	<p>Status: 
-	  <select name="select2">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select> 
-	  Intention Type: 
-	  <select name="select3">
-          <option value=""></option>
-          <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select>
-	</p>
-	<p>Payee ID: 
-	  <input type="text" size=20 name="EemailS22262">
-	</p>
-	<p>Payee Payment Method: 
-	  <select name="select4">
+	<p>Exclude non-activated: 
+	  <select name="select">
         <option value=""></option>
         <?php 
 	$options = employeeName();
@@ -100,8 +62,8 @@
    ?>
       </select>
 	</p>
-	<p>P2P Payees: 
-	  <select name="select6">
+	<p>Include deleted: 
+	  <select name="select7">
         <option value=""></option>
         <?php 
 	$options = employeeName();
@@ -112,8 +74,9 @@
    }  
    ?>
       </select>
-Recurring Payments: 
-	  <select name="select5">
+	</p>
+	<p>‘eBill' Payees Only: 
+	  <select name="select8">
         <option value=""></option>
         <?php 
 	$options = employeeName();
@@ -124,10 +87,7 @@ Recurring Payments:
    }  
    ?>
       </select>
-</p>
-	<p>Transfers: <strong>
-	  <input type="text" size=20 name="EemailS222622">
-	</strong></p>
+	</p>
 	<p><input type="submit" value="Search"></p>	
   </form>
 	</div>
