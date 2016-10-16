@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Add Payment</h3>
+  <h3>Modify Payment</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Bill Pay Product:
       <select name="Esup">
@@ -47,25 +47,25 @@
       </select>
 </p>
     <p>Subscriber Identifier:
-        <input type="text" size=20 name="EemailS2225">
+        <input name="EemailS2225" type="text" value="34433443" size=20>
     </p>
     <p>Payee Name: 
-      <input name="EemailS2226" type="text" size=20>
+      <input name="EemailS2226" type="text" value="Rich Favors" size=20>
 Payee ID: 
-      <input name="EemailS22262" type="text" size=20>
+      <input name="EemailS22262" type="text" value="11111111" size=20>
 </p>
     <p>Amount:
-      <input name="EnameS222" type="text" size=25>
+      <input name="EnameS222" type="text" value="150.00" size=25>
 </p>
     <p>Process Date:
-      <input name="EemailS222" type="text" size=20>
+      <input name="EemailS222" type="text" value="10/16/16" size=20>
 Due Date:
-<input type="text" size=20 name="EemailS222">
+<input name="EemailS222" type="text" value="10/16/16" size=20>
 </p>
     <p>Comment:
       <input name="EemailS2222" type="text" size=20>
 Pay from Account:
-<input name="EemailS2223" type="text" size=20>
+<input name="EemailS2223" type="text" value="111111111" size=20>
 </p>
     <p>Check Memo: 
       <input name="EemailS22222" type="text" size=20>
@@ -84,7 +84,7 @@ Pay from Account:
       </select>
 </p>
     <p> 
-      <input name="submit" type="submit" value="Add">
+      <input name="submit" type="submit" value="Update">
     </p>
     </form>
 	</div>
