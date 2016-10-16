@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Payee Inquiry </h3>
+  <h3>Scheduled Payment Inquiry </h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Bill Pay Product: 
 	  <select name="Esup">
@@ -49,7 +49,7 @@
     <p>Subscriber Identifier:
       <input type="text" size=20 name="EemailS222">
 </p>
-	<p>Payee ID:
+	<p>Payment ID:
       <input type="text" size=20 name="EemailS2222">
 </p>
 	<p>Intended Action:
