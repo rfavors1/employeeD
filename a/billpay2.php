@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Payment History Search</h3>
+  <h3>Scheduled Payment Search</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Bill Pay Product: 
 	  <select name="Esup">
