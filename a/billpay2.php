@@ -75,7 +75,7 @@
    ?>
       </select>
 	</p>
-	<p>‘eBill' Payees Only: 
+	<p>'eBill' Payees Only: 
 	  <select name="select8">
         <option value=""></option>
         <?php 
