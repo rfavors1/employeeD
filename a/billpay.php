@@ -31,7 +31,7 @@
   echo "<div class='success'>Record deleted successfully.</div>";
   }
   ?>
-  <h3>Add Payee</h3>
+  <h3>Add Payment</h3>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <p>Bill Pay Product:
       <select name="Esup">
@@ -51,48 +51,26 @@
     </p>
     <p>Payee Name: 
       <input name="EemailS2226" type="text" size=20>
-Payee Nickname: 
+Payee ID: 
       <input name="EemailS22262" type="text" size=20>
 </p>
-    <p>Account Number:
+    <p>Amount:
       <input name="EnameS222" type="text" size=25>
 </p>
-    <p>Subscriber Name:
+    <p>Process Date:
       <input name="EemailS222" type="text" size=20>
-Secret Code:
+Due Date:
 <input type="text" size=20 name="EemailS222">
 </p>
-    <p>Classification:
-      <select name="select">
-        <option value=""></option>
-        <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-      </select>
-       Intention Type:
-       <select name="select3">
-         <option value=""></option>
-         <?php 
-	$options = employeeName();
-	foreach ($options as $value) {
-	  $i = $value["id"];
-	  $n = $value["name"];
-	  echo "<option value='" . $i . "'>" . $n . "</option>";      
-   }  
-   ?>
-       </select>
-</p>
-    <p>Routing #:
+    <p>Comment:
       <input name="EemailS2222" type="text" size=20>
-Account #:
+Pay from Account:
 <input name="EemailS2223" type="text" size=20>
 </p>
-    <p>Rush Payment: 
+    <p>Check Memo: 
+      <input name="EemailS22222" type="text" size=20>
+    </p>
+    <p>Recurring: 
       <select name="select2">
         <option value=""></option>
         <?php 
